@@ -30,7 +30,7 @@
     -webkit-font-smoothing:antialiased;
   }
   .wrap{max-width:var(--maxw);margin:0 auto;padding:0 26px}
-
+ 
   /* ---------- masthead ---------- */
   header.masthead{padding:64px 0 26px;border-bottom:3px solid var(--tinta)}
   .kicker{
@@ -54,12 +54,12 @@
     letter-spacing:.05em;color:var(--grafite);display:flex;flex-wrap:wrap;gap:8px 22px;
   }
   .byline b{color:var(--tinta);font-weight:600}
-
+ 
   /* ---------- hero: contracheque ---------- */
   .hero{padding:52px 0 20px}
   .hero-lead{font-size:22px;line-height:1.5;max-width:52ch;margin-bottom:34px}
   .hero-lead .hl{background:linear-gradient(transparent 62%,rgba(158,43,37,.22) 0);padding:0 1px}
-
+ 
   .stub{
     background:#faf8f1;border:1.5px solid var(--tinta);
     box-shadow:9px 9px 0 rgba(23,21,15,.14);
@@ -81,7 +81,7 @@
   .stub-sep{height:1px;background:var(--linha);margin:8px 0}
   .stub-row.sobra{font-size:16px}
   .stub-row.sobra .val{font-weight:600}
-
+ 
   .gauge{margin:20px 0 6px}
   .gauge-track{height:26px;background:var(--papel-2);border:1.5px solid var(--tinta);position:relative;overflow:hidden}
   .gauge-fill{height:100%;width:0;background:repeating-linear-gradient(-45deg,var(--debito),var(--debito) 9px,var(--debito-claro) 9px,var(--debito-claro) 18px);transition:width 1.6s cubic-bezier(.22,1,.36,1)}
@@ -90,7 +90,7 @@
     font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:13px;color:#fff;mix-blend-mode:difference;
   }
   .gauge-cap{font-family:"IBM Plex Mono",monospace;font-size:11.5px;color:var(--grafite);margin-top:8px;letter-spacing:.04em}
-
+ 
   /* ---------- section scaffolding ---------- */
   section{padding:54px 0;border-top:1px solid var(--linha)}
   .eyebrow{
@@ -105,7 +105,7 @@
   }
   p{margin-bottom:16px;max-width:64ch}
   p .strong{font-weight:500;box-shadow:inset 0 -.55em 0 rgba(35,75,65,.12)}
-
+ 
   /* ---------- stat band ---------- */
   .band{background:var(--tinta);color:var(--papel);margin:0;border:none}
   .band .eyebrow{color:#d9b7b4}
@@ -116,14 +116,14 @@
   .stat .fig{font-family:"Archivo",sans-serif;font-weight:900;font-size:clamp(30px,5vw,46px);line-height:1;color:var(--debito-claro);letter-spacing:-.02em}
   .stat .fig small{font-size:.5em;color:var(--papel);font-weight:700}
   .stat .cap{font-family:"IBM Plex Mono",monospace;font-size:12px;line-height:1.45;color:#b8b3a4;margin-top:12px;letter-spacing:.02em}
-
+ 
   /* ---------- players ---------- */
   .players{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px;margin-top:26px}
   .card{border:1.5px solid var(--tinta);background:#faf8f1;padding:20px 20px 22px}
   .card .role{font-family:"IBM Plex Mono",monospace;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--debito);font-weight:600}
   .card h3{font-family:"Archivo",sans-serif;font-weight:800;font-size:22px;margin:6px 0 8px;line-height:1.05}
   .card p{font-size:16px;line-height:1.5;margin:0;color:#38352c}
-
+ 
   /* ---------- timeline ---------- */
   .tl{margin-top:30px;border-left:2px solid var(--tinta);padding-left:0}
   .tl-item{position:relative;padding:0 0 26px 30px}
@@ -131,21 +131,21 @@
   .tl-item:last-child{padding-bottom:0}
   .tl-date{font-family:"IBM Plex Mono",monospace;font-weight:600;font-size:14px;color:var(--debito);letter-spacing:.03em}
   .tl-item p{font-size:16.5px;margin:5px 0 0;line-height:1.5}
-
+ 
   /* ---------- pull / victims ---------- */
   .voice{border-left:4px solid var(--debito);padding:6px 0 6px 24px;margin:8px 0 26px}
   .voice p{font-size:23px;line-height:1.4;font-style:italic;color:var(--tinta);max-width:46ch}
   .voice cite{display:block;font-style:normal;font-family:"IBM Plex Mono",monospace;font-size:12px;letter-spacing:.06em;color:var(--grafite);margin-top:12px}
-
+ 
   /* ---------- footer ---------- */
   footer{border-top:3px solid var(--tinta);padding:34px 0 70px;margin-top:20px}
   footer p{font-family:"IBM Plex Mono",monospace;font-size:12.5px;line-height:1.7;color:var(--grafite);max-width:70ch}
   footer .end{font-family:"Archivo",sans-serif;font-weight:900;font-size:18px;color:var(--tinta);margin-bottom:14px;letter-spacing:.02em}
-
+ 
   /* reveal */
   .rv{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
   .rv.in{opacity:1;transform:none}
-
+ 
   @media (max-width:560px){
     body{font-size:17.5px}
     .stub-row{font-size:13.5px}
@@ -159,24 +159,25 @@
 </style>
 </head>
 <body>
-
+ 
 <header class="masthead">
   <div class="wrap">
     <div class="kicker">Dossiê · Crédito consignado</div>
     <h1 class="title">O cartão que devorou o <em>contracheque</em></h1>
     <p class="dek">Como um cartão nascido para comprar comida barata na Bahia virou uma máquina de endividar servidores e aposentados no Brasil inteiro — e alimentou o rombo do Banco Master.</p>
     <div class="byline">
+      <span>Fonte: <b>Revista Piauí</b></span>
       <span><b>Resumo</b> da reportagem</span>
       <span>Personagens: Credcesta · Banco Master · Augusto Lima</span>
       <span>Investiga: Jorge Falcão, advogado</span>
     </div>
   </div>
 </header>
-
+ 
 <div class="hero">
   <div class="wrap">
     <p class="hero-lead rv">Uma aposentada baiana recebia <span class="hl">R$ 1.737,99</span> por mês. Os descontos do cartão consignado levavam <span class="hl">R$ 1.592,31</span>. Sobravam <span class="hl">R$ 145,68</span> para viver. Não é um caso isolado — é o método.</p>
-
+ 
     <div class="stub rv">
       <div class="stub-top"><span>Contracheque · <b>servidora aposentada</b></span><span>Bahia</span></div>
       <div class="stub-body">
@@ -184,7 +185,7 @@
         <div class="stub-row debito"><span class="lbl">— Descontos Credcesta</span><span class="val">R$ 1.592,31</span></div>
         <div class="stub-sep"></div>
         <div class="stub-row sobra"><span class="lbl">Sobra para o mês</span><span class="val">R$ 145,68</span></div>
-
+ 
         <div class="gauge">
           <div class="gauge-track"><div class="gauge-fill" data-pct="91.62"><span class="gauge-num">91,62%</span></div></div>
           <div class="gauge-cap">da renda comprometida com o cartão</div>
@@ -193,7 +194,7 @@
     </div>
   </div>
 </div>
-
+ 
 <section>
   <div class="wrap">
     <div class="eyebrow"><span class="num">1</span> O golpe legalizado</div>
@@ -202,7 +203,7 @@
     <p class="rv">O advogado baiano Jorge Falcão começou a receber, em 2019, uma fila de servidores e aposentados que pagavam sem parar e só viam a dívida crescer. Ao ler os contratos, achou-os indecentes — e reparou num detalhe: as vítimas eram, quase todas, baianas. Havia um motivo.</p>
   </div>
 </section>
-
+ 
 <section>
   <div class="wrap">
     <div class="eyebrow"><span class="num">2</span> A engenharia baiana</div>
@@ -211,7 +212,7 @@
     <p class="rv">O que fazia o negócio valer ouro veio <span class="strong">depois</span> do leilão: um decreto autorizou transformar o cartão em instrumento de crédito e empréstimo, garantiu <span class="strong">exclusividade por 15 anos</span> e ampliou de 30% para 45% a fatia do salário que dava para comprometer. De brinde, o Estado repassou os dados de <span class="strong">400 mil</span> servidores — que passaram a receber ligações de telemarketing sem nunca terem fornecido seus contatos.</p>
   </div>
 </section>
-
+ 
 <section>
   <div class="wrap">
     <div class="eyebrow"><span class="num">3</span> Quem é quem</div>
@@ -224,7 +225,7 @@
     </div>
   </div>
 </section>
-
+ 
 <section>
   <div class="wrap">
     <div class="eyebrow"><span class="num">4</span> Linha do tempo</div>
@@ -240,7 +241,7 @@
     </div>
   </div>
 </section>
-
+ 
 <section class="band">
   <div class="wrap">
     <div class="eyebrow"><span class="num" style="color:var(--debito-claro);border-color:var(--debito-claro)">5</span> A conta do país</div>
@@ -254,7 +255,7 @@
     </div>
   </div>
 </section>
-
+ 
 <section>
   <div class="wrap">
     <div class="eyebrow"><span class="num">6</span> As vítimas</div>
@@ -266,7 +267,7 @@
     <p class="rv">Falcão reuniu dezenas de contracheques em que os descontos consumiam <span class="strong">80%, 87%, mais de 90%</span> da renda. Numa professora aposentada, sobravam <span class="strong">R$ 48</span> no fim do mês — tão pouco que o próprio advogado chegou a tirar do bolso para ajudá-la. O padrão das reclamações se repetia: serviços não contratados, cartões que chegavam sem ter sido pedidos, telemarketing acelerado e renegociações que só alongavam a dívida.</p>
   </div>
 </section>
-
+ 
 <section>
   <div class="wrap">
     <div class="eyebrow"><span class="num">7</span> Onde a coisa está</div>
@@ -274,21 +275,21 @@
     <p class="rv">O Master foi liquidado, houve prisões e operação da Polícia Federal. Ainda assim, quem tomou os empréstimos segue pagando os juros contratados. A carteira do Credcesta foi comprada por outra instituição financeira antes da liquidação, e a cobrança dos devedores prossegue — enquanto se discute, na Justiça e no Banco Central, como interromper os descontos. Para o economista ouvido na reportagem, o país construiu "uma máquina de oferta de crédito que pode ter consequências desastrosas".</p>
   </div>
 </section>
-
+ 
 <footer>
   <div class="wrap">
     <p class="end">Fim do resumo ▪</p>
     <p>Este é um resumo, redigido de forma independente, de uma reportagem investigativa sobre o cartão Credcesta e o Banco Master. Nomes, cifras e datas reproduzem o que consta na matéria original; por terem sido lidos de fotos, alguns valores e grafias podem conter pequenas imprecisões e valem uma conferência contra o texto-fonte.</p>
   </div>
 </footer>
-
+ 
 <script>
   // reveal on scroll
   const io = new IntersectionObserver((entries)=>{
     entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target);} });
   },{threshold:.14});
   document.querySelectorAll('.rv').forEach(el=>io.observe(el));
-
+ 
   // gauge fill when visible
   const g = document.querySelector('.gauge-fill');
   if(g){
