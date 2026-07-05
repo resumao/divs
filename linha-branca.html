@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>A Linha Branca — A Maior Inovação Anônima da América</title>
+
+<!-- Open Graph: pré-visualização no WhatsApp / redes sociais -->
+<!-- IMPORTANTE: og:image e og:url exigem URL ABSOLUTA. Ajuste o caminho abaixo para o repositório onde a página será hospedada. -->
+<meta property="og:type" content="article">
+<meta property="og:title" content="A linha branca na beira da estrada: a maior inovação anônima dos EUA">
+<meta property="og:description" content="A história do homem de 80 anos que travou uma cruzada solitária para pintar uma faixa de tinta que mudou o comportamento de bilhões de motoristas.">
+<meta property="og:url" content="https://resumao.github.io/linha-branca/index.html">
+<meta property="og:image" content="https://resumao.github.io/linha-branca/linha-branca-preview.jpg">
+<meta property="og:image:secure_url" content="https://resumao.github.io/linha-branca/linha-branca-preview.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="pt_BR">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="A linha branca na beira da estrada: a maior inovação anônima dos EUA">
+<meta name="twitter:image" content="https://resumao.github.io/linha-branca/linha-branca-preview.jpg">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;700;800;900&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background-color: #141416;
+    color: #d8d8d2;
+    font-family: 'Inter', Arial, Helvetica, sans-serif;
+    font-size: 17px;
+    line-height: 1.7;
+    -webkit-text-size-adjust: 100%;
+  }
+
+  a { color: #f2c14e; }
+
+  .wrap {
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 0 22px;
+  }
+
+  /* ===== A LINHA: elemento de assinatura ===== */
+  .edge-line {
+    border-left: 5px solid #f4f2ec;
+    padding-left: 26px;
+  }
+
+  /* ===== HERO ===== */
+  .hero {
+    padding: 70px 0 50px 0;
+    background-color: #0e0e10;
+    background-image: linear-gradient(180deg, #0e0e10 0%, #141416 100%);
+    border-bottom: 1px solid #2a2a2e;
+  }
+  .eyebrow {
+    font-family: 'Overpass', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #f2c14e;
+    margin-bottom: 18px;
+  }
+  h1 {
+    font-family: 'Overpass', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 44px;
+    line-height: 1.08;
+    color: #f4f2ec;
+    margin-bottom: 20px;
+    letter-spacing: -0.5px;
+  }
+  .subtitle {
+    font-size: 19px;
+    color: #a8a8a0;
+    max-width: 620px;
+  }
+  .road-strip {
+    margin-top: 40px;
+    height: 46px;
+    background-color: #1c1c1f;
+    border-top: 4px solid #f4f2ec;
+    border-bottom: 4px dashed #f2c14e;
+    border-radius: 3px;
+  }
+
+  /* ===== SEÇÕES ===== */
+  section { padding: 46px 0 10px 0; }
+  h2 {
+    font-family: 'Overpass', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 26px;
+    color: #f4f2ec;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .km {
+    font-family: 'Overpass', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6f6f68;
+    margin-bottom: 20px;
+  }
+  p { margin-bottom: 18px; }
+  strong { color: #f4f2ec; }
+  em { color: #e8e6dc; }
+
+  .highlight {
+    background-color: #1c1c1f;
+    border: 1px solid #2e2e33;
+    border-left: 5px solid #f2c14e;
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin: 26px 0;
+  }
+  .highlight p { margin-bottom: 0; }
+
+  /* ===== NÚMEROS ===== */
+  .stats {
+    margin: 28px 0;
+  }
+  .stat {
+    background-color: #1a1a1d;
+    border: 1px solid #2a2a2e;
+    border-radius: 8px;
+    padding: 22px 20px;
+    margin-bottom: 14px;
+  }
+  .stat .n {
+    font-family: 'Overpass', Arial, sans-serif;
+    font-weight: 900;
+    font-size: 40px;
+    color: #f2c14e;
+    line-height: 1.1;
+    display: block;
+  }
+  .stat .d {
+    font-size: 14px;
+    color: #a8a8a0;
+    margin-top: 6px;
+    display: block;
+  }
+  @media (min-width: 640px) {
+    .stats { overflow: hidden; }
+    .stat { float: left; width: 31.5%; margin-right: 2.75%; }
+    .stat.last { margin-right: 0; }
+  }
+
+  /* ===== LINHA DO TEMPO ===== */
+  .timeline { margin: 10px 0 30px 0; }
+  .tl-item {
+    position: relative;
+    padding: 0 0 30px 34px;
+    border-left: 4px solid #f4f2ec;
+  }
+  .tl-item.dashed { border-left: 4px dashed #4a4a45; }
+  .tl-item:before {
+    content: "";
+    position: absolute;
+    left: -12px;
+    top: 2px;
+    width: 20px;
+    height: 20px;
+    background-color: #f2c14e;
+    border: 4px solid #141416;
+    border-radius: 50%;
+  }
+  .tl-year {
+    font-family: 'Overpass', Arial, sans-serif;
+    font-weight: 800;
+    font-size: 20px;
+    color: #f2c14e;
+    display: block;
+    margin-bottom: 4px;
+  }
+  .tl-item p { margin-bottom: 0; font-size: 16px; }
+
+  /* ===== TABELA ===== */
+  .table-wrap { overflow-x: auto; margin: 26px 0; -webkit-overflow-scrolling: touch; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 15px;
+    min-width: 480px;
+  }
+  th {
+    font-family: 'Overpass', Arial, sans-serif;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #f2c14e;
+    text-align: left;
+    padding: 12px 14px;
+    background-color: #1c1c1f;
+    border-bottom: 2px solid #f4f2ec;
+  }
+  td {
+    padding: 12px 14px;
+    border-bottom: 1px solid #2a2a2e;
+    vertical-align: top;
+    color: #cfcfc8;
+  }
+  td.good { color: #8fd694; font-weight: 600; }
+
+  /* ===== CITAÇÃO ===== */
+  blockquote {
+    font-family: 'Overpass', Arial, sans-serif;
+    font-weight: 700;
+    font-size: 28px;
+    line-height: 1.3;
+    color: #f4f2ec;
+    border-left: 5px solid #f2c14e;
+    padding: 6px 0 6px 26px;
+    margin: 34px 0;
+  }
+  blockquote span {
+    display: block;
+    font-family: 'Inter', Arial, sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: #8a8a82;
+    margin-top: 12px;
+  }
+
+  /* ===== RODAPÉ ===== */
+  footer {
+    margin-top: 60px;
+    padding: 34px 0 50px 0;
+    border-top: 4px solid #f4f2ec;
+    background-color: #0e0e10;
+  }
+  footer p {
+    font-size: 14px;
+    color: #8a8a82;
+    margin-bottom: 0;
+  }
+
+  @media (max-width: 520px) {
+    h1 { font-size: 32px; }
+    h2 { font-size: 22px; }
+    blockquote { font-size: 22px; }
+    .stat .n { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Resumo Editorial &middot; Inovação &amp; História</div>
+    <h1>A linha branca na beira da estrada: a maior inovação anônima dos EUA</h1>
+    <p class="subtitle">Todo mundo conhece a lâmpada e o iPhone. Quase ninguém conhece a história da faixa de tinta branca que mudou o comportamento de bilhões de motoristas — e do homem de 80 anos que travou uma cruzada solitária para pintá-la.</p>
+    <div class="road-strip"></div>
+  </div>
+</div>
+
+<div class="wrap">
+
+<section>
+  <div class="edge-line">
+    <h2>A tese</h2>
+    <div class="km">Marco 01</div>
+    <p>Em 250 anos, os Estados Unidos produziram invenções célebres — a lâmpada, o telefone, a internet, o avião, o microchip, até o cookie de chocolate. Mas a inovação americana mais subestimada é uma que você vê todos os dias sem nunca pensar nela: <strong>a linha branca contínua pintada na borda direita da estrada</strong> (a chamada <em>edge line</em>).</p>
+    <p>A ideia parece óbvia hoje, como o post-it ou a mala de rodinhas. Nos anos 1950, era considerada <strong>radical</strong> — e foi rejeitada repetidamente pelas próprias autoridades rodoviárias antes de conquistar o mundo, impulsionada essencialmente por <strong>um único homem</strong>.</p>
+  </div>
+</section>
+
+<section>
+  <div class="edge-line">
+    <h2>O personagem: John V. N. Dorr</h2>
+    <div class="km">Marco 02</div>
+    <p><strong>John Van Nostrand Dorr</strong> nasceu em 1872, em Nova Jersey — muito antes do Ford Modelo T. Ainda adolescente, foi assistente de laboratório de <strong>Thomas Edison</strong>, de quem absorveu a lição de "tentar tudo pelo menos uma vez".</p>
+    <p>Depois da faculdade, foi para o Oeste e enriqueceu como <strong>metalurgista</strong>, criando equipamentos de mineração para separar sólidos de lama — o <em>classificador Dorr</em> e o <em>espessador Dorr</em> —, que deram origem à Dorr Company e, depois, à <strong>Dorr Foundation</strong>, veículo filantrópico do seu legado mais duradouro.</p>
+    <p>Duas motivações pessoais alimentaram a obsessão: segundo o próprio irmão, Dorr era um <strong>péssimo motorista</strong> (na lenda familiar, chegou a sair da pista levando a neta grávida ao hospital). E foi convencido pela esposa, <strong>Nell Dorr, fotógrafa renomada</strong>, cansada de esticar o pescoço pela janela do carona para enxergar onde o asfalto terminava.</p>
+  </div>
+</section>
+
+<section>
+  <div class="edge-line">
+    <h2>O problema de engenharia</h2>
+    <div class="km">Marco 03</div>
+    <p>Sem linha de borda, o instinto do motorista era <strong>colar na faixa central</strong> — o único referencial visível. Perigoso: dois veículos em sentidos opostos ancorados na mesma linha colidem com facilidade, sobretudo à noite e sob chuva, quando o farol contrário ofusca a visão.</p>
+    <p>A alternativa era desviar para o acostamento. Só que <strong>ninguém sabia onde a pista acabava</strong>. A linha branca lateral resolvia os dois problemas de uma vez: dava aos olhos um ponto de mira à noite que não fosse o farol do carro contrário, e centralizava o veículo dentro da própria faixa.</p>
+    <div class="highlight">
+      <p><strong>A economia da ideia:</strong> o custo era de <strong>US$ 50 por milha, por linha</strong>. Os burocratas consideravam um desperdício de US$ 50. Dorr considerava uma pechincha — barata e extraordinariamente eficaz, um investimento brilhante em vidas.</p>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="edge-line">
+    <h2>A rejeição oficial</h2>
+    <div class="km">Marco 04</div>
+    <p>Em <strong>1952</strong>, Dorr — então na casa dos 80 anos — propôs a linha ao comissário de rodovias de Connecticut. Foi <strong>sumariamente dispensado</strong>. Ele próprio registrou depois que a primeira sugestão foi recusada por completo.</p>
+    <p>Pior: a agência federal responsável pela segurança das estradas americanas <strong>desaconselhava explicitamente</strong> as linhas de borda, temendo que confundissem os motoristas. Dorr estava, portanto, fazendo lobby para que os estados gastassem dinheiro em algo que as autoridades diziam ser desnecessário e caro demais. O diretor de rodovias de <strong>Ohio</strong> chegou a responder que não via nenhum local onde a marcação de borda valesse a pena em uso extensivo.</p>
+  </div>
+</section>
+
+<section>
+  <div class="edge-line">
+    <h2>Os experimentos que viraram o jogo</h2>
+    <div class="km">Marco 05</div>
+    <p>Em <strong>1953</strong>, Dorr escreveu ao jornal local <em>Westport Town Crier</em> oferecendo-se para <strong>pagar do próprio bolso</strong> um teste-demonstração de algumas milhas. O jornal abraçou a proposta em editorial, e Connecticut topou o piloto.</p>
+
+    <div class="table-wrap">
+      <table>
+        <tr><th>Experimento</th><th>Desenho</th><th>Resultado</th></tr>
+        <tr>
+          <td><strong>Merritt Parkway (CT)</strong><br>trecho Greenwich–Stamford</td>
+          <td>Piloto de algumas milhas com a linha de borda</td>
+          <td class="good">Carros se afastaram da faixa central e se centralizaram na própria faixa; diferença de velocidade entre dia e noite diminuiu</td>
+        </tr>
+        <tr>
+          <td><strong>"Death Valley" (NY)</strong><br>corredor rodoviário perigoso</td>
+          <td>Comparação de 5 meses antes vs. 5 meses depois</td>
+          <td class="good">Acidentes caíram de <strong>40 para 14</strong></td>
+        </tr>
+        <tr>
+          <td><strong>Ohio</strong><br>estudo em escala estadual</td>
+          <td>Experimento controlado: <strong>cara ou coroa</strong> decidia quais rodovias eram pintadas</td>
+          <td class="good">Nas pintadas: bem menos colisões e <strong>&minus;37% em mortes e feridos</strong> em um ano</td>
+        </tr>
+      </table>
+    </div>
+
+    <p>Era evidência científica de que <strong>uma única linha de tinta alterava dramaticamente o comportamento humano</strong>. E Ohio — justamente o estado que havia esnobado a ideia — virou o laboratório definitivo que a consagrou.</p>
+
+    <blockquote>"Tinta é mais barata que sangue."<span>Síntese da imprensa nova-iorquina da época sobre a campanha de Dorr</span></blockquote>
+  </div>
+</section>
+
+<section>
+  <div class="edge-line">
+    <h2>A cruzada de divulgação</h2>
+    <div class="km">Marco 06</div>
+    <p>Munido de dados, Dorr tornou-se implacável na distribuição deles a quem pudesse pintar mais estradas:</p>
+    <p>&bull;&nbsp; Enviava <strong>memorandos mensais de progresso</strong> a uma lista que incluía os comissários de rodovias dos <strong>48 estados</strong> da época.<br>
+    &bull;&nbsp; Emplacava matérias em publicações especializadas como <em>Better Roads</em> e <em>Traffic Engineering</em>.<br>
+    &bull;&nbsp; Escrevia a governadores, a uma estrela da Broadway e até ao ex-presidente <strong>Herbert Hoover</strong>.</p>
+    <p>Outros já haviam experimentado linhas de borda antes dele, mas foi Dorr quem usou sua influência, sua fortuna e sua teimosia para transformá-las em <strong>parte do cotidiano mundial</strong>. Sua trajetória está documentada em arquivos de jornais, relatórios e orçamentos da fundação e num acervo de cartas guardado em museu.</p>
+  </div>
+</section>
+
+<section>
+  <div class="edge-line">
+    <h2>A consagração</h2>
+    <div class="km">Marco 07</div>
+    <p>Em menos de uma década, a linha passou de <strong>desaconselhada</strong> a <strong>permitida</strong> a <strong>onipresente</strong>. Em <strong>1958</strong>, um dirigente do Bureau of Public Roads declarou que o público exigia a novidade e que motoristas por toda parte a consideravam a melhor coisa que já tinham visto. Uma vez vista, era impossível "desvê-la".</p>
+    <p>Antes de morrer, em <strong>1962</strong>, aos 90 anos, Dorr assistiu à sua ideia se espalhar pelo país, pelo mundo — e até a sua porta: certa manhã, saiu de casa e encontrou um caminhão do departamento de rodovias de Connecticut pintando a linha branca na beira da sua própria rua.</p>
+    <p>Ironia final: hoje <strong>quase ninguém sabe quem foi Dorr</strong>. A própria bisneta, Barbara McMillan, diz nunca ter encontrado alguém que conhecesse a história.</p>
+  </div>
+</section>
+
+<section>
+  <div class="edge-line">
+    <h2>O contexto em números</h2>
+    <div class="km">Marco 08</div>
+    <div class="stats">
+      <div class="stat"><span class="n">~20&rarr;~1</span><span class="d">Mortes por 100 milhões de milhas rodadas nos EUA: do pico dos anos 1920 aos níveis atuais</span></div>
+      <div class="stat"><span class="n">3 tri</span><span class="d">Milhas percorridas por ano nos EUA hoje — contra quase zero em 1925</span></div>
+      <div class="stat last"><span class="n">US$ 50</span><span class="d">Custo por milha da linha nos anos 1950 — o "desperdício" que virou pechincha</span></div>
+    </div>
+    <p>Fontes dos dados de tráfego: Federal Highway Administration (milhas percorridas); National Center for Health Statistics ajustado pela NHTSA (fatalidades 1921–1974); NHTSA/FARS (1975 em diante). A linha de borda é uma das muitas inovações — junto com cintos, airbags e engenharia viária — por trás dessa queda histórica de letalidade.</p>
+  </div>
+</section>
+
+<section>
+  <div class="edge-line">
+    <h2>Linha do tempo</h2>
+    <div class="km">Marco 09</div>
+    <div class="timeline">
+      <div class="tl-item"><span class="tl-year">1872</span><p>Nasce John Van Nostrand Dorr, em Nova Jersey. Na adolescência, é aprendiz de Thomas Edison.</p></div>
+      <div class="tl-item dashed"><span class="tl-year">~1900–1940</span><p>Enriquece com equipamentos de mineração (classificador e espessador Dorr); funda a Dorr Company e a Dorr Foundation.</p></div>
+      <div class="tl-item"><span class="tl-year">1952</span><p>Propõe a linha de borda ao comissário de rodovias de Connecticut. É rejeitado de imediato.</p></div>
+      <div class="tl-item"><span class="tl-year">1953</span><p>Oferece-se, via carta ao Westport Town Crier, a financiar um teste. O jornal apoia; Connecticut pinta o piloto na Merritt Parkway.</p></div>
+      <div class="tl-item"><span class="tl-year">Anos 1950</span><p>Teste em "Death Valley" (NY): acidentes caem de 40 para 14 em 5 meses. Ohio roda experimento controlado por sorteio: &minus;37% em mortes e feridos.</p></div>
+      <div class="tl-item"><span class="tl-year">1958</span><p>Bureau of Public Roads reconhece a demanda pública. A linha se torna padrão nacional em expansão.</p></div>
+      <div class="tl-item"><span class="tl-year">1962</span><p>Dorr morre aos 90 anos, depois de ver sua linha alcançar o mundo — e a estrada em frente à própria casa.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="edge-line">
+    <h2>Por que a história importa</h2>
+    <div class="km">Marco 10</div>
+    <p><strong>1. Inovação não é só tecnologia.</strong> Uma faixa de tinta de US$ 50 por milha salvou mais vidas por dólar do que quase qualquer gadget — segurança em escala planetária escondida à vista de todos.</p>
+    <p><strong>2. Dados vencem burocracia, mas precisam de um campeão.</strong> A evidência dos pilotos só se transformou em política pública porque alguém a martelou, mês após mês, na mesa de 48 comissários estaduais.</p>
+    <p><strong>3. O óbvio de hoje foi o radical de ontem.</strong> A própria agência de segurança viária desaconselhava a ideia antes de os números a tornarem irrefutável — um lembrete clássico de como instituições resistem até a melhorias baratas e comprovadas.</p>
+    <p><strong>4. Motivação pessoal move grandes causas.</strong> Um mau motorista de 80 e poucos anos, provocado pela esposa fotógrafa, mudou o desenho de todas as estradas do planeta.</p>
+  </div>
+</section>
+
+</div>
+
+<footer>
+  <div class="wrap">
+    <p>Resumo editorial &middot; Julho de 2026 &middot; A linha branca contínua na borda da pista: de ideia rejeitada a padrão mundial de segurança viária.</p>
+  </div>
+</footer>
+
+</body>
+</html>
