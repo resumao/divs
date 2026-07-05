@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Resumo de Leituras — Edição de 5 de julho de 2026</title>
+<link href="https://fonts.googleapis.com/css2?family=UnifrakturMaguntia&family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&family=PT+Serif:ital,wght@0,400;0,700;1,400&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: #ece8dd;
+    color: #1a1a1a;
+    font-family: 'PT Serif', Georgia, 'Times New Roman', serif;
+    font-size: 16.5px;
+    line-height: 1.65;
+  }
+  .paper {
+    max-width: 1060px;
+    margin: 0 auto;
+    background: #f7f4ec;
+    padding: 34px 48px 60px 48px;
+    border-left: 1px solid #d8d2c2;
+    border-right: 1px solid #d8d2c2;
+    box-shadow: 0 0 24px rgba(60,50,30,0.12);
+  }
+
+  /* ===== Cabeçalho / Masthead ===== */
+  .topline {
+    display: block;
+    border-top: 2px solid #1a1a1a;
+    border-bottom: 1px solid #1a1a1a;
+    padding: 5px 0;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 11.5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    color: #333;
+    text-align: center;
+  }
+  .topline span { margin: 0 14px; white-space: nowrap; }
+  .masthead {
+    text-align: center;
+    padding: 26px 0 18px 0;
+  }
+  .masthead h1 {
+    font-family: 'UnifrakturMaguntia', 'Playfair Display', Georgia, serif;
+    font-weight: 400;
+    font-size: 64px;
+    line-height: 1.05;
+    color: #111;
+  }
+  .masthead .motto {
+    font-style: italic;
+    font-size: 14px;
+    color: #444;
+    margin-top: 4px;
+  }
+  .dateline {
+    border-top: 1px solid #1a1a1a;
+    border-bottom: 2px solid #1a1a1a;
+    padding: 6px 0;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 11.5px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #1a1a1a;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+  .dateline b { font-weight: 700; }
+  .dateline span { margin: 0 16px; white-space: nowrap; }
+
+  /* ===== Índice (Nesta edição) ===== */
+  .toc {
+    border: 1px solid #1a1a1a;
+    padding: 20px 26px 16px 26px;
+    margin: 0 auto 40px auto;
+    max-width: 720px;
+    background: #f2eee2;
+  }
+  .toc h2 {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    text-align: center;
+    padding-bottom: 10px;
+    margin-bottom: 14px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  .toc ol { list-style: none; }
+  .toc li {
+    border-bottom: 1px dotted #9a927e;
+    padding: 9px 2px;
+  }
+  .toc li:last-child { border-bottom: none; }
+  .toc a {
+    text-decoration: none;
+    color: #1a1a1a;
+    display: block;
+  }
+  .toc a:hover .t, .toc a:focus .t { text-decoration: underline; }
+  .toc .sec {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8a1f1f;
+    display: block;
+  }
+  .toc .t {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 1.3;
+  }
+  .toc .pg {
+    float: right;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 11px;
+    color: #666;
+    margin-top: 6px;
+  }
+
+  /* ===== Matérias ===== */
+  article {
+    padding: 34px 0 6px 0;
+    border-top: 4px double #1a1a1a;
+  }
+  .art-kicker {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: #8a1f1f;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  article h2 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    font-size: 37px;
+    line-height: 1.12;
+    color: #111;
+    text-align: center;
+    max-width: 820px;
+    margin: 0 auto 12px auto;
+  }
+  .deck {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 19px;
+    line-height: 1.5;
+    color: #333;
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 22px auto;
+  }
+  .rule {
+    width: 90px;
+    border: none;
+    border-top: 1px solid #1a1a1a;
+    margin: 0 auto 24px auto;
+  }
+  .cols {
+    -webkit-column-count: 2;
+    -moz-column-count: 2;
+    column-count: 2;
+    -webkit-column-gap: 38px;
+    -moz-column-gap: 38px;
+    column-gap: 38px;
+    -webkit-column-rule: 1px solid #cfc8b4;
+    -moz-column-rule: 1px solid #cfc8b4;
+    column-rule: 1px solid #cfc8b4;
+  }
+  .cols p {
+    margin-bottom: 14px;
+    text-align: justify;
+    -webkit-hyphens: auto;
+    -ms-hyphens: auto;
+    hyphens: auto;
+  }
+  .cols p strong { font-weight: 700; }
+  .dropcap:first-letter {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-weight: 900;
+    font-size: 54px;
+    line-height: 0.85;
+    float: left;
+    padding: 6px 8px 0 0;
+    color: #111;
+  }
+
+  /* Caixa de destaque */
+  .keybox {
+    border-top: 2px solid #1a1a1a;
+    border-bottom: 2px solid #1a1a1a;
+    background: #f2eee2;
+    padding: 14px 18px;
+    margin: 6px 0 16px 0;
+    font-size: 14.5px;
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+  }
+  .keybox .kb-title {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #8a1f1f;
+    margin-bottom: 8px;
+  }
+  .keybox ul { list-style: none; }
+  .keybox li { padding-left: 16px; position: relative; margin-bottom: 7px; line-height: 1.55; }
+  .keybox li:before { content: "■"; position: absolute; left: 0; top: 1px; font-size: 8px; color: #8a1f1f; }
+  .keybox li:last-child { margin-bottom: 0; }
+
+  /* Tabela estilo jornal */
+  .tablewrap {
+    -webkit-column-break-inside: avoid;
+    page-break-inside: avoid;
+    break-inside: avoid;
+    margin: 6px 0 16px 0;
+  }
+  .tbl-title {
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 10.5px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #8a1f1f;
+    border-top: 2px solid #1a1a1a;
+    padding: 8px 0 4px 0;
+  }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+    font-family: 'Inter', Arial, sans-serif;
+  }
+  th {
+    text-align: left;
+    font-size: 10.5px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    font-weight: 700;
+    padding: 6px 8px;
+    border-bottom: 1px solid #1a1a1a;
+  }
+  td {
+    padding: 6px 8px;
+    border-bottom: 1px dotted #9a927e;
+  }
+  tr:last-child td { border-bottom: 2px solid #1a1a1a; }
+  td.num { font-variant-numeric: tabular-nums; text-align: right; }
+  th.num { text-align: right; }
+
+  .backtop {
+    display: block;
+    text-align: center;
+    text-decoration: none;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #666;
+    margin: 22px 0 26px 0;
+  }
+  .backtop:hover, .backtop:focus { color: #8a1f1f; }
+
+  footer {
+    border-top: 2px solid #1a1a1a;
+    margin-top: 8px;
+    padding-top: 12px;
+    text-align: center;
+    font-family: 'Inter', Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #555;
+  }
+
+  @media (max-width: 720px) {
+    .paper { padding: 20px 18px 40px 18px; }
+    .masthead h1 { font-size: 42px; }
+    article h2 { font-size: 27px; }
+    .deck { font-size: 17px; }
+    .cols {
+      -webkit-column-count: 1;
+      -moz-column-count: 1;
+      column-count: 1;
+    }
+    .cols p { text-align: left; }
+    .topline span, .dateline span { display: block; margin: 2px 0; }
+  }
+</style>
+</head>
+<body id="topo">
+<div class="paper">
+
+  <div class="topline">
+    <span>Tributação nos EUA</span><span>Política brasileira</span><span>Inteligência artificial</span><span>Macroeconomia do trabalho</span>
+  </div>
+
+  <div class="masthead">
+    <h1>Resumo de Leituras</h1>
+    <div class="motto">Quatro leituras da semana, condensadas</div>
+  </div>
+
+  <div class="dateline">
+    <span>Edição de domingo</span><span><b>5 de julho de 2026</b></span><span>São Paulo</span>
+  </div>
+
+  <nav class="toc" aria-label="Índice">
+    <h2>Nesta edição</h2>
+    <ol>
+      <li><a href="#trust-stacking"><span class="pg">Pág. 1</span><span class="sec">Tributação nos EUA</span><span class="t">"Trust stacking": o empilhamento de trusts que irritou o fisco americano</span></a></li>
+      <li><a href="#sucessao"><span class="pg">Pág. 2</span><span class="sec">Política brasileira</span><span class="t">O rei só terá um herdeiro: a disputa dinástica na direita brasileira</span></a></li>
+      <li><a href="#chatbots"><span class="pg">Pág. 3</span><span class="sec">Inteligência artificial</span><span class="t">O crepúsculo dos chatbots: trabalho na era dos agentes de IA</span></a></li>
+      <li><a href="#jornada"><span class="pg">Pág. 4</span><span class="sec">Macroeconomia</span><span class="t">Jornada de 44 para 40 horas: o custo estimado sobre o PIB brasileiro</span></a></li>
+    </ol>
+  </nav>
+
+  <article id="trust-stacking">
+    <div class="art-kicker">Tributação nos EUA</div>
+    <h2>"Trust stacking": o empilhamento de trusts que irritou o fisco americano</h2>
+    <p class="deck">Fundadores de startups multiplicam por dois, três ou mais vezes uma isenção bilionária de ganho de capital — e o Tesouro promete reagir.</p>
+    <hr class="rule">
+    <div class="cols">
+      <p class="dropcap">O benefício conhecido como <strong>QSBS</strong> (Qualified Small Business Stock) permite que fundadores e investidores-anjo de pequenas empresas excluam da tributação até <strong>US$ 15 milhões em ganho de capital</strong> na venda de ações — teto elevado de US$ 10 milhões para US$ 15 milhões pela lei tributária do ano passado, para ações adquiridas a partir de julho de 2025, com exigência de holding de cinco anos para a exclusão integral. Sem o benefício, o ganho seria tributado em até 23,8%.</p>
+      <p>A polêmica está na técnica do <strong>"trust stacking"</strong>: como a lei permite expressamente transferir ações para terceiros, com cada contribuinte fazendo jus à própria exclusão, fundadores passaram a doar ações — quando ainda valem quase nada, minimizando o imposto sobre doação — a trusts em nome de parentes. Três trusts para três filhos transformam o teto de US$ 15 milhões em US$ 60 milhões; estruturas mais agressivas combinam trusts cruzados entre os mesmos beneficiários, na prática multiplicando o benefício para o mesmo contribuinte.</p>
+      <p>O custo fiscal cresceu rápido: estimativa de <strong>US$ 4,9 bilhões de renúncia em 2026</strong>, mais que o triplo de 2017. Entre 2012 e 2022, as exclusões somaram US$ 140 bilhões, com pico em 2021 (cerca de 2,5% de todos os ganhos de capital), ano em que trusts e espólios responderam por 17,5% das reivindicações. Surgiu até uma indústria de firmas especializadas oferecendo pacotes de múltiplos trusts a custo reduzido — uma delas montou 500 estruturas em dez meses.</p>
+      <p>A reação oficial veio em tom de aviso público do principal responsável pela política tributária do Tesouro ("não gostamos de stacking"), com sinalização de <strong>regras futuras contra o planejamento agressivo</strong>. O órgão nunca publicou regulamentação abrangente sobre o benefício, e a jurisprudência é escassa — o que, na avaliação de acadêmicos, deixou o empilhamento na prática sem limites. Auditorias já miram casos com aparência de evasão, como trusts criados às vésperas da venda da empresa.</p>
+      <div class="keybox">
+        <div class="kb-title">Pontos práticos destacados por assessores</div>
+        <ul>
+          <li>Planejar cedo: transferir ações no estágio inicial, quando valem pouco, e documentar a motivação sucessória (estate planning) da estrutura.</li>
+          <li>Estruturas montadas na época de uma carta de intenções vinculante tendem a não prosperar em auditoria.</li>
+          <li>Multiplicar a exclusão apenas em benefício próprio — por exemplo, dezenas de trusts com comitê "independente" que readmite os fundadores como beneficiários após o exit — é visto como ir longe demais.</li>
+        </ul>
+      </div>
+    </div>
+    <a class="backtop" href="#topo">↑ Voltar ao índice</a>
+  </article>
+
+  <article id="sucessao">
+    <div class="art-kicker">Política brasileira</div>
+    <h2>O rei só terá um herdeiro: a disputa dinástica na direita brasileira</h2>
+    <p class="deck">Uma leitura do vídeo de Michelle Bolsonaro como lance calculado numa guerra sucessória de longo prazo — não como simples briga de família.</p>
+    <hr class="rule">
+    <div class="cols">
+      <p class="dropcap">O texto propõe uma chave interpretativa incomum: o clã Bolsonaro opera por <strong>regras dinásticas</strong>, e por isso o célebre vídeo de Michelle só se entende à luz da história das sucessões monárquicas. A referência de abertura é o Império Otomano, onde a disputa aberta entre todos os herdeiros homens levou à legalização do fratricídio no código imperial de Mehmed 2º — Mehmed 3º chegou a executar 19 meios-irmãos em 1595 — até a substituição pelo confinamento palaciano (o sistema de <em>Kafes</em>). Nem a primogenitura estrita das monarquias europeias evitou execuções e mutilações em Bizâncio, na Rússia de Kiev ou na Inglaterra das Guerras das Rosas. Daí o princípio que orientaria Michelle: <strong>o rei só pode ter um herdeiro</strong>.</p>
+      <p>Com Jair — "rei doente e aprisionado" — impedido de falar, a passagem do cetro ao primogênito não resolveu a questão sucessória. Michelle teria entendido isso e deflagrado um <strong>plano de extermínio político dos enteados</strong>. O vídeo, longe de treta familiar, seria peça de estratégia: produção profissional, texto bem escrito, iluminação cuidada, simbologia de um programa ancorado no fundamentalismo cristão, e timing preciso — ofuscando o noticiário desfavorável à candidatura de Lula.</p>
+      <p>A comparação histórica doméstica é com o PT dos anos 1980, que lançava candidatos próprios em toda parte para fixar posições: Michelle copiaria a orientação ao rejeitar, no Ceará, a aliança do PL com Ciro Gomes, jogando no campo dos "princípios" e traçando fronteira programática entre a extrema direita e o centrão.</p>
+      <p>O horizonte é <strong>2030</strong>, e a premissa é o triunfo de Lula em 2026 — que arrastaria a extrema direita para fora da "bolha do sangue". O trunfo de Michelle: enquanto os filhos têm apenas o sobrenome, ela construiu à frente do PL Mulher uma <strong>máquina partidária pessoal</strong>, com base eleitoral nacional esculpida pela via evangélica. Sua renúncia à presidência do PL Mulher selaria a cisão com o herdeiro oficial: a cruzada pelo cetro apenas começou.</p>
+    </div>
+    <a class="backtop" href="#topo">↑ Voltar ao índice</a>
+  </article>
+
+  <article id="chatbots">
+    <div class="art-kicker">Inteligência artificial</div>
+    <h2>O crepúsculo dos chatbots: trabalho na era dos agentes de IA</h2>
+    <p class="deck">A capacidade dos modelos cresce em ritmo exponencial — e o modo dominante de usar IA está migrando da conversa supervisionada para a delegação a agentes autônomos.</p>
+    <hr class="rule">
+    <div class="cols">
+      <p class="dropcap">A sensação de aceleração tem base empírica. Os principais laboratórios americanos vêm lançando modelos de fronteira em ritmo inédito, e as avaliações que medem <strong>quanto trabalho humano uma IA executa por prompt</strong> (METR, o instituto oficial de segurança de IA do Reino Unido, GDPval) crescem a taxas melhores que exponenciais. Um experimento recente: um modelo de ponta, rodando sozinho por 14 horas, construiu um pacote de software estimado em 2 a 17 semanas de engenharia humana, ao custo de US$ 251 em tokens. Em teste próprio do autor, um modelo executou de forma autônoma, em 9 horas, projetos que tomariam mais de uma semana de uma equipe.</p>
+      <p>Atrás da fronteira proprietária americana (Anthropic, OpenAI, Google), corre uma segunda curva exponencial: os <strong>modelos chineses de pesos abertos</strong>, defasados em 6 a 12 meses, muito mais baratos de operar — embora nem sempre entreguem na prática o que os benchmarks sugerem. E os gráficos escondem o quão irregular ("jagged") a fronteira permanece: a avaliação séria exige testar caso a caso nos usos que importam, onde os modelos divergem em design, estilo e até julgamento.</p>
+      <p>A tese central: o padrão de uso está mudando. O modo "co-inteligência" — pedir, conferir, pedir o próximo passo — segue útil, mas o trabalho valioso migra para <strong>agentes de longa duração, autocorretivos</strong>, equipados com "harnesses" (ferramentas e ambiente de ação) como os apps de codificação agêntica. Um estudo conjunto de um grande laboratório com economistas acadêmicos mostra a adoção interna acelerada: um quarto dos funcionários mantém pelo menos quatro agentes rodando simultaneamente toda semana — e áreas jurídica, de RH e outras funções não técnicas adotaram agentes quase no mesmo ritmo dos engenheiros.</p>
+      <div class="keybox">
+        <div class="kb-title">O achado mais interessante</div>
+        <ul>
+          <li>Num estudo de usuários de codificação agêntica, a taxa de sucesso de não programadores foi semelhante à de engenheiros de software.</li>
+          <li>O que previu sucesso não foi a profissão, mas a <strong>expertise de domínio</strong>: quanto mais experiência no assunto, mais sucesso — e mais output útil extraído por prompt.</li>
+          <li>Conclusão: saímos de um mundo em que leigos usam chatbots para preencher lacunas para um em que <strong>especialistas usam agentes como gestores</strong> de trabalho delegado.</li>
+        </ul>
+      </div>
+      <p>O fecho é sobre instituições: estar numa exponencial significa que cada intervalo traz um salto maior que o anterior — planos de IA escritos antes do inverno de 2025 descreviam sistemas de duas horas de trabalho com erro alto; meses depois, um único prompt rende 16 horas ou mais. A turbulência (intervenções regulatórias súbitas, oscilações de mercado) não é sinal de campo imaturo prestes a se estabilizar, mas o resultado de <strong>instituições que se movem na velocidade de pessoas e comitês tentando acompanhar uma curva de capacidade que não é humana</strong>. Enquanto a exponencial durar, a distância só aumenta.</p>
+    </div>
+    <a class="backtop" href="#topo">↑ Voltar ao índice</a>
+  </article>
+
+  <article id="jornada">
+    <div class="art-kicker">Macroeconomia do trabalho</div>
+    <h2>Jornada de 44 para 40 horas: o custo estimado sobre o PIB brasileiro</h2>
+    <p class="deck">Modelo de equilíbrio geral com trabalho formal e informal estima perda de 3,5% a 3,7% do PIB no estado estacionário — e mostra que o efeito sobre o emprego formal é ambíguo.</p>
+    <hr class="rule">
+    <div class="cols">
+      <p class="dropcap">O estudo avalia a PEC que reduz a jornada dos celetistas de 44 para 40 horas semanais (de seis para cinco dias), aprovada na Câmara em maio de 2026 e agora no Senado. O grupo diretamente atingido é bem definido: cerca de 40% dos ocupados são celetistas e 85% destes trabalham as 44 horas cheias — ou seja, <strong>aproximadamente 34% do emprego total</strong> enfrenta redução compulsória de horas contratadas.</p>
+      <p>O modelo é de equilíbrio geral real, calibrado com dados brasileiros (PNAD): prêmio salarial formal de 30%, jornada informal média de 48 horas e participação formal de 34%. O parâmetro decisivo é <strong>ρ, a elasticidade de substituição entre trabalho formal e informal</strong> — sem estimativa específica para o Brasil; a evidência mais próxima (México) sugere cerca de 1,8. Três cenários são simulados:</p>
+      <div class="tablewrap">
+        <div class="tbl-title">Impacto estimado no estado estacionário</div>
+        <table>
+          <tr><th>Variável</th><th class="num">ρ = 0,5</th><th class="num">ρ = 1,0</th><th class="num">ρ = 2,0</th></tr>
+          <tr><td>PIB</td><td class="num">−3,5%</td><td class="num">−3,6%</td><td class="num">−3,7%</td></tr>
+          <tr><td>Emprego formal</td><td class="num">+2,3%</td><td class="num">0,0%</td><td class="num">−2,4%</td></tr>
+          <tr><td>Emprego informal</td><td class="num">−1,2%</td><td class="num">0,0%</td><td class="num">+1,3%</td></tr>
+          <tr><td>Salário formal</td><td class="num">−2,1%</td><td class="num">−3,6%</td><td class="num">−5,3%</td></tr>
+          <tr><td>Prêmio salarial</td><td class="num">+2,7%</td><td class="num">0,0%</td><td class="num">−2,9%</td></tr>
+        </table>
+      </div>
+      <p>A perda de PIB é quase idêntica nos três cenários porque, no estado estacionário, o produto é proporcional ao composto de trabalho, dominado pela queda mecânica de ~9% nas horas formais — o capital ajusta proporcionalmente e não amortece o choque. Já a <strong>direção da realocação depende de ρ</strong>: com complementaridade, as firmas contratam mais formais para compensar as horas perdidas; com substituibilidade (o cenário considerado mais relevante para o Brasil), o teto de horas passa a ser vinculante e a reforma <strong>reduz o emprego formal e expande a informalidade</strong> — o oposto da meta de formalização da política trabalhista.</p>
+      <div class="keybox">
+        <div class="kb-title">Ressalvas importantes</div>
+        <ul>
+          <li>Produtividade por hora assumida constante: se jornadas menores elevarem concentração e reduzirem fadiga, o custo real seria menor — podendo, em tese, aproximar-se de zero com ganhos suficientes.</li>
+          <li>Análise estática de estados estacionários: a transição (com capital predeterminado) tende a exibir perdas iniciais maiores; a dinâmica é objeto de trabalho em curso.</li>
+          <li>Sem fricções nominais nem heterogeneidade de trabalhadores; a pressão de custos sobre salários formais poderia exigir resposta do BCB e ampliar o custo de curto prazo.</li>
+        </ul>
+      </div>
+    </div>
+    <a class="backtop" href="#topo">↑ Voltar ao índice</a>
+  </article>
+
+  <footer>
+    Resumo de Leituras · Edição de 5 de julho de 2026
+  </footer>
+
+</div>
+</body>
+</html>
