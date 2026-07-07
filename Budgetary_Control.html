@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Budgetary Control — Resumo por Capítulo</title>
+<style>
+  :root{
+    --bg:#f4f1ea; --paper:#fffdf8; --ink:#2b2620; --muted:#6b6357;
+    --accent:#8a5a2b; --accent2:#c8a15a; --line:#e2dccf; --shadow:rgba(60,45,20,.12);
+  }
+  *{box-sizing:border-box}
+  body{
+    margin:0; font-family:Georgia,'Times New Roman',serif; color:var(--ink);
+    background:var(--bg); line-height:1.65; font-size:17px;
+  }
+  header{
+    background:linear-gradient(135deg,#3a2c18,#5a4326); color:#f6efe2;
+    padding:56px 24px 44px; text-align:center; border-bottom:5px solid var(--accent2);
+  }
+  header .kicker{letter-spacing:.28em; font-size:.72rem; text-transform:uppercase; color:var(--accent2); margin-bottom:14px}
+  header h1{margin:0; font-size:2.5rem; font-weight:700; letter-spacing:.5px}
+  header .author{margin-top:10px; font-style:italic; font-size:1.05rem; color:#e5d8bf}
+  header .meta{margin-top:8px; font-size:.85rem; color:#c9bda2}
+  .wrap{max-width:860px; margin:0 auto; padding:0 22px}
+  .intro{
+    background:var(--paper); border:1px solid var(--line); border-radius:10px;
+    padding:26px 30px; margin:34px auto; box-shadow:0 4px 18px var(--shadow);
+  }
+  .intro h2{margin-top:0; font-size:1.25rem; color:var(--accent)}
+  .toc{
+    background:var(--paper); border:1px solid var(--line); border-radius:10px;
+    padding:22px 28px; margin:0 auto 40px; box-shadow:0 4px 18px var(--shadow);
+  }
+  .toc h2{margin-top:0; font-size:1.15rem; color:var(--accent); border-bottom:2px solid var(--line); padding-bottom:10px}
+  .toc ol{columns:2; column-gap:36px; margin:14px 0 0; padding-left:20px; font-size:.92rem}
+  .toc li{margin-bottom:7px; break-inside:avoid}
+  .toc a{color:var(--ink); text-decoration:none; border-bottom:1px dotted var(--accent2)}
+  .toc a:hover{color:var(--accent)}
+  @media(max-width:620px){.toc ol{columns:1}}
+  .part-label{
+    text-align:center; margin:46px 0 6px; letter-spacing:.2em; text-transform:uppercase;
+    font-size:.75rem; color:var(--accent); font-weight:bold;
+  }
+  .part-label::before,.part-label::after{content:"— "}
+  article.chapter{
+    background:var(--paper); border:1px solid var(--line); border-left:5px solid var(--accent2);
+    border-radius:8px; padding:24px 30px; margin:20px auto; box-shadow:0 3px 14px var(--shadow);
+    scroll-margin-top:20px;
+  }
+  article.chapter h3{
+    margin:0 0 4px; font-size:1.28rem; color:var(--accent);
+  }
+  .chnum{
+    display:inline-block; font-size:.72rem; letter-spacing:.15em; text-transform:uppercase;
+    color:#fff; background:var(--accent); padding:2px 9px; border-radius:20px; vertical-align:middle;
+    margin-right:8px;
+  }
+  .pageref{font-size:.78rem; color:var(--muted); font-style:italic; margin:2px 0 12px}
+  article.chapter p{margin:.5em 0}
+  .keyidea{
+    margin-top:14px; padding:12px 16px; background:#f3ecdd; border-radius:6px;
+    font-size:.9rem; color:#4a4033;
+  }
+  .keyidea strong{color:var(--accent)}
+  footer{
+    text-align:center; padding:40px 20px; color:var(--muted); font-size:.85rem;
+    border-top:1px solid var(--line); margin-top:40px;
+  }
+  .toplink{display:block; text-align:right; font-size:.75rem; margin-top:10px}
+  .toplink a{color:var(--muted); text-decoration:none}
+  .toplink a:hover{color:var(--accent)}
+</style>
+</head>
+<body>
+<header id="top">
+  <div class="kicker">Resumo por Capítulo</div>
+  <h1>Budgetary Control</h1>
+  <div class="author">James O. McKinsey — The Ronald Press Company, 1922</div>
+  <div class="meta">Obra clássica que primeiro tratou o controle orçamentário como um programa integral de administração de empresas · 26 capítulos + 3 apêndices</div>
+</header>
+
+<div class="wrap">
+
+  <section class="intro">
+    <h2>Sobre o livro</h2>
+    <p>Escrito por James O. McKinsey (fundador da consultoria que leva seu nome), este é reconhecido como o primeiro tratado a apresentar o <em>controle orçamentário</em> não como uma ferramenta isolada de governos ou de um departamento específico, mas como um <strong>programa abrangente que coordena todas as funções de um negócio</strong> — vendas, produção, compras, finanças — em torno de um plano único.</p>
+    <p>A tese central: administrar bem exige planejar. O orçamento é o instrumento que traduz os planos de cada departamento em números, força sua coordenação e cria uma base para o controle executivo centralizado, comparando o que foi planejado com o que foi realizado. Cada estimativa departamental alimenta, ao final, o orçamento financeiro e as demonstrações projetadas (balanço e resultado).</p>
+  </section>
+
+  <nav class="toc">
+    <h2>Índice</h2>
+    <ol>
+      <li><a href="#c1">O Significado do Controle Orçamentário</a></li>
+      <li><a href="#c2">A Necessidade do Controle Orçamentário</a></li>
+      <li><a href="#c3">Passos Preliminares na Implantação</a></li>
+      <li><a href="#c4">Organização para o Controle Orçamentário</a></li>
+      <li><a href="#c5">O Orçamento de Vendas</a></li>
+      <li><a href="#c6">O Orçamento de Vendas (cont.)</a></li>
+      <li><a href="#c7">O Orçamento de Despesas de Venda</a></li>
+      <li><a href="#c8">O Orçamento de Publicidade</a></li>
+      <li><a href="#c9">O Orçamento de Produção</a></li>
+      <li><a href="#c10">O Orçamento de Materiais</a></li>
+      <li><a href="#c11">O Orçamento de Mão de Obra</a></li>
+      <li><a href="#c12">O Orçamento de Despesas de Bem-Estar</a></li>
+      <li><a href="#c13">O Orçamento de Despesas de Fabricação</a></li>
+      <li><a href="#c14">O Orçamento de Compras</a></li>
+      <li><a href="#c15">O Orçamento de Compras (cont.)</a></li>
+      <li><a href="#c16">O Orçamento de Instalações e Equipamentos</a></li>
+      <li><a href="#c17">Instalações e Equipamentos (cont.)</a></li>
+      <li><a href="#c18">Os Orçamentos de Despesas</a></li>
+      <li><a href="#c19">O Orçamento Financeiro</a></li>
+      <li><a href="#c20">O Orçamento Financeiro (cont.)</a></li>
+      <li><a href="#c21">O Balanço Patrimonial Projetado</a></li>
+      <li><a href="#c22">A Demonstração de Resultado Projetada</a></li>
+      <li><a href="#c23">Manual de Procedimento Orçamentário</a></li>
+      <li><a href="#c24">Relatórios Administrativos</a></li>
+      <li><a href="#c25">Vantagens e Limitações</a></li>
+      <li><a href="#c26">Controle Orçamentário em Entidades Não Comerciais</a></li>
+      <li><a href="#apx">Apêndices A, B e C</a></li>
+    </ol>
+  </nav>
+
+  <div class="part-label">Parte I · Fundamentos</div>
+
+  <article class="chapter" id="c1">
+    <h3><span class="chnum">Cap. I</span>O Significado do Controle Orçamentário</h3>
+    <div class="pageref">The Meaning of Budgetary Control · p. 3</div>
+    <p>McKinsey abre estabelecendo que o planejamento abrangente é axioma da administração moderna. Ele classifica o planejamento empresarial em três grupos que se sobrepõem: (1) o planejamento das operações de cada departamento isolado — antes chamado vagamente de "engenharia industrial"; (2) a <em>coordenação</em> das operações dos vários departamentos num programa único para o negócio como um todo — isto é o <strong>controle orçamentário</strong>; e (3) a antecipação de condições futuras ligadas ao ciclo econômico — a "previsão" ou <em>forecasting</em>.</p>
+    <p>O livro trata sobretudo do segundo tipo. O autor combate a ideia popular de que orçamento é assunto apenas de governos (cidades, estados, o orçamento federal), argumentando que os mesmos princípios se aplicam igualmente à empresa individual.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> orçamento = coordenação. É o plano que integra vendas, produção e finanças num programa único para toda a empresa.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c2">
+    <h3><span class="chnum">Cap. II</span>A Necessidade do Controle Orçamentário</h3>
+    <div class="pageref">The Need for Budgetary Control · p. 12</div>
+    <p>A demora das empresas em adotar o controle orçamentário decorreria de duas causas: não perceberem sua necessidade, ou não saberem como implantá-lo e operá-lo. Este capítulo trata da primeira; o restante do livro, da segunda.</p>
+    <p>O controle orçamentário é necessário para dois fins: (1) <strong>coordenar</strong> as atividades dos diversos departamentos funcionais e (2) servir de base para o <strong>controle executivo centralizado</strong>. McKinsey descreve como o controle administrativo é exercido na empresa moderna, os problemas que surgem da divisão em departamentos interdependentes e por que um método abrangente de planejamento antecipado é a solução.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> sem coordenação prévia, cada departamento otimiza a si mesmo em prejuízo do todo; o orçamento dá ao executivo uma visão central.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c3">
+    <h3><span class="chnum">Cap. III</span>Passos Preliminares na Implantação</h3>
+    <div class="pageref">Preliminary Steps in Installation · p. 28</div>
+    <p>Muitas empresas que reconhecem a necessidade do orçamento fracassam ao tentar implantá-lo sem formular antes um procedimento abrangente. Executivos tendem a achar que as estimativas departamentais <em>são</em> o essencial e começam a coletar dados de vendas, produção e finanças sem uma metodologia que governe seu preparo e uso — gerando muito dado inútil, custo e a impressão de que orçar é desperdício.</p>
+    <p>McKinsey insiste que certos problemas preliminares precisam ser resolvidos <strong>antes</strong> de iniciar o processo: definir a sequência lógica das etapas, os formulários, as classificações contábeis e o período orçamentário, de modo que nenhuma parte trave por falha de outra.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> defina o procedimento antes de coletar números. A ordem lógica das etapas é o que sustenta o programa.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c4">
+    <h3><span class="chnum">Cap. IV</span>Organização para o Controle Orçamentário</h3>
+    <div class="pageref">Organization for Budgetary Control · p. 43</div>
+    <p>Para garantir a execução do procedimento, é preciso montar uma organização responsável por fazê-lo cumprir — e montá-la <em>antes</em> de iniciar o programa, para que exista responsabilidade fixa. Como o programa orçamentário é tão amplo quanto a própria empresa e envolve todos os departamentos, não convém delegá-lo a um único departamento.</p>
+    <p>McKinsey descreve a estrutura típica: um chefe do programa orçamentário e, sobretudo, um <strong>comitê de orçamento</strong> (reunindo os executivos funcionais) que analisa, harmoniza e aprova as estimativas departamentais, além do apoio dos departamentos de contabilidade e estatística.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> o comitê de orçamento é o órgão que coordena e aprova as estimativas — responsabilidade compartilhada, não de um só departamento.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <div class="part-label">Parte II · Vendas e Marketing</div>
+
+  <article class="chapter" id="c5">
+    <h3><span class="chnum">Cap. V</span>O Orçamento de Vendas</h3>
+    <div class="pageref">The Sales Budget · p. 54</div>
+    <p>O passo inicial do programa orçamentário parte, em geral, do departamento de vendas — porque a venda conclui o processo que gera lucro: até que a venda ocorra, não há lucro realizado. Assim, o volume de vendas estimado condiciona todos os demais orçamentos (produção, materiais, mão de obra, finanças).</p>
+    <p>O capítulo reforça a interdependência dos departamentos e discute a importância de boas informações de vendas — históricos, condições de mercado, capacidade da empresa — como base para a estimativa.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> o orçamento de vendas é o ponto de partida de todo o sistema; é a "válvula" que dimensiona tudo o mais.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c6">
+    <h3><span class="chnum">Cap. VI</span>O Orçamento de Vendas (continuação)</h3>
+    <div class="pageref">The Sales Budget (Continued) · p. 71</div>
+    <p>Trata de <em>quem</em> prepara a estimativa de vendas e <em>como</em>. Não há regra única: depende da organização e dos métodos de venda. Numa loja de departamentos, os gerentes de seção estimam e o gerente de merchandising consolida; numa indústria com vendedores viajantes, cada vendedor estima seu território; numa empresa com filiais, cada filial estima suas vendas.</p>
+    <p>Todas essas estimativas devem ser conferidas e revisadas pela central de vendas, que dispõe de dados mais amplos. Vendedores e filiais devem receber o histórico de suas vendas passadas como base para projetar o futuro.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> estimativas sobem da base (vendedores/filiais) mas são calibradas pela central com dados históricos e de mercado.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c7">
+    <h3><span class="chnum">Cap. VII</span>O Orçamento de Despesas de Venda</h3>
+    <div class="pageref">The Selling Expense Budget · p. 87</div>
+    <p>Um programa de vendas é "sem vida" se considerado isoladamente: declarar o volume desejado não produz as vendas. É preciso uma <em>campanha</em> de vendas, assim como um partido não vence eleição só nomeando candidatos — precisa fazer campanha. A campanha tem duas partes: conhecer as vendas desejadas e possíveis, e um plano para obtê-las ao menor custo.</p>
+    <p>Poucas empresas não poderiam vender mais se aceitassem gastar mais; por isso as vendas só são desejáveis quando geram lucro. O programa de vendas, portanto, não pode ser formulado sem considerar simultaneamente a despesa de venda que ele exige.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> vendas e despesas de venda são inseparáveis — decide-se o volume de vendas junto com o custo para consegui-lo.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c8">
+    <h3><span class="chnum">Cap. VIII</span>O Orçamento de Publicidade</h3>
+    <div class="pageref">The Advertising Budget · p. 106</div>
+    <p>Independentemente de o gerente de publicidade ser subordinado ao de vendas ou chefiar departamento próprio, o programa de publicidade deve ser tratado como <strong>parte do programa de vendas</strong> e a despesa de publicidade como parte da despesa de venda. Publicidade e força de vendas têm o mesmo propósito: obter o máximo de vendas lucrativas ao mínimo custo.</p>
+    <p>Alguns serviços de marketing são executados melhor pela publicidade, outros pela força de vendas. A campanha publicitária deve ser planejada em relação ao trabalho específico que se espera dela dentro do esforço de vendas — por isso o orçamento de publicidade se apresenta dentro do orçamento maior de despesas de venda.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> publicidade não se orça isoladamente; é um componente coordenado do esforço e do orçamento de vendas.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <div class="part-label">Parte III · Produção e Fabricação</div>
+
+  <article class="chapter" id="c9">
+    <h3><span class="chnum">Cap. IX</span>O Orçamento de Produção</h3>
+    <div class="pageref">The Production Budget · p. 124</div>
+    <p>O programa de vendas prevê a entrega de bens/serviços; para executá-lo, esses bens precisam ser produzidos (ou comprados) e entregues no <em>tempo</em> e na <em>quantidade</em> demandados. Isso exige programar a produção de forma a atender à demanda de vendas sem excessos.</p>
+    <p>McKinsey distingue duas classes de indústria do ponto de vista orçamentário: as que fabricam um produto padrão e o mantêm em estoque antecipando a demanda, e as que produzem sob encomenda. A política de produção (produzir para estoque x sob pedido) determina como o orçamento de produção é montado e como se relaciona com o de vendas.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> a produção deve ser programada para casar com as vendas no tempo e na quantidade — nem falta nem estoque ocioso.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c10">
+    <h3><span class="chnum">Cap. X</span>O Orçamento de Materiais</h3>
+    <div class="pageref">The Materials Budget · p. 145</div>
+    <p>Definida a produção do período, estima-se o material necessário. Essa estimativa serve para: o departamento de compras planejar a aquisição no tempo certo; o tesoureiro conhecer os desembolsos prováveis e planejar os fundos; e o comitê de orçamento avaliar as exigências financeiras dos programas de vendas e produção. O orçamento de materiais costuma gerar um dos maiores itens de desembolso do orçamento financeiro e é insumo do balanço e do resultado projetados.</p>
+    <p>As necessidades de material são determinadas por produto, a partir de análises técnicas de quanto de cada material cada produto consome.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> material derivado da produção → alimenta compras, caixa e as demonstrações projetadas.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c11">
+    <h3><span class="chnum">Cap. XI</span>O Orçamento de Mão de Obra</h3>
+    <div class="pageref">The Labor Budget · p. 165</div>
+    <p>Igualmente derivado da produção, o orçamento de mão de obra permite que o departamento de pessoal tenha os trabalhadores disponíveis no momento certo, que o tesoureiro planeje os desembolsos com salários e que o comitê avalie as exigências financeiras. Combina-se com os orçamentos de despesas de venda, materiais e demais desembolsos para mostrar o desembolso total do período.</p>
+    <p>McKinsey enfatiza que a mão de obra precisa ser antecipada com folga: obter uma força de trabalho eficiente não é tarefa fácil — trabalhadores qualificados não se conseguem com uma simples ordem de compra como se faz com materiais.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> pessoas exigem antecedência maior que materiais — o orçamento de mão de obra é também um plano de recrutamento e treinamento.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c12">
+    <h3><span class="chnum">Cap. XII</span>O Orçamento de Despesas de Bem-Estar</h3>
+    <div class="pageref">The Welfare Expense Budget · p. 178</div>
+    <p>Além dos salários, toda empresa incorre em gastos para obter e manter sua força de trabalho. Esses gastos dividem-se em despesa de "bem-estar" (welfare) e despesa administrativa do departamento de pessoal (tratada no Cap. XVIII). Este capítulo cuida da primeira.</p>
+    <p>Grandes firmas industriais e comerciais passaram a dar ênfase a boas condições de trabalho como fator básico de controle do custo de mão de obra — considerando o bem-estar do empregado tanto pela lealdade quanto pela eficiência produtiva, e reconhecendo que saúde e hábitos afetam sua disponibilidade futura como empregado treinado.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> bem-estar do trabalhador é tratado como investimento em eficiência e retenção — e, portanto, orçado.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c13">
+    <h3><span class="chnum">Cap. XIII</span>O Orçamento de Despesas de Fabricação</h3>
+    <div class="pageref">The Manufacturing Expense Budget · p. 188</div>
+    <p>Determinada a produção, estima-se a despesa de fabricação (os "serviços" indiretos — calor, luz, força, supervisão, suprimentos etc.). A estimativa permite aos departamentos responsáveis prover esses serviços a tempo, ao tesoureiro planejar os fundos, e possibilita estabelecer <strong>taxas-padrão de despesa de fabricação</strong> com mais precisão, além de mostrar ao comitê o efeito sobre as demonstrações projetadas.</p>
+    <p>Ponto importante: a despesa de fabricação, somada a materiais e mão de obra, forma o custo estimado de produção. O capítulo também explora a relação entre o volume de produção e a despesa de fabricação (comportamento de custos fixos x variáveis).</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> materiais + mão de obra + despesa de fabricação = custo de produção; e o volume afeta o custo unitário.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <div class="part-label">Parte IV · Compras, Ativos e Despesas</div>
+
+  <article class="chapter" id="c14">
+    <h3><span class="chnum">Cap. XIV</span>O Orçamento de Compras</h3>
+    <div class="pageref">The Purchases Budget · p. 210</div>
+    <p>Enquanto o industrial coordena produção e vendas, o comerciante resolve o mesmo problema de coordenação por meio de um programa de compras. A quantidade a comprar é determinada primariamente pela estimativa de vendas futuras: compra-se para vender. O gerente da loja tem dupla responsabilidade — manter estoque suficiente para atender pedidos e, ao mesmo tempo, evitar acúmulo além da demanda (que imobiliza capital e gera obsolescência).</p>
+    <p>O planejamento de mercadorias segue três passos: estimar as vendas futuras, determinar as compras necessárias e montar um programa de compras que coordene as entregas ao estoque conforme a demanda.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> para o varejo, o orçamento de compras é o análogo do orçamento de produção da indústria.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c15">
+    <h3><span class="chnum">Cap. XV</span>O Orçamento de Compras (continuação)</h3>
+    <div class="pageref">The Purchases Budget (Continued) · p. 228</div>
+    <p>Além de coordenar compras com vendas, é preciso coordenar compras com <strong>finanças</strong> — determinando os desembolsos mensais de pagamento das compras. O orçamento de produtos acabados mostra as entregas ao estoque; do ponto de vista financeiro, importa saber <em>quando</em> os bens entregues serão pagos.</p>
+    <p>Isso depende do volume e das condições de compra. McKinsey ilustra: classificando as compras por prazo (ex.: 2/10, n/30) e usando a experiência passada, estima-se que percentual será pago à vista/no prazo de desconto e quando ocorrerão os desembolsos — informação essencial ao orçamento financeiro.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> compras precisam ser traduzidas em <em>quando o caixa sai</em>, ligando o orçamento de compras ao financeiro.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c16">
+    <h3><span class="chnum">Cap. XVI</span>O Orçamento de Instalações e Equipamentos</h3>
+    <div class="pageref">The Plant and Equipment Budget · p. 245</div>
+    <p>Toda empresa precisa de certo equipamento, cuja natureza e volume dependem do porte e do tipo de operação — a firma profissional usa pouco; a comercial, quantidade limitada; a industrial, muito, geralmente possuindo a própria planta. Assim, grande parte do capital das indústrias está investido em instalações e equipamentos, tornando esses gastos especialmente relevantes.</p>
+    <p>O capítulo classifica os gastos com instalações e equipamentos em grupos (aquisição, ampliação, substituição, reparos/manutenção, depreciação), preparando a base para o orçamento propriamente dito.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> investimentos de capital (CapEx) exigem tratamento orçamentário próprio por seu peso e horizonte longo.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c17">
+    <h3><span class="chnum">Cap. XVII</span>Instalações e Equipamentos (continuação)</h3>
+    <div class="pageref">The Plant and Equipment Budget (Continued) · p. 261</div>
+    <p>Como os dados anteriores se transformam num orçamento que controla os gastos com instalações e equipamentos. Discute-se conteúdo, responsabilidade pela preparação, forma e uso do orçamento.</p>
+    <p>O orçamento costuma mostrar: valor do equipamento no início do período; depreciação e reparos estimados sobre o equipamento existente; custo do novo equipamento (separando fábrica de unidades administrativas/vendas); depreciação e reparos do novo equipamento; totais de depreciação e reparos; e o valor total do equipamento ao final do período.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> o orçamento de CapEx projeta a evolução do imobilizado — valor inicial, adições, depreciação e valor final.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c18">
+    <h3><span class="chnum">Cap. XVIII</span>Os Orçamentos de Despesas</h3>
+    <div class="pageref">The Expense Budgets · p. 273</div>
+    <p>Despesas são incorridas por todos os departamentos (salários de vendedores, material de escritório, luz e força na produção, manutenção, administração geral). Embora individualmente pequenas, somadas absorvem grande parte da receita e frequentemente determinam se o negócio opera com lucro ou prejuízo — já que a margem bruta tende a se igualar entre concorrentes, é no elemento despesa que se explicam as grandes variações de lucro líquido.</p>
+    <p>Por serem incorridas por todos, largamente intangíveis e de itens pequenos, as despesas são difíceis de controlar e tendem a crescer continuamente — o que torna o orçamento de despesas, com estimativas por departamento e comparação mensal com o realizado, uma ferramenta essencial de controle.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> é no controle das despesas (não na margem bruta) que se ganha ou perde o lucro líquido.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <div class="part-label">Parte V · Finanças e Demonstrações Projetadas</div>
+
+  <article class="chapter" id="c19">
+    <h3><span class="chnum">Cap. XIX</span>O Orçamento Financeiro</h3>
+    <div class="pageref">The Financial Budget · p. 295</div>
+    <p>O planejamento financeiro é a essência da administração financeira; sem ele, o sucesso é acidente. As agências de crédito apontam a "falta de capital" como principal causa de falências — falta que, em muitos casos, poderia ter sido evitada se as necessidades financeiras tivessem sido estimadas com antecedência. O erro típico é esperar o capital ser urgentemente necessário para então buscá-lo, quando já não se consegue.</p>
+    <p>O orçamento financeiro reúne todos os orçamentos departamentais (que geram recebimentos e desembolsos) para projetar as necessidades de caixa e planejar como supri-las antecipadamente. McKinsey cita executivos da época para reforçar que dinheiro não se levanta "facilmente" — precisa ser planejado com anos de antecedência.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> antecipar as necessidades de caixa evita a "busca em pânico" por dinheiro — causa nº 1 de falências.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c20">
+    <h3><span class="chnum">Cap. XX</span>O Orçamento Financeiro (continuação)</h3>
+    <div class="pageref">The Financial Budget (Continued) · p. 316</div>
+    <p>Concluídas as estimativas de recebimentos e desembolsos, prepara-se um demonstrativo comparando ambos. Se os desembolsos excedem os recebimentos, a diferença é normalmente coberta por <strong>empréstimos bancários</strong>; se os recebimentos excedem, o excedente reduz empréstimos de períodos anteriores.</p>
+    <p>Ao dimensionar os empréstimos necessários, consideram-se o saldo de caixa inicial e o saldo mínimo desejado ao final — mínimo que pode ser definido pela experiência da firma ou por exigência dos bancos (que costumam requerer saldo proporcional aos empréstimos concedidos). O capítulo mostra o formato de demonstrativo que resume "empréstimos necessários" ou "empréstimos a liquidar".</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> o orçamento de caixa vira um plano de empréstimos — quanto tomar (ou quitar) e quando, respeitando o saldo mínimo.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c21">
+    <h3><span class="chnum">Cap. XXI</span>O Balanço Patrimonial Projetado</h3>
+    <div class="pageref">The Estimated Balance Sheet · p. 333</div>
+    <p>A gestão racional depende de informação precisa e bem apresentada, normalmente na forma de relatórios que resumem e classificam dados. O balanço patrimonial e a demonstração de resultado são os dois relatórios mais familiares e usados pelo executivo.</p>
+    <p>McKinsey mostra como <strong>projetar</strong> o balanço para o fim do período orçamentário a partir de todas as estimativas departamentais — antecipando a posição financeira que resultará se os programas forem executados. Isso permite ao comitê julgar, antes de aprovar, se a estrutura patrimonial projetada (liquidez, endividamento, capital de giro) é aceitável.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> o balanço projetado testa antecipadamente a saúde financeira que os planos vão produzir.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c22">
+    <h3><span class="chnum">Cap. XXII</span>A Demonstração de Resultado Projetada</h3>
+    <div class="pageref">The Estimated Statement of Profit and Loss · p. 359</div>
+    <p>Preparada no mesmo formato da demonstração periódica, a demonstração de resultado projetada classifica-se em: retornos de vendas, custo dos produtos vendidos, despesas operacionais, receitas não operacionais e despesas não operacionais. O capítulo detalha como estimar cada grupo.</p>
+    <p>Exemplo: as vendas brutas vêm da estimativa de vendas; para chegar às vendas líquidas, estimam-se devoluções e abatimentos aplicando sua razão histórica sobre as vendas, ajustada por condições esperadas. Assim se constrói o lucro projetado — o "resultado final" que o comitê usa para julgar a atratividade do programa orçamentário como um todo.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> junto com o balanço projetado, o resultado projetado é o "orçamento geral" que sintetiza e valida todo o plano.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <div class="part-label">Parte VI · Procedimento, Controle e Aplicações</div>
+
+  <article class="chapter" id="c23">
+    <h3><span class="chnum">Cap. XXIII</span>Manual de Procedimento Orçamentário</h3>
+    <div class="pageref">Manual of Budgetary Procedure · p. 374</div>
+    <p>Como o procedimento é complexo e depende da cooperação de todos os executivos funcionais — se uma parte falha, desorganiza o resto —, convém reduzi-lo a forma escrita num <strong>manual</strong>, para que todos os envolvidos o conheçam plenamente.</p>
+    <p>O conteúdo varia conforme o negócio, mas num fabricante o manual costuma cobrir: organização para o controle orçamentário e os procedimentos de cada orçamento (vendas, produção, mão de obra, despesa de fabricação, compras, materiais, instalações, despesas e financeiro), com responsabilidades, prazos e formulários. O capítulo inclui um grande fluxograma (Figura 43) mapeando quem faz o quê e quando.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> formalizar o processo num manual garante prazos, responsabilidades e continuidade do programa.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c24">
+    <h3><span class="chnum">Cap. XXIV</span>Relatórios Administrativos</h3>
+    <div class="pageref">Administrative Reports · p. 396</div>
+    <p>O controle só se completa com relatórios que comparam o realizado ao orçado e realimentam a administração. McKinsey ilustra tipos como o relatório mensal de custos unitários (mostrando volume de produção junto aos custos, já que a quantidade afeta o custo unitário) e o relatório mensal de estoques de fábrica (matérias-primas, produtos em processo e acabados, em quantidade e valor).</p>
+    <p>Ele frisa que os poucos relatórios mostrados são apenas <em>sugestivos</em>: os relatórios de cada empresa devem ser desenhados após estudo cuidadoso de suas operações, organização e métodos administrativos.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> orçar sem relatar é incompleto — o ciclo se fecha comparando planejado × realizado periodicamente.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c25">
+    <h3><span class="chnum">Cap. XXV</span>Vantagens e Limitações do Controle Orçamentário</h3>
+    <div class="pageref">Advantages and Limitations of Budgetary Control · p. 416</div>
+    <p>O capítulo sintetiza os benefícios: coordenação de vendas, produção e finanças (revisando programas para caber na capacidade financeira); controle adequado de despesas (cada chefe estima, o comitê aprova, proíbem-se gastos acima do estimado sem autorização, e há relatórios mensais comparativos); formulação de um programa financeiro (estimando recebimentos e desembolsos mês a mês e planejando cobrir o excesso); e a coordenação de todas as atividades do negócio.</p>
+    <p>McKinsey também reconhece as <strong>limitações</strong>: o orçamento é uma estimativa baseada em condições esperadas, não uma camisa de força; exige revisão quando as premissas mudam; e não substitui o bom julgamento executivo — é um instrumento de administração, não um fim em si.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> o orçamento é ferramenta de coordenação e controle — poderoso, mas dependente de estimativas e do julgamento humano.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="c26">
+    <h3><span class="chnum">Cap. XXVI</span>Controle Orçamentário em Entidades Não Comerciais</h3>
+    <div class="pageref">Budgetary Control for Non-Commercial Enterprises · p. 425</div>
+    <p>Fechando o livro, McKinsey mostra que os princípios se aplicam para além da empresa com fins lucrativos — a entidades não comerciais como governos, instituições, escolas e organizações sem fins lucrativos. Ainda que não busquem lucro, essas organizações precisam coordenar atividades, planejar receitas e despesas e controlar gastos dentro de recursos limitados.</p>
+    <p>O capítulo generaliza a tese central do livro: o controle orçamentário é um método universal de administração planejada, adaptável a qualquer organização que precise coordenar meios e fins.</p>
+    <div class="keyidea"><strong>Ideia-chave:</strong> os princípios orçamentários são universais — servem a qualquer organização, com ou sem fins lucrativos.</div>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+  <article class="chapter" id="apx">
+    <h3><span class="chnum">Apêndices</span>Documentos de Apoio</h3>
+    <div class="pageref">Appendices A, B, C · p. 439–464</div>
+    <p><strong>A — The Budget and Accounting Act (p. 439):</strong> texto da lei federal norte-americana de 1921 que criou o orçamento nacional e o Bureau do Orçamento, exemplo de aplicação dos princípios ao governo federal.</p>
+    <p><strong>B — Administrative Code for the State of Ohio (p. 450):</strong> trecho do código administrativo do estado de Ohio, ilustrando controle orçamentário no nível estadual.</p>
+    <p><strong>C — A Trust Company Budget System (p. 456):</strong> exemplo concreto de sistema orçamentário aplicado a uma empresa financeira (companhia fiduciária).</p>
+    <div class="toplink"><a href="#top">↑ topo</a></div>
+  </article>
+
+</div>
+
+<footer>
+  Resumo por capítulo de <em>Budgetary Control</em> (James O. McKinsey, The Ronald Press Company, 1922).<br>
+  Documento de estudo gerado a partir do PDF original · As citações de página referem-se à numeração do livro.
+</footer>
+</body>
+</html>
