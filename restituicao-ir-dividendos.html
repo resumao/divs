@@ -1,0 +1,580 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Retenção de 10% sobre dividendos — como funciona a restituição</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#EEF0EA;
+    --card:#FCFDFB;
+    --ink:#17251E;
+    --ink-2:#3D4A43;
+    --muted:#6B776F;
+    --rule:#D3D8CD;
+    --rule-soft:#E2E6DC;
+    --defined:#2C6A4A;
+    --defined-bg:#E4EEE7;
+    --pending:#A0640F;
+    --pending-bg:#F2E8D4;
+    --seal:#1F3A2C;
+    --serif:"Newsreader",Georgia,"Times New Roman",serif;
+    --sans:"Inter",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --mono:"IBM Plex Mono","SF Mono",ui-monospace,"Courier New",monospace;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{scroll-behavior:smooth;}
+
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  .wrap{
+    max-width:820px;
+    margin:0 auto;
+    padding:0 22px 90px;
+  }
+
+  /* ---------- Masthead ---------- */
+  header.masthead{
+    padding:54px 0 30px;
+    border-bottom:2px solid var(--ink);
+  }
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.13em;
+    text-transform:uppercase;
+    color:var(--defined);
+    font-weight:600;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 14px;
+    align-items:center;
+  }
+  .eyebrow span.dot{color:var(--rule);}
+  h1{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:40px;
+    line-height:1.12;
+    letter-spacing:-0.01em;
+    margin:20px 0 16px;
+    max-width:16ch;
+  }
+  .lede{
+    font-family:var(--serif);
+    font-size:20px;
+    line-height:1.5;
+    color:var(--ink-2);
+    font-weight:400;
+    margin:0;
+    max-width:60ch;
+  }
+  .lede em{color:var(--defined);font-style:italic;}
+
+  /* ---------- Status legend ---------- */
+  .legend{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px 18px;
+    margin-top:26px;
+    padding-top:22px;
+    border-top:1px solid var(--rule-soft);
+  }
+  .legend-item{
+    display:flex;
+    align-items:center;
+    gap:9px;
+    font-size:13.5px;
+    color:var(--ink-2);
+  }
+  .swatch{
+    width:13px;height:13px;border-radius:3px;flex:none;
+    border:1px solid rgba(0,0,0,0.14);
+  }
+  .swatch.def{background:var(--defined);}
+  .swatch.pend{background:var(--pending);}
+
+  /* ---------- Contents chips ---------- */
+  nav.toc{
+    position:-webkit-sticky;
+    position:sticky;
+    top:0;
+    z-index:5;
+    margin:0 -22px 8px;
+    padding:12px 22px;
+    background:rgba(238,240,234,0.94);
+    -webkit-backdrop-filter:saturate(160%) blur(6px);
+    backdrop-filter:saturate(160%) blur(6px);
+    border-bottom:1px solid var(--rule-soft);
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px;
+  }
+  nav.toc a{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:0.04em;
+    text-decoration:none;
+    color:var(--ink-2);
+    padding:5px 11px;
+    border:1px solid var(--rule);
+    border-radius:100px;
+    background:var(--card);
+    transition:border-color .15s ease,color .15s ease;
+  }
+  nav.toc a:hover,nav.toc a:focus{color:var(--defined);border-color:var(--defined);}
+
+  /* ---------- Callout ---------- */
+  .callout{
+    margin:34px 0 10px;
+    padding:26px 28px;
+    background:var(--card);
+    border:1px solid var(--rule);
+    border-left:4px solid var(--defined);
+    border-radius:10px;
+  }
+  .callout .k{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--defined);
+    font-weight:600;
+    display:block;
+    margin-bottom:10px;
+  }
+  .callout p{margin:0;font-size:18px;line-height:1.6;}
+
+  /* ---------- Sections ---------- */
+  section{padding-top:46px;}
+  .sec-head{
+    display:flex;
+    align-items:baseline;
+    gap:14px;
+    margin-bottom:14px;
+  }
+  .sec-num{
+    font-family:var(--mono);
+    font-size:13px;
+    color:var(--muted);
+    font-weight:500;
+    flex:none;
+    padding-top:4px;
+  }
+  h2{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:27px;
+    line-height:1.2;
+    letter-spacing:-0.01em;
+    margin:0;
+  }
+  .tag{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    font-weight:600;
+    padding:4px 9px;
+    border-radius:6px;
+    white-space:nowrap;
+    align-self:center;
+  }
+  .tag.def{color:var(--defined);background:var(--defined-bg);}
+  .tag.pend{color:var(--pending);background:var(--pending-bg);}
+  .tag .dotmark{width:6px;height:6px;border-radius:50%;background:currentColor;}
+
+  p{margin:0 0 15px;}
+  section p, .callout p{max-width:66ch;}
+
+  .chip{
+    font-family:var(--mono);
+    font-size:0.86em;
+    background:#EBEEE7;
+    color:var(--ink);
+    padding:1px 6px;
+    border-radius:5px;
+    white-space:nowrap;
+  }
+  strong{font-weight:600;color:var(--ink);}
+  a.inline{color:var(--defined);text-decoration:underline;text-underline-offset:2px;}
+
+  /* ---------- Scenario cards ---------- */
+  .cards{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:16px;
+    margin:20px 0 6px;
+  }
+  .scard{
+    background:var(--card);
+    border:1px solid var(--rule);
+    border-radius:10px;
+    padding:22px 22px 24px;
+  }
+  .scard .band{
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.03em;
+    color:var(--defined);
+    font-weight:600;
+    display:block;
+    margin-bottom:4px;
+  }
+  .scard h3{
+    font-family:var(--serif);
+    font-weight:500;
+    font-size:19px;
+    margin:0 0 12px;
+    line-height:1.25;
+  }
+  .scard p{font-size:15.5px;line-height:1.58;margin:0 0 10px;max-width:none;}
+  .scard .verdict{
+    margin-top:14px;
+    padding-top:13px;
+    border-top:1px dashed var(--rule);
+    font-size:14.5px;
+    color:var(--ink-2);
+  }
+  .scard .verdict b{color:var(--defined);}
+
+  /* ---------- Formula ---------- */
+  .formula{
+    margin:18px 0;
+    padding:18px 22px;
+    background:var(--seal);
+    color:#EAF1EC;
+    border-radius:10px;
+    font-family:var(--mono);
+    font-size:15px;
+    line-height:1.7;
+    overflow-x:auto;
+  }
+  .formula .lbl{color:#9DBBAB;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;display:block;margin-bottom:8px;}
+  .formula .note{color:#9DBBAB;font-size:12.5px;margin-top:8px;display:block;}
+
+  /* ---------- Deductions list ---------- */
+  ul.ded{
+    list-style:none;
+    margin:6px 0 4px;
+    padding:0;
+    display:grid;
+    gap:8px;
+  }
+  ul.ded li{
+    position:relative;
+    padding-left:24px;
+    font-size:15.5px;
+    color:var(--ink-2);
+    max-width:64ch;
+  }
+  ul.ded li::before{
+    content:"−";
+    position:absolute;
+    left:4px;top:0;
+    font-family:var(--mono);
+    color:var(--defined);
+    font-weight:600;
+  }
+
+  /* ---------- Timeline (signature) ---------- */
+  .timeline-block{
+    margin:26px 0 6px;
+    padding:26px 24px 20px;
+    background:var(--card);
+    border:1px solid var(--rule);
+    border-radius:12px;
+  }
+  .timeline-block .tl-title{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--muted);
+    margin:0 0 20px;
+  }
+  .tl{
+    display:flex;
+    gap:0;
+    align-items:stretch;
+  }
+  .tl-step{
+    flex:1 1 0;
+    min-width:0;
+    position:relative;
+    padding:0 12px;
+    text-align:center;
+  }
+  .tl-node{
+    width:15px;height:15px;border-radius:50%;
+    background:var(--defined);
+    margin:0 auto 12px;
+    position:relative;
+    z-index:2;
+    border:3px solid var(--card);
+    outline:1px solid var(--defined);
+  }
+  .tl-step.pend .tl-node{background:var(--pending);outline-color:var(--pending);}
+  .tl-line{
+    position:absolute;
+    top:6px;left:50%;right:-50%;
+    height:2px;
+    background:var(--rule);
+    z-index:1;
+  }
+  .tl-step:last-child .tl-line{display:none;}
+  .tl-when{
+    font-family:var(--mono);
+    font-size:12px;
+    font-weight:600;
+    color:var(--ink);
+    display:block;
+    margin-bottom:4px;
+  }
+  .tl-what{
+    font-size:13px;
+    line-height:1.4;
+    color:var(--ink-2);
+  }
+
+  /* ---------- Radar list ---------- */
+  .radar{
+    display:grid;
+    gap:12px;
+    margin-top:16px;
+  }
+  .radar .row{
+    display:flex;
+    gap:14px;
+    align-items:baseline;
+    padding:14px 16px;
+    background:var(--card);
+    border:1px solid var(--rule);
+    border-radius:9px;
+  }
+  .radar .ref{
+    font-family:var(--mono);
+    font-size:12.5px;
+    font-weight:600;
+    color:var(--pending);
+    flex:none;
+    min-width:118px;
+  }
+  .radar .desc{font-size:15px;color:var(--ink-2);line-height:1.5;}
+
+  /* ---------- Footer ---------- */
+  footer{
+    margin-top:56px;
+    padding-top:24px;
+    border-top:1px solid var(--rule);
+    font-size:13.5px;
+    color:var(--muted);
+    line-height:1.6;
+  }
+  footer .seal-line{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    color:var(--ink-2);
+    margin-bottom:12px;
+  }
+  footer p{max-width:70ch;margin:0 0 10px;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:640px){
+    body{font-size:16px;}
+    h1{font-size:30px;}
+    .lede{font-size:18px;}
+    h2{font-size:23px;}
+    .cards{grid-template-columns:1fr;}
+    .tl{flex-direction:column;gap:18px;}
+    .tl-step{text-align:left;padding:0 0 0 26px;}
+    .tl-node{margin:0;position:absolute;left:0;top:2px;}
+    .tl-line{top:15px;left:7px;right:auto;bottom:-18px;width:2px;height:auto;}
+    .tl-step:last-child .tl-line{display:none;}
+    .radar .row{flex-direction:column;gap:5px;}
+    .radar .ref{min-width:0;}
+    nav.toc{overflow-x:auto;flex-wrap:nowrap;}
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<nav class="toc" aria-label="Índice">
+  <a href="#resposta">Resumo</a>
+  <a href="#definido">Já definido</a>
+  <a href="#mecanismo">Mecanismo</a>
+  <a href="#caixa">Efeito de caixa</a>
+  <a href="#pendente">O que falta</a>
+  <a href="#radar">Radar</a>
+</nav>
+
+<div class="wrap">
+
+  <header class="masthead">
+    <div class="eyebrow">
+      <span>Nota técnica</span><span class="dot">/</span>
+      <span>Lei nº 15.270/2025</span><span class="dot">/</span>
+      <span>Julho 2026</span>
+    </div>
+    <h1>Retenção de 10% sobre dividendos: como se dá a restituição</h1>
+    <p class="lede">Quem recebe dividendos acima de <span class="chip">R$ 50.000</span> de uma mesma empresa no mês sofre IRRF de 10%. Esse valor é <em>antecipação</em> — e, se a alíquota efetiva no ano for menor, o excesso volta no ajuste anual. A moldura legal está clara; o detalhamento operacional ainda não.</p>
+
+    <div class="legend">
+      <div class="legend-item"><span class="swatch def"></span> Definido na Lei 15.270/2025</div>
+      <div class="legend-item"><span class="swatch pend"></span> Pendente de regulamentação</div>
+    </div>
+  </header>
+
+  <div class="callout" id="resposta">
+    <span class="k">O essencial</span>
+    <p>O <strong>mecanismo jurídico</strong> já está definido: os 10% retidos são antecipação e, quando a alíquota efetiva anual fica abaixo de 10%, o excesso é restituível na <strong>Declaração de Ajuste Anual de 2027</strong> (ano-calendário 2026), pela sistemática normal do IRPF. O que <strong>ainda não</strong> saiu é o passo a passo operacional — a IN que disciplina o ajuste anual de altas rendas e a própria DAA/2027.</p>
+  </div>
+
+  <section id="definido">
+    <div class="sec-head">
+      <span class="sec-num">01</span>
+      <h2>O que já está definido em lei</h2>
+      <span class="tag def"><span class="dotmark"></span>Definido</span>
+    </div>
+    <p>A retenção decorre do <span class="chip">art. 6º-A</span>: quando o pagamento de dividendos por uma mesma pessoa jurídica à mesma pessoa física supera <span class="chip">R$ 50.000</span> no mês, incidem 10% <strong>sobre o total pago</strong> — não apenas sobre o excedente —, sendo <strong>vedadas quaisquer deduções da base</strong>. Havendo mais de um pagamento no mês, a retenção é recalculada sobre o acumulado.</p>
+    <p>Essa retenção é expressamente tratada como <strong>antecipação do imposto devido no ajuste</strong>. Ou seja: ela não é definitiva — acerta-se contas na declaração do ano seguinte.</p>
+  </section>
+
+  <section id="mecanismo">
+    <div class="sec-head">
+      <span class="sec-num">02</span>
+      <h2>Como o acerto acontece no ajuste</h2>
+      <span class="tag def"><span class="dotmark"></span>Definido</span>
+    </div>
+    <p>No ajuste anual entra o IRPFM (<span class="chip">art. 16-A</span>), a tributação mínima sobre a soma de todos os rendimentos do ano. O resultado depende de onde a renda total de 2026 cair:</p>
+
+    <div class="cards">
+      <div class="scard">
+        <span class="band">Cenário A</span>
+        <h3>Renda anual até R$ 600 mil</h3>
+        <p>Não há IRPFM. O dividendo permanece isento na tabela progressiva comum, e os 10% retidos ficam sem imposto anual a que se imputar.</p>
+        <div class="verdict"><b>Restituição praticamente integral</b> do IRRF retido, pela sistemática normal do IRPF.</div>
+      </div>
+      <div class="scard">
+        <span class="band">Cenário B</span>
+        <h3>Entre R$ 600 mil e R$ 1,2 milhão</h3>
+        <p>Apura-se o IRPFM com alíquota progressiva linear de 0% a 10%. O IRRF de 10% já retido é <strong>deduzido</strong> do IRPFM apurado.</p>
+        <div class="verdict">Quando a alíquota mínima efetiva fica <b>abaixo de 10%</b>, o retido supera o devido — a diferença vira <b>crédito a restituir</b>.</div>
+      </div>
+    </div>
+
+    <div class="formula">
+      <span class="lbl">Alíquota do IRPFM — faixa R$ 600 mil a R$ 1,2 mi</span>
+      alíquota (%) = (rendimento total ÷ 60.000) − 10
+      <span class="note">Em R$ 600.000 → 0%.  Em R$ 1.200.000 → 10%.  A partir de R$ 1,2 mi → 10% fixos.</span>
+    </div>
+
+    <p>Do IRPFM apurado, a lei permite deduzir:</p>
+    <ul class="ded">
+      <li>o IRPF devido na declaração de ajuste anual;</li>
+      <li>o IRRF sobre os dividendos mensais (os 10% retidos na fonte);</li>
+      <li>o IRRF sobre fundos de investimento;</li>
+      <li>o IRRF definitivo, como o incidente sobre JCP.</li>
+    </ul>
+    <p>Se a soma dessas antecipações superar o IRPFM devido, o excesso é restituído.</p>
+  </section>
+
+  <section id="caixa">
+    <div class="sec-head">
+      <span class="sec-num">03</span>
+      <h2>O ponto sensível: efeito de caixa</h2>
+      <span class="tag def"><span class="dotmark"></span>Definido</span>
+    </div>
+    <p>A restituição só se materializa na DAA de 2027. Na prática, o valor retido ao longo de 2026 só retorna no ano seguinte. Pela regra geral do IRPF, a restituição é paga em lotes e corrigida pela Selic a partir da entrega da declaração — mas essa parte segue a sistemática comum, não uma norma específica já publicada para o IRPFM.</p>
+
+    <div class="timeline-block">
+      <p class="tl-title">Linha do tempo do caixa</p>
+      <div class="tl">
+        <div class="tl-step">
+          <span class="tl-line"></span>
+          <div class="tl-node"></div>
+          <span class="tl-when">Jul 2026</span>
+          <span class="tl-what">Retenção de 10% na fonte sobre o dividendo</span>
+        </div>
+        <div class="tl-step">
+          <span class="tl-line"></span>
+          <div class="tl-node"></div>
+          <span class="tl-when">Ano-calendário 2026</span>
+          <span class="tl-what">Fato gerador do IRPFM se acumula</span>
+        </div>
+        <div class="tl-step">
+          <span class="tl-line"></span>
+          <div class="tl-node"></div>
+          <span class="tl-when">2027 · DAA</span>
+          <span class="tl-what">Apuração do IRPFM e imputação do IRRF</span>
+        </div>
+        <div class="tl-step pend">
+          <span class="tl-line"></span>
+          <div class="tl-node"></div>
+          <span class="tl-when">Restituição</span>
+          <span class="tl-what">Excesso devolvido em lotes, corrigido pela Selic</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="pendente">
+    <div class="sec-head">
+      <span class="sec-num">04</span>
+      <h2>O que ainda falta ser definido</h2>
+      <span class="tag pend"><span class="dotmark"></span>Pendente</span>
+    </div>
+    <p>O "como exatamente" na declaração — fichas, campos, forma de imputar o IRRF contra o IRPFM e o tratamento do redutor que limita a carga total (IRPJ/CSLL na PJ somada ao IRPFM na PF) às alíquotas nominais — depende da Instrução Normativa da DAA/2027, historicamente publicada por volta de fevereiro/março do exercício. A própria Receita registrou que a tributação anual de altas rendas <strong>será disciplinada oportunamente</strong>, já que só se aplica na declaração de 2027.</p>
+    <p>Até lá, o que existe é o texto legal somado ao "Perguntas e Respostas" de dezembro de 2025 — mas não um roteiro operacional da restituição.</p>
+  </section>
+
+  <section id="radar">
+    <div class="sec-head">
+      <span class="sec-num">05</span>
+      <h2>No radar — pode mudar o desenho</h2>
+      <span class="tag pend"><span class="dotmark"></span>Pendente</span>
+    </div>
+    <div class="radar">
+      <div class="row">
+        <span class="ref">PL 5.473/2025</span>
+        <span class="desc">Em tramitação, propõe ajustes à Lei 15.270 — inclusive na regra de transição de lucros apurados até 2025.</span>
+      </div>
+      <div class="row">
+        <span class="ref">ADIs no STF</span>
+        <span class="desc">Ações Diretas de Inconstitucionalidade nº 7.912, 7.914 e 7.917 questionam pontos da nova disciplina, entre eles a base de cálculo dos 10%.</span>
+      </div>
+    </div>
+    <p style="margin-top:16px;">Como a primeira DAA a aplicar essas regras é a de 2027, o desenho ainda pode ser alterado por lei ou por decisão judicial antes de valer na prática.</p>
+  </section>
+
+  <footer>
+    <div class="seal-line">Nota técnica · uso interno · base legal Lei nº 15.270/2025</div>
+    <p>Documento de apoio para orientação geral, não constitui aconselhamento fiscal individualizado. A regulamentação do ajuste anual de altas rendas ainda está em aberto e os valores efetivos dependem da apuração completa da renda de 2026. Para decisão concreta sobre o caso pessoal, validar os números com contador ou tributarista.</p>
+  </footer>
+
+</div>
+</body>
+</html>
