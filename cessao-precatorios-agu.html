@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Cessão de Precatórios Federais — Comunicação à AGU · Portaria Normativa 225/2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,700;0,900;1,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#10233f;
+    --ink-soft:#27384f;
+    --gold:#a9822c;
+    --gold-deep:#87692010;
+    --ox:#7f2a24;
+    --paper:#f6f2e8;
+    --paper-2:#efe9db;
+    --card:#fbf9f3;
+    --slate:#54606f;
+    --line:#d9cfb8;
+    --line-soft:#e6ddc9;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{
+    -webkit-text-size-adjust:100%;
+    scroll-behavior:smooth;
+  }
+
+  body{
+    margin:0;
+    background-color:var(--paper);
+    background-image:
+      radial-gradient(circle at 12% -5%, rgba(169,130,44,0.08), rgba(169,130,44,0) 42%),
+      radial-gradient(circle at 92% 4%, rgba(16,35,63,0.06), rgba(16,35,63,0) 40%);
+    color:var(--ink);
+    font-family:Georgia,"Times New Roman",serif;
+    font-size:18px;
+    line-height:1.68;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{
+    max-width:820px;
+    margin:0 auto;
+    padding:0 24px 96px;
+  }
+
+  /* ---------- Top bar ---------- */
+  .topbar{
+    position:-webkit-sticky;
+    position:sticky;
+    top:0;
+    z-index:20;
+    background-color:rgba(16,35,63,0.97);
+    border-bottom:2px solid var(--gold);
+  }
+  .topbar-inner{
+    max-width:820px;
+    margin:0 auto;
+    padding:11px 24px;
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:6px 20px;
+  }
+  .topbar-mark{
+    font-family:"Playfair Display",Georgia,serif;
+    font-weight:700;
+    color:#f6f2e8;
+    letter-spacing:0.02em;
+    font-size:15px;
+    margin-right:auto;
+  }
+  .topbar-mark span{color:var(--gold);}
+  .topnav{
+    display:flex;
+    flex-wrap:wrap;
+    gap:4px 18px;
+  }
+  .topnav a{
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:11.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:#cdd6e2;
+    text-decoration:none;
+    padding:3px 0;
+    border-bottom:1px solid transparent;
+  }
+  .topnav a:hover,.topnav a:focus{
+    color:#fff;
+    border-bottom-color:var(--gold);
+    outline:none;
+  }
+
+  /* ---------- Header ---------- */
+  header.masthead{
+    padding:56px 0 30px;
+    border-bottom:1px solid var(--line);
+  }
+  .eyebrow{
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:12px;
+    letter-spacing:0.32em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:700;
+    margin:0 0 18px;
+  }
+  h1{
+    font-family:"Playfair Display",Georgia,serif;
+    font-weight:900;
+    font-size:40px;
+    line-height:1.1;
+    letter-spacing:-0.01em;
+    margin:0 0 14px;
+    color:var(--ink);
+  }
+  .dek{
+    font-family:"Playfair Display",Georgia,serif;
+    font-style:italic;
+    font-weight:500;
+    font-size:21px;
+    color:var(--ink-soft);
+    margin:0 0 26px;
+    line-height:1.4;
+  }
+  .meta-grid{
+    display:flex;
+    flex-wrap:wrap;
+    gap:0;
+    border-top:1px solid var(--line-soft);
+    border-left:1px solid var(--line-soft);
+  }
+  .meta-cell{
+    flex:1 1 180px;
+    border-right:1px solid var(--line-soft);
+    border-bottom:1px solid var(--line-soft);
+    padding:12px 16px;
+    background-color:var(--card);
+  }
+  .meta-cell .k{
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:10.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--slate);
+    margin:0 0 4px;
+  }
+  .meta-cell .v{
+    font-size:15px;
+    color:var(--ink);
+    line-height:1.35;
+  }
+
+  /* ---------- Lede ---------- */
+  .lede{
+    font-size:19px;
+    line-height:1.66;
+    color:var(--ink-soft);
+    margin:32px 0 8px;
+  }
+  .lede .first{
+    font-family:"Playfair Display",Georgia,serif;
+    font-weight:700;
+  }
+
+  /* ---------- Sections ---------- */
+  section.block{
+    padding-top:52px;
+    scroll-margin-top:78px;
+  }
+  .qnum{
+    font-family:"Playfair Display",Georgia,serif;
+    font-weight:900;
+    font-size:15px;
+    color:var(--gold);
+    letter-spacing:0.04em;
+    display:inline-block;
+    padding:2px 12px 3px;
+    border:1px solid var(--gold);
+    border-radius:2px;
+    margin-bottom:16px;
+  }
+  h2{
+    font-family:"Playfair Display",Georgia,serif;
+    font-weight:700;
+    font-size:29px;
+    line-height:1.18;
+    margin:0 0 8px;
+    color:var(--ink);
+  }
+  h2 .sub{
+    display:block;
+    font-family:Arial,Helvetica,sans-serif;
+    font-weight:400;
+    font-size:12.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--slate);
+    margin-top:10px;
+  }
+  .rule{
+    height:2px;
+    width:64px;
+    background-color:var(--gold);
+    margin:18px 0 24px;
+  }
+  p{margin:0 0 18px;}
+
+  .answer{
+    background-color:var(--card);
+    border-left:4px solid var(--ink);
+    padding:20px 22px;
+    margin:0 0 26px;
+    font-size:18.5px;
+  }
+  .answer strong{color:var(--ox);}
+  .answer .lbl{
+    display:block;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--gold);
+    font-weight:700;
+    margin-bottom:8px;
+  }
+
+  ul.points{
+    list-style:none;
+    margin:0 0 22px;
+    padding:0;
+  }
+  ul.points li{
+    position:relative;
+    padding:0 0 0 26px;
+    margin:0 0 14px;
+  }
+  ul.points li::before{
+    content:"";
+    position:absolute;
+    left:0;
+    top:11px;
+    width:8px;
+    height:8px;
+    background-color:var(--gold);
+    -webkit-transform:rotate(45deg);
+    transform:rotate(45deg);
+  }
+  .ref{
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:12.5px;
+    color:var(--slate);
+    letter-spacing:0.02em;
+    white-space:nowrap;
+  }
+  code.art{
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:13px;
+    background-color:var(--paper-2);
+    border:1px solid var(--line-soft);
+    border-radius:3px;
+    padding:1px 6px;
+    color:var(--ink);
+    white-space:nowrap;
+  }
+
+  /* ---------- Callout ---------- */
+  .callout{
+    border:1px solid var(--line);
+    border-top:3px solid var(--ox);
+    background-color:#fbf7f2;
+    padding:18px 22px;
+    margin:26px 0 4px;
+  }
+  .callout .lbl{
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--ox);
+    font-weight:700;
+    margin:0 0 8px;
+  }
+  .callout p{margin:0;font-size:17px;}
+
+  /* ---------- Table ---------- */
+  .tbl-scroll{
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+    border:1px solid var(--line);
+    margin-top:8px;
+  }
+  table.summary{
+    width:100%;
+    border-collapse:collapse;
+    font-size:16px;
+    min-width:520px;
+  }
+  table.summary th{
+    background-color:var(--ink);
+    color:#f6f2e8;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:11.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    font-weight:700;
+    text-align:left;
+    padding:12px 16px;
+  }
+  table.summary td{
+    padding:14px 16px;
+    border-bottom:1px solid var(--line-soft);
+    vertical-align:top;
+    line-height:1.5;
+  }
+  table.summary tr:last-child td{border-bottom:none;}
+  table.summary td:first-child{
+    font-family:"Playfair Display",Georgia,serif;
+    font-weight:700;
+    color:var(--ink);
+    width:34%;
+  }
+  table.summary tbody tr:nth-child(even) td,
+  table.summary tr:nth-child(even) td{background-color:var(--card);}
+
+  /* ---------- Footer ---------- */
+  footer{
+    margin-top:56px;
+    padding-top:26px;
+    border-top:1px solid var(--line);
+    font-size:14px;
+    color:var(--slate);
+    line-height:1.6;
+  }
+  footer .legal-base{
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:12.5px;
+    letter-spacing:0.02em;
+  }
+  footer .disc{
+    margin-top:14px;
+    font-style:italic;
+    font-size:13px;
+  }
+  .backtop{
+    display:inline-block;
+    margin-top:18px;
+    font-family:Arial,Helvetica,sans-serif;
+    font-size:12px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--ink);
+    text-decoration:none;
+    border-bottom:1px solid var(--gold);
+    padding-bottom:2px;
+  }
+  .backtop:hover,.backtop:focus{color:var(--ox);outline:none;}
+
+  /* ---------- Responsive ---------- */
+  @media (max-width:560px){
+    body{font-size:17px;}
+    h1{font-size:30px;}
+    .dek{font-size:18px;}
+    h2{font-size:24px;}
+    .topbar-mark{font-size:13px;margin-right:0;flex:1 1 100%;}
+    .wrap{padding:0 18px 72px;}
+    header.masthead{padding:40px 0 26px;}
+  }
+
+  @media print{
+    .topbar{display:none;}
+    body{background:#fff;color:#000;font-size:12pt;}
+    .answer,.callout,.meta-cell,.card{background:#fff !important;}
+    a{color:#000;text-decoration:none;}
+    section.block{page-break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="topbar-inner">
+    <div class="topbar-mark">AGU <span>225</span>/2026 · Nota Regulatória</div>
+    <nav class="topnav" aria-label="Seções">
+      <a href="#fonte">Fonte</a>
+      <a href="#momento">Momento</a>
+      <a href="#abrangencia">Abrangência</a>
+      <a href="#quadro">Quadro-resumo</a>
+    </nav>
+  </div>
+</div>
+
+<div class="wrap">
+
+  <header class="masthead" id="topo">
+    <p class="eyebrow">Nota Regulatória · FIDCs de Legal Claims</p>
+    <h1>Cessão de precatórios federais: a comunicação obrigatória à AGU</h1>
+    <p class="dek">Quando comunicar e o que exatamente está abrangido — precatórios expedidos ou também pré-precatórios.</p>
+
+    <div class="meta-grid">
+      <div class="meta-cell">
+        <p class="k">Norma</p>
+        <p class="v">Portaria Normativa AGU nº 225, de 9/6/2026</p>
+      </div>
+      <div class="meta-cell">
+        <p class="k">Publicação</p>
+        <p class="v">DOU 10/6/2026 · Ed. 106, Seção 1, p. 32</p>
+      </div>
+      <div class="meta-cell">
+        <p class="k">Base constitucional</p>
+        <p class="v">Art. 100, § 14, da Constituição Federal</p>
+      </div>
+      <div class="meta-cell">
+        <p class="k">Vigência</p>
+        <p class="v">180 dias após a publicação (≈ 7/12/2026)</p>
+      </div>
+    </div>
+  </header>
+
+  <section class="block" id="fonte">
+    <p class="lede"><span class="first">A norma foi confirmada na fonte primária.</span> A Portaria disciplina a comunicação da cessão de crédito em precatório à União, suas autarquias e fundações públicas, quando estas forem o ente devedor, por meio de petição protocolizada eletronicamente na Advocacia-Geral da União. A comunicação ao Tribunal de origem deixa de ser suficiente: passa a ser exigido o protocolo direto e autônomo junto à AGU. Duas perguntas orientam a leitura prática abaixo.</p>
+  </section>
+
+  <section class="block" id="momento">
+    <span class="qnum">01</span>
+    <h2>Em que momento a comunicação deve ser feita<span class="sub">Resposta curta: não há prazo fixo — é condição de eficácia</span></h2>
+    <div class="rule"></div>
+
+    <div class="answer">
+      <span class="lbl">Direto ao ponto</span>
+      A Portaria <strong>não estabelece prazo</strong> ("X dias após a cessão"). A comunicação é <strong>condição de eficácia e oponibilidade</strong>: enquanto não protocolada na AGU, a cessão <strong>não produz efeitos perante a União</strong> — ainda que já comunicada ao Tribunal de origem.
+    </div>
+
+    <ul class="points">
+      <li>Enquanto não houver comunicação à AGU, a cessão não produz efeitos contra a União, suas autarquias ou fundações públicas, independentemente da comunicação feita ao Tribunal de origem. <span class="ref">— <code class="art">art. 3º, caput</code></span></li>
+      <li>Na prática, deve ser feita <strong>antes de o fundo pretender opor a cessão à União</strong>, sobretudo antes do pagamento do precatório: sem ela, a titularidade do cessionário é inoponível ao ente devedor.</li>
+      <li>A obrigação torna-se exigível a partir da <strong>vigência</strong> — 180 dias após a publicação —, prazo coincidente com o desenvolvimento do sistema eletrônico de protocolo pela AGU. <span class="ref">— <code class="art">art. 6º</code> · <code class="art">art. 8º</code></span></li>
+      <li>Há dever de regularização do <strong>estoque</strong>: cessões anteriores e cessões sucessivas de precatório <em>ainda não pago</em>, ocorridas antes da vigência, também deverão ser comunicadas. <span class="ref">— <code class="art">art. 2º, § único</code></span></li>
+    </ul>
+
+    <div class="callout">
+      <p class="lbl">Risco da inércia</p>
+      <p>O Advogado da União, o Procurador da Fazenda Nacional, o Procurador Federal ou o Procurador do Banco Central poderá arguir em juízo a não produção de efeitos da cessão não comunicada — o que pode comprometer operações concluídas e até pagamentos em curso. <span class="ref">(<code class="art">art. 3º, § único</code>)</span></p>
+    </div>
+  </section>
+
+  <section class="block" id="abrangencia">
+    <span class="qnum">02</span>
+    <h2>Abrangência: precatórios expedidos ou também pré-precatórios?<span class="sub">Resposta curta: somente precatórios efetivamente expedidos e não pagos</span></h2>
+    <div class="rule"></div>
+
+    <div class="answer">
+      <span class="lbl">Direto ao ponto</span>
+      A exigência alcança <strong>somente precatórios efetivamente expedidos (inscritos) e ainda não pagos</strong>. <strong>Não</strong> abrange pré-precatórios nem direitos creditórios judiciais contra a União que ainda não tenham sido convertidos em precatório.
+    </div>
+
+    <ul class="points">
+      <li>Todos os dispositivos operativos falam exclusivamente em <strong>"cessão de crédito em precatório"</strong>. <span class="ref">— <code class="art">arts. 1º, 2º, 3º e 4º</code></span></li>
+      <li>A norma se ancora no <strong>art. 100, § 14, da CF</strong>, que trata especificamente da cessão de precatórios — o requisitório de pagamento já expedido após o trânsito em julgado. A regulamentação não pode extrapolar essa base.</li>
+      <li>O texto <strong>não menciona</strong> "pré-precatório", crédito em fase de conhecimento ou execução, nem direito creditório judicial em sentido amplo.</li>
+      <li>O reforço vem do próprio <code class="art">art. 2º, § único</code>, que fala em "precatório <strong>ainda não pago</strong>" — expressão que pressupõe um precatório já existente e expedido.</li>
+    </ul>
+
+    <div class="callout">
+      <p class="lbl">Ressalva prática para FIDCs de Legal Claims</p>
+      <p>Cessões de créditos ainda em estágio pré-precatório seguem o regime geral de cessão de crédito (notificação ao devedor — art. 290 do Código Civil). O dever específico de comunicar à AGU <strong>nasce quando o crédito se materializa como precatório</strong>. Para o fundo que compra na fase pré-precatório, ao ser expedido o precatório a comunicação passa a ser condição de eficácia perante a União — e, em cadeias sucessivas, todo o histórico não pago precisará ser comunicado.</p>
+    </div>
+  </section>
+
+  <section class="block" id="quadro">
+    <span class="qnum" style="border-color:var(--ink);color:var(--ink);">Síntese</span>
+    <h2>Quadro-resumo</h2>
+    <div class="rule"></div>
+
+    <div class="tbl-scroll">
+      <table class="summary">
+        <thead>
+          <tr>
+            <th scope="col">Aspecto</th>
+            <th scope="col">Definição pela Portaria 225/2026</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Natureza da comunicação</td>
+            <td>Condição de eficácia/oponibilidade perante a União — não é homologação nem reconhecimento do crédito (art. 5º).</td>
+          </tr>
+          <tr>
+            <td>Prazo</td>
+            <td>Não há prazo fixo. Deve ocorrer antes de se opor a cessão à União — em especial, antes do pagamento do precatório.</td>
+          </tr>
+          <tr>
+            <td>Vigência</td>
+            <td>180 dias após a publicação (≈ 7/12/2026), junto com o sistema eletrônico da AGU (arts. 6º e 8º).</td>
+          </tr>
+          <tr>
+            <td>Estoque / retroatividade</td>
+            <td>Cessões anteriores e sucessivas de precatório ainda não pago também devem ser comunicadas (art. 2º, § único).</td>
+          </tr>
+          <tr>
+            <td>Abrangência</td>
+            <td>Apenas crédito em precatório já expedido e não pago. Não alcança pré-precatórios nem créditos judiciais ainda sem precatório.</td>
+          </tr>
+          <tr>
+            <td>Onde comunicar</td>
+            <td>Petição em protocolo eletrônico no site da AGU, com dados de cedente/cessionário, precatório, processo e valor cedido (arts. 2º e 4º).</td>
+          </tr>
+          <tr>
+            <td>Sanção</td>
+            <td>Cessão sem comunicação não produz efeitos; procuradores podem arguir a ineficácia em juízo (art. 3º).</td>
+          </tr>
+          <tr>
+            <td>A monitorar</td>
+            <td>Norma complementar autorizada às Procuradorias-Gerais (art. 7º), ainda não editada.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <a class="backtop" href="#topo">▲ Voltar ao topo</a>
+  </section>
+
+  <footer>
+    <p class="legal-base">Base legal: Portaria Normativa AGU nº 225, de 9/6/2026 (DOU 10/6/2026, Ed. 106, Seção 1, p. 32); art. 100, § 14, da Constituição Federal; Código Civil, art. 290. Processo Administrativo nº 00400.001620/2026-09.</p>
+    <p class="disc">Documento de apoio interno para orientação técnica. Não constitui parecer jurídico definitivo nem recomendação de investimento. A leitura deve considerar a norma complementar prevista no art. 7º, quando editada.</p>
+  </footer>
+
+</div>
+
+</body>
+</html>
