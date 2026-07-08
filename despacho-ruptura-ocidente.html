@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<script>document.documentElement.className += " js";</script>
+<title>A Ruptura do Ocidente — Despacho</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600;9..144,700&family=Spectral:ital,wght@0,400;0,500;0,600;1,400&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --paper:#E7E2D4;
+    --paper-panel:#DED7C4;
+    --ink:#191D26;
+    --ink-soft:#3C424E;
+    --line:rgba(25,29,38,0.16);
+    --line-soft:rgba(25,29,38,0.10);
+    --ox:#8C2B22;       /* acento Parte 1 — a ruptura */
+    --steel:#2C4459;    /* acento Parte 2 — o cálculo */
+    --brass:#8F7430;    /* carimbos e réguas */
+    --display:"Fraunces",Georgia,"Times New Roman",serif;
+    --body:"Spectral",Georgia,"Times New Roman",serif;
+    --mono:"IBM Plex Mono","Courier New",monospace;
+  }
+
+  *{box-sizing:border-box;}
+
+  html{-webkit-text-size-adjust:100%;}
+
+  body{
+    margin:0;
+    background-color:var(--paper);
+    background-image:
+      radial-gradient(circle at 18% 12%, rgba(143,116,48,0.06), rgba(143,116,48,0) 42%),
+      radial-gradient(circle at 88% 78%, rgba(44,68,89,0.05), rgba(44,68,89,0) 46%);
+    color:var(--ink);
+    font-family:var(--body);
+    font-size:19px;
+    line-height:1.62;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  .wrap{
+    width:100%;
+    max-width:760px;
+    margin-left:auto;
+    margin-right:auto;
+    padding-left:24px;
+    padding-right:24px;
+  }
+
+  a{color:inherit;}
+
+  /* ---------- Masthead ---------- */
+  .masthead{
+    border-bottom:1px solid var(--line);
+    padding-top:56px;
+    padding-bottom:40px;
+  }
+  .brandline{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:baseline;
+    justify-content:space-between;
+    gap:10px;
+    font-family:var(--mono);
+    font-size:12px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+  .brandline .mark{
+    color:var(--ox);
+    font-weight:600;
+  }
+  .kicker{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.26em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin-top:38px;
+    margin-bottom:14px;
+  }
+  h1.title{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:58px;
+    line-height:1.02;
+    letter-spacing:-0.015em;
+    margin:0 0 22px 0;
+  }
+  .standfirst{
+    font-size:20.5px;
+    line-height:1.55;
+    color:var(--ink-soft);
+    max-width:38em;
+    margin:0;
+  }
+  .standfirst em{
+    color:var(--ink);
+    font-style:italic;
+  }
+
+  /* ---------- Index / nav ---------- */
+  .index{
+    position:-webkit-sticky;
+    position:sticky;
+    top:0;
+    z-index:20;
+    background-color:var(--paper);
+    border-bottom:1px solid var(--line);
+  }
+  .index .wrap{
+    display:flex;
+    flex-wrap:wrap;
+    align-items:center;
+    gap:8px 26px;
+    padding-top:13px;
+    padding-bottom:13px;
+  }
+  .index .navlabel{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.24em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-right:4px;
+  }
+  .index a.jump{
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.05em;
+    text-decoration:none;
+    color:var(--ink);
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+    cursor:pointer;
+  }
+  .index a.jump:hover,
+  .index a.jump:focus{
+    border-bottom-color:var(--ink);
+    outline:none;
+  }
+  .index a.jump .n{ color:var(--brass); }
+
+  /* ---------- Sections ---------- */
+  main{ padding-bottom:20px; }
+
+  .part{
+    padding-top:64px;
+    padding-bottom:56px;
+    scroll-margin-top:64px;
+  }
+
+  .part-tab{
+    display:inline-flex;
+    align-items:baseline;
+    gap:12px;
+    font-family:var(--mono);
+    font-size:12.5px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    padding:7px 14px;
+    border:1px solid var(--accent);
+    color:var(--accent);
+    border-radius:2px;
+  }
+  .part-tab .big{
+    font-size:14px;
+    font-weight:600;
+  }
+
+  .part-dateline{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    margin-top:20px;
+  }
+
+  h2.part-title{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:40px;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+    margin:14px 0 0 0;
+    max-width:20em;
+  }
+  h2.part-title .accented{ color:var(--accent); }
+
+  .part-lede{
+    font-size:20px;
+    color:var(--ink-soft);
+    margin:20px 0 0 0;
+    max-width:36em;
+  }
+
+  /* key points */
+  .keypoints{
+    margin:34px 0 8px 0;
+    padding:24px 26px;
+    background-color:var(--paper-panel);
+    border-left:3px solid var(--accent);
+    border-radius:2px;
+  }
+  .keypoints .kp-title{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--accent);
+    margin:0 0 14px 0;
+  }
+  .keypoints ul{
+    margin:0;
+    padding:0;
+    list-style:none;
+  }
+  .keypoints li{
+    position:relative;
+    padding-left:26px;
+    margin-bottom:12px;
+    font-size:17.5px;
+    line-height:1.5;
+  }
+  .keypoints li:last-child{ margin-bottom:0; }
+  .keypoints li::before{
+    content:"—";
+    position:absolute;
+    left:0;
+    top:0;
+    color:var(--accent);
+    font-family:var(--mono);
+  }
+
+  h3.sub{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:24px;
+    letter-spacing:-0.005em;
+    margin:44px 0 4px 0;
+  }
+  h3.sub .tag{
+    display:block;
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--accent);
+    font-weight:500;
+    margin-bottom:8px;
+  }
+
+  .part p{ margin:16px 0; }
+  .part p .lead-in{
+    font-variant:small-caps;
+    letter-spacing:0.02em;
+    font-weight:600;
+  }
+
+  blockquote.pull{
+    margin:34px 0;
+    padding:6px 0 6px 26px;
+    border-left:3px solid var(--accent);
+    font-family:var(--display);
+    font-weight:500;
+    font-style:italic;
+    font-size:26px;
+    line-height:1.3;
+    color:var(--ink);
+  }
+  blockquote.pull cite{
+    display:block;
+    margin-top:12px;
+    font-family:var(--mono);
+    font-style:normal;
+    font-size:11.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+  }
+
+  /* ---------- Fault line (assinatura) ---------- */
+  .faultline{
+    position:relative;
+    height:120px;
+    overflow:hidden;
+  }
+  .faultline svg{
+    display:block;
+    width:100%;
+    height:100%;
+  }
+  .faultline .flabel{
+    position:absolute;
+    top:50%;
+    left:50%;
+    margin-top:-13px;
+    margin-left:-90px;
+    width:180px;
+    text-align:center;
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.28em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    background-color:var(--paper);
+    padding:4px 0;
+  }
+
+  /* ---------- State of play ---------- */
+  .state{
+    margin-top:8px;
+    padding-top:52px;
+    padding-bottom:60px;
+    border-top:1px solid var(--line);
+  }
+  .state .kicker{ color:var(--ox); margin-top:0; }
+  .state h2{
+    font-family:var(--display);
+    font-weight:600;
+    font-size:32px;
+    margin:10px 0 18px 0;
+  }
+  .state p{ margin:14px 0; }
+  .state .tally{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:18px;
+    margin-top:30px;
+  }
+  .state .cell{
+    padding:20px 20px;
+    background-color:var(--paper-panel);
+    border-radius:2px;
+    border-top:2px solid var(--brass);
+  }
+  .state .cell h4{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.2em;
+    text-transform:uppercase;
+    color:var(--brass);
+    margin:0 0 10px 0;
+  }
+  .state .cell p{
+    margin:0;
+    font-size:16.5px;
+    line-height:1.5;
+    color:var(--ink-soft);
+  }
+
+  footer{
+    border-top:1px solid var(--line);
+    padding-top:26px;
+    padding-bottom:60px;
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    display:flex;
+    flex-wrap:wrap;
+    justify-content:space-between;
+    gap:10px;
+  }
+
+  /* load fade */
+  /* animação só é aplicada quando o JS está ativo; sem JS, tudo aparece */
+  .js .fadein{ opacity:0; transform:translateY(10px); }
+  .js .fadein.shown{
+    opacity:1;
+    transform:translateY(0);
+    transition:opacity 0.7s ease, transform 0.7s ease;
+  }
+
+  @media (max-width:600px){
+    body{ font-size:18px; }
+    h1.title{ font-size:40px; }
+    h2.part-title{ font-size:30px; }
+    blockquote.pull{ font-size:22px; }
+    .state .tally{ grid-template-columns:1fr; }
+    .wrap{ padding-left:18px; padding-right:18px; }
+  }
+
+  @media (prefers-reduced-motion:reduce){
+    .js .fadein{ opacity:1; transform:none; }
+    .js .fadein.shown{ transition:none; }
+    html{ scroll-behavior:auto; }
+  }
+</style>
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="wrap">
+      <div class="brandline">
+        <span class="mark">Despacho</span>
+        <span>Dossiê · Ordem Internacional</span>
+        <span>7 de julho de 2026</span>
+      </div>
+      <p class="kicker">Investigação em duas partes</p>
+      <h1 class="title">A Ruptura do Ocidente</h1>
+      <p class="standfirst">Reconstituição, a partir de reuniões a portas fechadas, avaliações de inteligência e anotações de participantes, de como a mais sólida aliança do pós-guerra começou a se partir — e de como o Canadá, empurrado à condição de alvo, virou uma peça improvável na tentativa europeia de <em>reduzir a dependência dos Estados Unidos</em>.</p>
+    </div>
+  </header>
+
+  <nav class="index" aria-label="Índice">
+    <div class="wrap">
+      <span class="navlabel">Índice</span>
+      <a class="jump" href="#parte-1"><span class="n">01</span> &nbsp;A rebelião dos líderes</a>
+      <a class="jump" href="#parte-2"><span class="n">02</span> &nbsp;O canadense</a>
+      <a class="jump" href="#estado"><span class="n">→</span> &nbsp;Onde as coisas estão</a>
+    </div>
+  </nav>
+
+  <main>
+
+    <!-- ============ PARTE 1 ============ -->
+    <section class="part fadein" id="parte-1" style="--accent:var(--ox);">
+      <div class="wrap">
+        <span class="part-tab"><span class="big">Parte 1</span> · Dossiê</span>
+        <p class="part-dateline">Despacho de 5 de julho · Bruxelas</p>
+        <h2 class="part-title">"Não há caminho de volta": a história interna da <span class="accented">rebelião europeia</span></h2>
+        <p class="part-lede">Tarifas e ameaças sobre a Groenlândia detonaram uma revolta dos principais líderes do continente — e expuseram os limites da "diplomacia da bajulação".</p>
+
+        <div class="keypoints">
+          <p class="kp-title">Pontos-chave</p>
+          <ul>
+            <li>Uma reunião de emergência em janeiro, perto da meia-noite, com quase 30 chefes de governo, foi lembrada como "noite de terapia": todos vieram sozinhos, sem celulares, para falar com franqueza sobre uma possível ruptura com os Estados Unidos.</li>
+            <li>O estopim foi a ameaça de tomar a Groenlândia da Dinamarca, dias após a retirada do homem forte da Venezuela. Soldados franceses e forças especiais dinamarquesas chegaram a se preparar para um cenário de confronto armado com a América.</li>
+            <li>A estratégia dominante até então — agradar o presidente com elogios e concessões — passou a ruir. Avaliações de inteligência descreviam Washington como imprevisível e centrada em "um único indivíduo volátil".</li>
+            <li>A pergunta que ninguém queria fazer em voz alta: no seu 250º ano, os Estados Unidos, protetores da Europa, teriam se tornado uma ameaça?</li>
+          </ul>
+        </div>
+
+        <h3 class="sub"><span class="tag">A noite de terapia</span>Uma linha foi traçada</h3>
+        <p>Passava das onze da noite em Bruxelas quando os líderes europeus entraram na quinta hora de uma reunião de emergência com um único tema: como administrar um divórcio com a América. O ano tinha três semanas. Ao redor da mesa circular da sede do Conselho Europeu — apelidada de "O Ovo Espacial" —, quase trinta presidentes e primeiros-ministros desabafaram de forma tão emocional que alguns chamariam o encontro de "noite de terapia". Sem câmeras, sem gravações, cada um convocado a comparecer sozinho.</p>
+        <p><span class="lead-in">"Estamos traçando uma linha aqui"</span>, abriu o presidente francês, retomando um argumento que vinha pressionando havia anos: a excessiva dependência europeia dos Estados Unidos era um risco de segurança. "Não há caminho de volta", disse. Um grupo de líderes reclamou que a administração americana parecia mais interessada em acordos de mineração e energia do que no papel tradicional do país no mundo. A Europa correria o risco de virar "uma escrava miserável" dos EUA, resmungou o premiê belga.</p>
+        <p>A primeira-ministra italiana discordou, dizendo à sala de líderes mais à esquerda que, por mais que não gostassem do presidente americano, ainda era possível argumentar com ele. Meses depois, após ataques aéreos americanos ao Irã dispararem o preço dos combustíveis no continente, ela reviu a avaliação: ele "não é razoável".</p>
+
+        <blockquote class="pull">
+          "O Canadá está dizendo abertamente o que nós deveríamos fazer."
+          <cite>— o primeiro-ministro da Espanha, sobre Mark Carney</cite>
+        </blockquote>
+
+        <p>Um homem ausente da sala foi citado várias vezes: o novo primeiro-ministro do Canadá, que vinha enviando mensagens aos principais líderes europeus por um número de telefone britânico, insistindo que "a velha América não vai voltar". Na esteira de um discurso contundente em Davos, seus argumentos ganhavam terreno.</p>
+
+        <h3 class="sub"><span class="tag">O experimento</span>Desamericanização</h3>
+        <p>Os aliados começaram a acelerar um experimento inédito de redução da dependência americana. De Paris à Holanda, governos passaram a remover tecnologia dos EUA em silêncio, adotar software europeu de código aberto e desencorajar o uso de ferramentas como Microsoft Teams e Office. Tardiamente, mobilizaram centenas de bilhões de dólares para impulsionar empresas europeias de espaço, inteligência artificial e data centers, evitando depender dos gigantes americanos.</p>
+        <p>Nações cujos impérios um dia abrangeram o globo passaram a estudar onde armazenariam seus dados, como processariam seus pagamentos em caso de atrito com Washington e — a pergunta mais desconfortável — se o armamento de fabricação americana funcionaria sem autorização dos EUA. Uma avaliação do sul da Europa era direta: não se tratava de uma administração com processos, mas de um único indivíduo volátil. O serviço secreto britânico chegou a instruir sua equipe a não tocar no assunto do presidente com os colegas da CIA.</p>
+
+        <h3 class="sub"><span class="tag">O "sussurrador de Trump"</span>Dê a ele uma vitória</h3>
+        <p>Um ano antes, o secretário-geral da OTAN havia proposto a fórmula que se tornaria sua estratégia central: dar ao presidente uma vitória. Sugeriu uma meta de gastos com defesa de 3,5% do PIB — acima dos 2% então alcançados, abaixo dos 5% que o americano exigia. A "diplomacia da bajulação" se espalhou: líderes passaram a imitar a sintaxe do presidente em mensagens, a decidir quais palavras escrever em maiúsculas e a devolver a ele seus próprios termos — chamando um cessar-fogo de "parar as mortes", e sanções de "tarifas".</p>
+        <p><span class="lead-in">Nas visitas à Casa Branca</span>, o roteiro nem sempre funcionava. Durante uma videochamada, frustrado com um problema técnico, o presidente arremessou um tablet por cima da mesa. O chanceler alemão, por outro lado, encontrou um anfitrião "normal" — que o levou a uma saleta repleta de bonés e caixas de sapatos de propaganda e o convidou a "pegar o que quisesse".</p>
+        <p>A pressão só cresceu. Em abril, o novo embaixador americano na OTAN levou a Bruxelas um recado: 3,5% não bastava — a meta seria 5% até 2035, a ser assumida na cúpula de junho. Depois de horas de negociação, quase todos cederam; a Espanha resistiu por 54 horas até que se concordou em discordar, com direito a um "caminho soberano" próprio. Na cúpula de Haia, os líderes revezaram-se em elogios a portas fechadas ao presidente que ameaçara abandonar a aliança. "Havia risos na sala, mas mascaravam uma ansiedade profunda", resumiu o então premiê da Bulgária.</p>
+
+        <h3 class="sub"><span class="tag">Retornos decrescentes</span>O limite da bajulação</h3>
+        <p>Em meados de agosto, uma cúpula no Alasca entre os presidentes americano e russo fez soar novos alarmes. O americano saiu de lá cético quanto às chances da Ucrânia e atraído por um plano russo em termos mais próximos de Moscou. Seis líderes europeus, mais os chefes da OTAN e da Comissão Europeia, foram à Casa Branca elogiar sua força como negociador — enquanto ele, de outra sala, ligava para o presidente russo por quarenta minutos. Foi "uma experiência excruciante", disse um presente, sinal de quão pouca influência os aliados mais próximos exerciam, mesmo em bloco. O veredito da inteligência britânica: a bajulação estava "sujeita à lei dos retornos decrescentes".</p>
+      </div>
+    </section>
+
+    <!-- ============ FAULT LINE ============ -->
+    <div class="faultline" role="separator" aria-label="Transição entre a Parte 1 e a Parte 2">
+      <svg viewBox="0 0 760 120" preserveAspectRatio="none" aria-hidden="true">
+        <defs>
+          <linearGradient id="rift" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#8C2B22"/>
+            <stop offset="1" stop-color="#2C4459"/>
+          </linearGradient>
+        </defs>
+        <path d="M0,60 L150,60 L182,34 L214,74 L250,48 L300,66 L340,30 L372,88 L410,52 L452,70 L492,40 L540,64 L580,44 L620,72 L660,54 L700,60 L760,60"
+              fill="none" stroke="url(#rift)" stroke-width="2"/>
+      </svg>
+      <span class="flabel">Da emoção ao cálculo</span>
+    </div>
+
+    <!-- ============ PARTE 2 ============ -->
+    <section class="part fadein" id="parte-2" style="--accent:var(--steel);">
+      <div class="wrap">
+        <span class="part-tab"><span class="big">Parte 2</span> · Dossiê</span>
+        <p class="part-dateline">Despacho de 7 de julho · Ottawa / Bruxelas</p>
+        <h2 class="part-title">O canadense que <span class="accented">afastou a Europa</span> dos Estados Unidos</h2>
+        <p class="part-lede">Sob a ameaça de virar o "51º estado", um ex-banqueiro central sem passado eleitoral tornou-se figura central de um projeto para remodelar a aliança ocidental.</p>
+
+        <div class="keypoints">
+          <p class="kp-title">Pontos-chave</p>
+          <ul>
+            <li>Mark Carney chegou ao poder na reação à conversa sobre anexar o Canadá. Encomendou uma revisão sigilosa sobre o quanto o país dependia de um único vizinho em dados, armamento, pagamentos e até alimentos.</li>
+            <li>Sua tese: o Ocidente funcionava como uma roda, com os EUA no centro. Canadá e Europa precisariam construir uma "densa teia de conexões" que não dependesse demais de nenhum país isolado.</li>
+            <li>Dois dias após assumir, foi à França — não a Washington. Chamou o Canadá de "o mais europeu dos países não europeus" e passou a articular com líderes que conhecia do mundo das finanças.</li>
+            <li>Um tuíte com a bandeira americana sobre a Groenlândia funcionou como alarme de incêndio na Europa e empurrou uma massa crítica de líderes para a leitura que ele vinha defendendo.</li>
+          </ul>
+        </div>
+
+        <h3 class="sub"><span class="tag">A origem do alvo</span>"Você vira o número 51"</h3>
+        <p>A escalada começou com ameaças. Em conversas telefônicas privadas, o presidente americano chegou a ameaçar rasgar o acordo de 1908 que delimita a fronteira comum — "eu rasgo isso e o seu país inteiro se desfaz", teria dito ao antecessor de Carney. Num jantar em Mar-a-Lago, quando um assessor observou que os 41 milhões de canadenses tenderiam a votar nos democratas, veio a solução: dividir o vizinho do norte em dois estados, um vermelho, outro azul.</p>
+        <p>Foi nesse clima que Carney assumiu e encomendou uma revisão delicada, que discutiria a sós com seus assessores mais próximos, no gabinete ou a bordo do avião oficial: quão dependente era o Canadá de um único país para armazenamento de dados, equipamento militar, processamento de pagamentos e até comida? Era a primeira tentativa de resolver um enigma que passaria a atormentar governos dos dois lados do Atlântico.</p>
+
+        <h3 class="sub"><span class="tag">Um radical improvável</span>O banqueiro que virou premiê</h3>
+        <p>Primeiro premiê nascido nos Territórios do Noroeste, formado por Harvard, Oxford e Goldman Sachs, primeiro estrangeiro a comandar o Banco da Inglaterra, Carney era o retrato da elite global contra a qual o presidente americano fizera campanha. Mantinha dois celulares — um canadense, outro britânico, herança de seus anos em Londres. Da crise da dívida europeia tirara uma lição duradoura: a economia global, desenhada para a eficiência, tornara-se perigosamente dependente de um único ponto frágil — a América e o dólar.</p>
+        <p>Como líder do Canadá, ele levaria uma versão ampliada desse argumento aos aliados mais próximos dos EUA. Dois dias depois de assumir, foi a Paris, não a Washington. Ao lado do presidente francês, chamou o Canadá de "o mais europeu dos países não europeus". Num almoço privado, os dois trocaram ideias sobre como reduzir a dependência da América — o Canadá tinha os minerais críticos de que a França precisava para suas apostas em IA e computação quântica.</p>
+
+        <blockquote class="pull">
+          "Nós não temos uma relação para preservar!"
+          <cite>— Carney, a um premiê que insistia em salvar o vínculo com os EUA</cite>
+        </blockquote>
+
+        <p>Em Londres, a recepção foi mais contida: o premiê britânico se alinhava à aposta de manter o presidente americano por perto à base de deferência. Uma ideia de unir forças caso os EUA deixassem a aliança de inteligência dos "Cinco Olhos" não vingou — a esmagadora maioria dos dados vinha de Washington. Ainda assim, uma coautora britânica de uma revisão estratégica considerava improvável a permanência americana no longo prazo, comparando o presidente ao líder soviético que enfraqueceu a potência que pretendia fortalecer.</p>
+
+        <h3 class="sub"><span class="tag">O lance da Groenlândia</span>O alarme de incêndio</h3>
+        <p>No início de janeiro, horas antes da captura do ditador venezuelano, o presidente americano estava pensativo: "Se eu tivesse mais tempo, faria a Groenlândia." Dias depois, um único tuíte — a palavra "EM BREVE" sobre uma bandeira americana cobrindo a ilha — funcionou como alarme de incêndio pela Europa. Testou a paciência do continente com a estratégia de concessões e empurrou uma massa crítica de líderes para a leitura que Carney vinha alertando: um país disposto a usar seu domínio como arma contra aliados.</p>
+        <p>Na Dinamarca, a inteligência de defesa concluiu que o emprego de força militar — mesmo contra aliados — "não estava mais descartado". Numa reunião em Paris dos apoiadores da Ucrânia, os líderes se juntaram sob os lustres para discutir a Groenlândia; a premiê dinamarquesa repetia que aquilo era "sobre solidariedade europeia em tempo de crise". Uma assessora escreveu um bilhete ao seu chefe: não podemos mais contar com a América — "tudo o que temos é o direito internacional". Enquanto diplomatas em Bruxelas se perguntavam se a aliança estava se despedaçando, Carney rumava à China para selar uma "nova parceria estratégica".</p>
+
+        <h3 class="sub"><span class="tag">Davos</span>"Nostalgia não é estratégia"</h3>
+        <p>Em Pequim, Carney assistia às notícias da Groenlândia e preparava seu discurso de Davos — um dia antes do discurso do presidente americano — como um balde de água fria. A visita à China correu bem: tarifas agrícolas menores em troca da entrada de 49 mil carros elétricos chineses. "Aceitamos o mundo como ele é", disse, "não como gostaríamos que fosse." Numa escala em Doha, acordou às quatro da manhã e escreveu o discurso em duas horas.</p>
+        <p>Em Davos, a plateia se levantou para aplaudir seu chamado para que as nações ocidentais enfrentassem as grandes potências ou "estariam no cardápio". Sem citar os EUA, ele foi mais longe do que qualquer líder ocidental ao definir um manifesto contra o estilo do presidente americano: não se pode viver na mentira do benefício mútuo quando a integração vira a fonte da própria subordinação. "Ingratos", reclamou o presidente americano. Àquela altura, o secretário-geral da OTAN fechava um acordo áspero para evitar uma guerra comercial — e o presidente recuou da ameaça de usar força na Groenlândia, embora tivesse um recado: "O Canadá vive por causa dos Estados Unidos. Lembre-se disso, Mark."</p>
+
+        <h3 class="sub"><span class="tag">Ganhar tempo</span>A manobra em dois passos</h3>
+        <p>O plano europeu evoluiu para uma manobra delicada: manter os EUA engajados na OTAN pelo maior tempo possível enquanto, ao mesmo tempo, recuava-se da dependência de décadas em tecnologia, poder militar e comércio — tudo sem provocar Washington. "A solução exigia ganhar tempo", resumiu um dos premiês presentes. Os aliados aceleraram investimentos em espaço, defesa, computação quântica e sistemas de pagamento. Diante dos milhares de satélites que já transportavam comunicações governamentais sensíveis, a Europa antecipou o lançamento de sua própria constelação.</p>
+        <p>O Canadá entrou num fundo europeu de defesa de 150 bilhões de euros e lançou, com a Alemanha, uma aliança de tecnologia soberana. A França ordenou que 2,5 milhões de servidores substituíssem Teams e Zoom por uma plataforma nacional; vários países passaram a desencorajar o uso de mensageiros americanos em assuntos oficiais. "O tempo dos avisos acabou", disse uma vice-ministra francesa. "Agora é hora de fazer." Corria à boca miúda uma piada entre autoridades de segurança: se o presidente americano cumprisse a ameaça de deixar a OTAN, dada a geografia do Canadá, a aliança ao menos poderia manter o nome — Organização do Tratado do Atlântico Norte.</p>
+      </div>
+    </section>
+
+    <!-- ============ STATE OF PLAY ============ -->
+    <section class="state fadein" id="estado">
+      <div class="wrap">
+        <p class="kicker">Onde as coisas estão</p>
+        <h2>Um casamento sem amor que ninguém quer, ainda, dissolver</h2>
+        <p>Ninguém entrou com os papéis do divórcio, e figuras importantes dos dois lados trabalham para manter a relação de pé. Desfazer os laços seria um empreendimento colossal — e há um paradoxo no centro da história: o Canadá, que estimula a Europa a se proteger de uma América mais imprevisível, é um dos países mais dependentes dos Estados Unidos no planeta. A cúpula da aliança militar ocidental nesta semana testa a disposição dos líderes de preservar um símbolo do poder do Ocidente em meio a uma desconfiança mútua crescente.</p>
+        <div class="tally">
+          <div class="cell">
+            <h4>A aposta da bajulação</h4>
+            <p>Manter os EUA engajados na aliança à base de elogios e vitórias simbólicas — uma estratégia com retornos cada vez menores.</p>
+          </div>
+          <div class="cell">
+            <h4>A aposta da autonomia</h4>
+            <p>Construir capacidade própria em defesa, tecnologia e pagamentos, aceitando o custo de centenas de bilhões para depender menos de Washington.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="wrap" style="display:flex; flex-wrap:wrap; justify-content:space-between; gap:10px; width:100%; max-width:760px; padding-left:0; padding-right:0;">
+      <span>Despacho · Síntese editorial</span>
+      <span>Investigação em duas partes</span>
+    </div>
+  </footer>
+
+<script>
+(function(){
+  "use strict";
+
+  // Navegação clicável robusta (funciona em visualizadores em sandbox)
+  function jumpTo(id){
+    var el = document.getElementById(id);
+    if(!el){ return; }
+    var reduce = false;
+    if(window.matchMedia){
+      reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    }
+    if(el.scrollIntoView){
+      el.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "start" });
+    } else {
+      window.location.hash = id;
+    }
+  }
+
+  var links = document.querySelectorAll("a.jump");
+  var i;
+  for(i = 0; i < links.length; i++){
+    (function(link){
+      link.addEventListener("click", function(ev){
+        var href = link.getAttribute("href") || "";
+        if(href.charAt(0) === "#"){
+          ev.preventDefault();
+          jumpTo(href.slice(1));
+        }
+      });
+    })(links[i]);
+  }
+
+  // Revelação suave ao rolar (com fallback: se não houver suporte, tudo aparece)
+  var reveals = document.querySelectorAll(".fadein");
+  function showAll(){
+    var k;
+    for(k = 0; k < reveals.length; k++){
+      reveals[k].classList.add("shown");
+    }
+  }
+
+  if("IntersectionObserver" in window){
+    var obs = new IntersectionObserver(function(entries){
+      var j;
+      for(j = 0; j < entries.length; j++){
+        if(entries[j].isIntersecting){
+          entries[j].target.classList.add("shown");
+          obs.unobserve(entries[j].target);
+        }
+      }
+    }, { threshold: 0.08 });
+    var m;
+    for(m = 0; m < reveals.length; m++){
+      obs.observe(reveals[m]);
+    }
+    // rede de segurança: em alguns visualizadores o observador não dispara
+    window.setTimeout(showAll, 1200);
+  } else {
+    showAll();
+  }
+})();
+</script>
+</body>
+</html>
