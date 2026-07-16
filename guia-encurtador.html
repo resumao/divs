@@ -116,7 +116,7 @@
       <li>Vá em <code>Workers &amp; Pages</code> &rarr; <code>Create</code>.</li>
       <li>Escolha <code>Start with Hello World!</code> &rarr; <code>Deploy</code>.</li>
       <li>Dê um nome &mdash; ele vira parte do seu link
-        (no seu caso: <code>noticias</code> &rarr; <span class="path">noticias.resumo-br.workers.dev</span>).</li>
+        (no seu caso: <code>0</code> &rarr; <span class="path">0.resumo-br.workers.dev</span>).</li>
     </ul>
   </div>
  
@@ -133,11 +133,16 @@
       <li>Digite um apelido curto (só minúsculas, números e hífen) e salve.</li>
     </ul>
     <div class="callout" style="margin:10px 0 0;">
-      <b>Atenção:</b> esse apelido é da <b>conta inteira</b> &mdash; afeta todos os seus Workers e
-      normalmente só pode ser mudado <b>uma vez</b>. Escolha as duas partes pra lerem bem juntas,
-      <b>sem repetir</b>: <span class="path">link.noticias-br.workers.dev</span> (bom) em vez de
-      <span class="path">noticias.noticias-br.workers.dev</span> (repetido). A parte da esquerda
-      (nome do Worker) é fácil de trocar depois; a do meio (apelido da conta) é a que fica.
+      <b>Atenção &mdash; escolha com cuidado:</b> esse apelido é da <b>conta inteira</b> (afeta todos
+      os seus Workers) e o Cloudflare normalmente permite <b>trocar só uma vez</b>. Depois disso ele
+      costuma ficar travado (aparece &ldquo;Account already has an associated subdomain&rdquo;), e só
+      mudaria abrindo chamado no suporte ou criando outra conta. Ou seja: praticamente definitivo.
+      <br><br>
+      Escolha as duas partes pra lerem bem juntas, <b>sem repetir</b>:
+      <span class="path">link.noticias-br.workers.dev</span> (bom) em vez de
+      <span class="path">noticias.noticias-br.workers.dev</span> (repetido). Já a parte da esquerda
+      (nome do Worker) é fácil de trocar depois &mdash; veja a seção
+      &ldquo;Trocar o nome do Worker&rdquo; no fim deste guia.
     </div>
   </div>
  
@@ -471,14 +476,14 @@ if (SENHA) { entrar(); }
  
   <div class="callout green">
     <b>Pronto! 🎉</b> Seu encurtador está no ar em
-    <span class="path">noticias.resumo-br.workers.dev</span> &mdash; o painel fica em
-    <span class="path">noticias.resumo-br.workers.dev/admin</span>.
+    <span class="path">0.resumo-br.workers.dev</span> &mdash; o painel fica em
+    <span class="path">0.resumo-br.workers.dev/admin</span>.
   </div>
  
   <h2>Como usar no dia a dia</h2>
   <div class="use">
     <ol>
-      <li>Abra <span class="path">noticias.resumo-br.workers.dev/admin</span> no navegador.</li>
+      <li>Abra <span class="path">0.resumo-br.workers.dev/admin</span> no navegador.</li>
       <li>Digite a senha que você criou no Passo 6 (o <code>ADMIN_PASSWORD</code>).</li>
       <li>Cole a URL da notícia e toque em <b>Encurtar</b>.
         <br><span class="sub">Opcional: preencha um código personalizado, ex: <code>iran</code>,
@@ -502,6 +507,37 @@ if (SENHA) { entrar(); }
     </ol>
     <p class="sub">Nada no código muda &mdash; o <code>/admin</code> e os links passam a
     funcionar no domínio novo também.</p>
+  </div>
+ 
+  <h2>Trocar o nome do Worker (parte da esquerda)</h2>
+  <div class="use">
+    <p>O nome do Worker (ex: <code>noticias</code> em
+    <span class="path">noticias.resumo-br.workers.dev</span>) <b>não tem botão de renomear</b> no
+    painel. Para trocar, você cria um Worker novo com o nome desejado e liga o <b>mesmo</b> banco KV
+    &mdash; assim <b>seus links continuam funcionando</b>, porque ficam guardados no KV, não no Worker.</p>
+    <div class="callout" style="border-left-color:var(--red);margin:12px 0;">
+      <b>Antes de trocar:</b> qualquer link que você já <b>compartilhou</b> no nome antigo
+      (<span class="path">noticias.resumo-br.workers.dev/...</span>) vai <b>parar de abrir</b>, porque
+      a parte da esquerda muda. Só troque se ainda não espalhou links por aí.
+    </div>
+    <ol>
+      <li><code>Workers &amp; Pages</code> &rarr; <code>Create</code> &rarr;
+        <code>Start with Hello World!</code> &rarr; digite o <b>nome novo</b> &rarr; <code>Deploy</code>.</li>
+      <li>Abra o Worker novo &rarr; <code>Edit code</code> &rarr; apague o exemplo &rarr;
+        cole o mesmo código (botão <b>Copiar código</b> do Passo 4) &rarr; <code>Deploy</code>.</li>
+      <li>Aba <code>Bindings</code> &rarr; <code>Add binding</code> &rarr; <code>KV namespace</code> &rarr;
+        Variable name <code>LINKS</code> &rarr; selecione o <b>mesmo</b> namespace <code>LINKS</code>
+        de antes &rarr; <code>Add Binding</code>.
+        <br><span class="sub">É este passo que preserva os links já criados.</span></li>
+      <li><code>Settings</code> &rarr; <code>Variables and secrets</code> &rarr; <code>Add</code> &rarr;
+        tipo <code>Secret</code> &rarr; <code>ADMIN_PASSWORD</code> &rarr; a mesma senha &rarr;
+        <code>Deploy</code>.</li>
+      <li>Teste <span class="path">nome-novo.resumo-br.workers.dev/admin</span> com a senha.</li>
+      <li>Funcionando, apague o antigo: <code>Workers &amp; Pages</code> &rarr; o Worker antigo &rarr;
+        <code>Settings</code> &rarr; role até o fim &rarr; <code>Delete</code>.</li>
+    </ol>
+    <p class="sub">Obs: o <b>apelido da conta</b> (parte do meio, ex: <code>resumo-br</code>) continua
+    o mesmo &mdash; recriar o Worker só muda a parte da esquerda.</p>
   </div>
  
   <footer>
