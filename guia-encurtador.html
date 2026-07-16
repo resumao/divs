@@ -31,6 +31,8 @@
   .step .n{position:absolute;left:14px;top:16px;width:30px;height:30px;border-radius:50%;
     background:linear-gradient(135deg,var(--brand),var(--brand2));color:#111;font-weight:700;
     display:flex;align-items:center;justify-content:center;font-size:15px;}
+  .step.opt{border-style:dashed;}
+  .step.opt .n{background:linear-gradient(135deg,var(--blue),#7dd3fc);color:#062a3a;}
   .step h3{margin:.1rem 0 .4rem;font-size:1.08rem;}
   .step p{margin:.35rem 0;}
   .step ul{margin:.4rem 0;padding-left:20px;}
@@ -71,14 +73,14 @@
     <h1>Seu encurtador no Cloudflare</h1>
     <p class="sub">Passo a passo pelo celular ou computador &mdash; sem terminal, 100% grátis</p>
   </header>
-
+ 
   <div class="callout">
     <b>Por que ter o seu?</b> Encurtadores grátis ganham dinheiro embrulhando seu link
     em anúncio (Bitly), afiliado (TinyURL/viglink) ou tela de &ldquo;redirecionando&rdquo;.
     O seu faz um redirecionamento <b>puro</b>: o clique vai direto pra notícia, sem nada
     que o bloqueador de anúncios possa barrar.
   </div>
-
+ 
   <div class="callout blue">
     <b>Antes de começar, tenha em mãos:</b>
     <span class="pill">Conta grátis no Cloudflare</span>
@@ -86,16 +88,16 @@
     <br>Você vai copiar o código do <b>Passo 4</b> aqui mesmo (tem um botão). Faça tudo no
     navegador, em <span class="path">dash.cloudflare.com</span>.
   </div>
-
+ 
   <h2>Montagem (uma vez só)</h2>
-
+ 
   <div class="step">
     <div class="n">1</div>
     <h3>Criar conta / entrar</h3>
     <p>Abra <span class="path">dash.cloudflare.com</span> e crie a conta gratuita
     (ou entre, se já tiver).</p>
   </div>
-
+ 
   <div class="step">
     <div class="n">2</div>
     <h3>Criar o banco de dados (KV)</h3>
@@ -106,7 +108,7 @@
     </ul>
     <p class="sub">É aqui que seus links ficam guardados.</p>
   </div>
-
+ 
   <div class="step">
     <div class="n">3</div>
     <h3>Criar o Worker</h3>
@@ -117,7 +119,28 @@
         (ex: <code>noticias</code> &rarr; <span class="path">noticias.SEU-USUARIO.workers.dev</span>).</li>
     </ul>
   </div>
-
+ 
+  <div class="step opt">
+    <div class="n">&#9733;</div>
+    <h3>Deixar o link com a sua cara <span class="pill">opcional</span></h3>
+    <p>O endereço tem <b>duas partes</b> que você escolhe:</p>
+    <p><span class="path">[nome-do-worker].[apelido-da-conta].workers.dev/codigo</span></p>
+    <ul>
+      <li>Volte à página principal de <code>Workers &amp; Pages</code>
+        (menu <code>Compute</code> &rarr; <code>Workers</code>).</li>
+      <li>Procure a seção <code>Subdomain</code> &mdash; pode estar na aba <code>Domains</code>
+        &mdash; e clique em <code>Change</code> ao lado do apelido atual.</li>
+      <li>Digite um apelido curto (só minúsculas, números e hífen) e salve.</li>
+    </ul>
+    <div class="callout" style="margin:10px 0 0;">
+      <b>Atenção:</b> esse apelido é da <b>conta inteira</b> &mdash; afeta todos os seus Workers e
+      normalmente só pode ser mudado <b>uma vez</b>. Escolha as duas partes pra lerem bem juntas,
+      <b>sem repetir</b>: <span class="path">link.noticias-br.workers.dev</span> (bom) em vez de
+      <span class="path">noticias.noticias-br.workers.dev</span> (repetido). A parte da esquerda
+      (nome do Worker) é fácil de trocar depois; a do meio (apelido da conta) é a que fica.
+    </div>
+  </div>
+ 
   <div class="step">
     <div class="n">4</div>
     <h3>Colar o código do encurtador</h3>
@@ -139,27 +162,27 @@
 // Bindings esperados (ver wrangler.toml):
 //   - LINKS            -&gt; KV Namespace (armazena os links)
 //   - ADMIN_PASSWORD   -&gt; Secret (senha do painel)
-
+ 
 const RESERVADOS = new Set([&quot;admin&quot;, &quot;api&quot;, &quot;favicon.ico&quot;, &quot;robots.txt&quot;, &quot;&quot;]);
 const ALFABETO = &quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&quot;;
-
+ 
 export default {
   async fetch(request, env) {
     const url = new URL(request.url);
     const path = decodeURIComponent(url.pathname.slice(1)); // sem a &quot;/&quot; inicial
-
+ 
     // Painel de administração
     if (path === &quot;admin&quot;) {
       return new Response(PAGINA_ADMIN, {
         headers: { &quot;content-type&quot;: &quot;text/html; charset=utf-8&quot; },
       });
     }
-
+ 
     // API (tudo protegido por senha)
     if (path === &quot;api/links&quot; || path.startsWith(&quot;api/links/&quot;)) {
       return tratarApi(request, env, path);
     }
-
+ 
     // Página inicial
     if (path === &quot;&quot;) {
       return new Response(
@@ -167,7 +190,7 @@ export default {
         { headers: { &quot;content-type&quot;: &quot;text/plain; charset=utf-8&quot; } }
       );
     }
-
+ 
     // Redirecionamento de um link curto
     const destino = await env.LINKS.get(`link:${path}`);
     if (destino) {
@@ -177,16 +200,16 @@ export default {
       env.LINKS.put(`link:${path}`, JSON.stringify(meta));
       return Response.redirect(meta.url, 301);
     }
-
+ 
     return new Response(&quot;Link não encontrado.&quot;, {
       status: 404,
       headers: { &quot;content-type&quot;: &quot;text/plain; charset=utf-8&quot; },
     });
   },
 };
-
+ 
 // ---------- API ----------
-
+ 
 async function tratarApi(request, env, path) {
   // Autenticação: header Authorization: Bearer &lt;senha&gt;
   const auth = request.headers.get(&quot;Authorization&quot;) || &quot;&quot;;
@@ -194,7 +217,7 @@ async function tratarApi(request, env, path) {
   if (!env.ADMIN_PASSWORD || enviada !== env.ADMIN_PASSWORD) {
     return json({ erro: &quot;Não autorizado&quot; }, 401);
   }
-
+ 
   // GET /api/links  -&gt; lista todos
   if (path === &quot;api/links&quot; &amp;&amp; request.method === &quot;GET&quot;) {
     const lista = await env.LINKS.list({ prefix: &quot;link:&quot; });
@@ -209,7 +232,7 @@ async function tratarApi(request, env, path) {
     itens.sort((a, b) =&gt; (b.criadoEm || 0) - (a.criadoEm || 0));
     return json({ links: itens });
   }
-
+ 
   // POST /api/links  -&gt; cria um link
   if (path === &quot;api/links&quot; &amp;&amp; request.method === &quot;POST&quot;) {
     let corpo;
@@ -218,7 +241,7 @@ async function tratarApi(request, env, path) {
     } catch {
       return json({ erro: &quot;JSON inválido&quot; }, 400);
     }
-
+ 
     let destino = (corpo.url || &quot;&quot;).trim();
     if (!/^https?:\/\//i.test(destino)) destino = &quot;https://&quot; + destino;
     try {
@@ -226,7 +249,7 @@ async function tratarApi(request, env, path) {
     } catch {
       return json({ erro: &quot;URL inválida&quot; }, 400);
     }
-
+ 
     let codigo = (corpo.codigo || &quot;&quot;).trim();
     if (codigo) {
       if (!/^[a-zA-Z0-9_-]+$/.test(codigo)) {
@@ -240,22 +263,22 @@ async function tratarApi(request, env, path) {
     } else {
       codigo = await gerarCodigo(env);
     }
-
+ 
     const meta = { url: destino, criadoEm: Date.now(), cliques: 0 };
     await env.LINKS.put(`link:${codigo}`, JSON.stringify(meta));
     return json({ codigo, ...meta });
   }
-
+ 
   // DELETE /api/links/:codigo  -&gt; apaga
   if (path.startsWith(&quot;api/links/&quot;) &amp;&amp; request.method === &quot;DELETE&quot;) {
     const codigo = path.slice(&quot;api/links/&quot;.length);
     await env.LINKS.delete(`link:${codigo}`);
     return json({ ok: true });
   }
-
+ 
   return json({ erro: &quot;Rota não encontrada&quot; }, 404);
 }
-
+ 
 async function gerarCodigo(env) {
   for (let tentativa = 0; tentativa &lt; 8; tentativa++) {
     let codigo = &quot;&quot;;
@@ -267,16 +290,16 @@ async function gerarCodigo(env) {
   // fallback improvável
   return &quot;z&quot; + Date.now().toString(36);
 }
-
+ 
 function json(dados, status = 200) {
   return new Response(JSON.stringify(dados), {
     status,
     headers: { &quot;content-type&quot;: &quot;application/json; charset=utf-8&quot; },
   });
 }
-
+ 
 // ---------- Painel HTML ----------
-
+ 
 const PAGINA_ADMIN = `&lt;!DOCTYPE html&gt;
 &lt;html lang=&quot;pt-BR&quot;&gt;
 &lt;head&gt;
@@ -308,7 +331,7 @@ const PAGINA_ADMIN = `&lt;!DOCTYPE html&gt;
 &lt;/head&gt;
 &lt;body&gt;
 &lt;h1&gt;🔗 Meu encurtador&lt;/h1&gt;
-
+ 
 &lt;div id=&quot;login&quot;&gt;
   &lt;p&gt;Digite a senha do painel:&lt;/p&gt;
   &lt;div class=&quot;row&quot;&gt;
@@ -317,7 +340,7 @@ const PAGINA_ADMIN = `&lt;!DOCTYPE html&gt;
   &lt;/div&gt;
   &lt;p id=&quot;loginMsg&quot; class=&quot;err&quot;&gt;&lt;/p&gt;
 &lt;/div&gt;
-
+ 
 &lt;div id=&quot;painel&quot; class=&quot;hidden&quot;&gt;
   &lt;div class=&quot;card&quot;&gt;
     &lt;strong&gt;Novo link&lt;/strong&gt;
@@ -333,16 +356,16 @@ const PAGINA_ADMIN = `&lt;!DOCTYPE html&gt;
   &lt;/div&gt;
   &lt;div id=&quot;lista&quot;&gt;&lt;/div&gt;
 &lt;/div&gt;
-
+ 
 &lt;script&gt;
 let SENHA = sessionStorage.getItem(&quot;senha&quot;) || &quot;&quot;;
 const base = location.origin + &quot;/&quot;;
-
+ 
 async function api(caminho, opcoes = {}) {
   opcoes.headers = Object.assign({ &quot;Authorization&quot;: &quot;Bearer &quot; + SENHA }, opcoes.headers || {});
   return fetch(&quot;/api/&quot; + caminho, opcoes);
 }
-
+ 
 async function entrar() {
   SENHA = document.getElementById(&quot;senha&quot;).value;
   const r = await api(&quot;links&quot;);
@@ -355,12 +378,12 @@ async function entrar() {
   document.getElementById(&quot;painel&quot;).classList.remove(&quot;hidden&quot;);
   carregar();
 }
-
+ 
 function sair() {
   sessionStorage.removeItem(&quot;senha&quot;);
   location.reload();
 }
-
+ 
 async function criar() {
   const url = document.getElementById(&quot;url&quot;).value.trim();
   const codigo = document.getElementById(&quot;codigo&quot;).value.trim();
@@ -378,17 +401,17 @@ async function criar() {
   document.getElementById(&quot;codigo&quot;).value = &quot;&quot;;
   carregar();
 }
-
+ 
 async function apagar(codigo) {
   if (!confirm(&quot;Apagar o link /&quot; + codigo + &quot;?&quot;)) return;
   await api(&quot;links/&quot; + encodeURIComponent(codigo), { method: &quot;DELETE&quot; });
   carregar();
 }
-
+ 
 async function copiar(texto) {
   try { await navigator.clipboard.writeText(texto); } catch {}
 }
-
+ 
 async function carregar() {
   const r = await api(&quot;links&quot;);
   const d = await r.json();
@@ -411,7 +434,7 @@ async function carregar() {
     &#x27;&lt;/div&gt;&#x27;;
   }).join(&quot;&quot;);
 }
-
+ 
 if (SENHA) { entrar(); }
 &lt;/script&gt;
 &lt;/body&gt;
@@ -419,7 +442,7 @@ if (SENHA) { entrar(); }
 </textarea>
     </div>
   </div>
-
+ 
   <div class="step">
     <div class="n">5</div>
     <h3>Ligar o banco (KV) ao Worker</h3>
@@ -431,7 +454,7 @@ if (SENHA) { entrar(); }
       <li>Toque em <code>Deploy</code>.</li>
     </ul>
   </div>
-
+ 
   <div class="step">
     <div class="n">6</div>
     <h3>Definir a senha do painel</h3>
@@ -443,12 +466,12 @@ if (SENHA) { entrar(); }
       <li>Toque em <code>Deploy</code>.</li>
     </ul>
   </div>
-
+ 
   <div class="callout green">
     <b>Pronto! 🎉</b> Seu encurtador está no ar. A URL exata aparece na aba
     <code>Overview</code> do Worker.
   </div>
-
+ 
   <h2>Como usar no dia a dia</h2>
   <div class="use">
     <ol>
@@ -462,7 +485,7 @@ if (SENHA) { entrar(); }
     <p class="sub">Cada link mostra quantos cliques recebeu. Dá pra apagar quando quiser.
     Salve o endereço <code>/admin</code> nos favoritos pra abrir rápido.</p>
   </div>
-
+ 
   <h2>Opcional: link mais curto com domínio próprio</h2>
   <div class="use">
     <p>Sem domínio, o link é <span class="path">algo.workers.dev/abc</span> &mdash; funciona
@@ -477,15 +500,15 @@ if (SENHA) { entrar(); }
     <p class="sub">Nada no código muda &mdash; o <code>/admin</code> e os links passam a
     funcionar no domínio novo também.</p>
   </div>
-
+ 
   <footer>
     Plano grátis do Cloudflare: 100.000 acessos/dia no Worker e 1.000 gravações/dia no KV.
     De sobra para um resumo de notícias diário.
   </footer>
 </div>
-
+ 
 <div class="toast" id="toast">Código copiado ✓</div>
-
+ 
 <script>
 function copiarCodigo(){
   var t=document.getElementById('codigo');
