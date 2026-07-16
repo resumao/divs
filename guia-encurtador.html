@@ -116,7 +116,7 @@
       <li>Vá em <code>Workers &amp; Pages</code> &rarr; <code>Create</code>.</li>
       <li>Escolha <code>Start with Hello World!</code> &rarr; <code>Deploy</code>.</li>
       <li>Dê um nome &mdash; ele vira parte do seu link
-        (ex: <code>noticias</code> &rarr; <span class="path">noticias.SEU-USUARIO.workers.dev</span>).</li>
+        (no seu caso: <code>noticias</code> &rarr; <span class="path">noticias.resumo-br.workers.dev</span>).</li>
     </ul>
   </div>
  
@@ -447,11 +447,13 @@ if (SENHA) { entrar(); }
     <div class="n">5</div>
     <h3>Ligar o banco (KV) ao Worker</h3>
     <ul>
-      <li>No Worker, vá em <code>Settings</code> &rarr; <code>Bindings</code> &rarr; <code>Add</code>.</li>
+      <li>No Worker, abra a aba <code>Bindings</code> (no topo, ao lado de <code>Overview</code>,
+        <code>Metrics</code>, <code>Deployments</code>).</li>
+      <li>Clique em <code>Add binding</code> (botão azul, à direita).</li>
       <li>Escolha <code>KV namespace</code>.</li>
       <li>Em &ldquo;Variable name&rdquo;, digite exatamente <code>LINKS</code> (maiúsculas).</li>
       <li>No dropdown, selecione o namespace <code>LINKS</code> do Passo 2.</li>
-      <li>Toque em <code>Deploy</code>.</li>
+      <li>Salve / <code>Deploy</code>.</li>
     </ul>
   </div>
  
@@ -468,15 +470,16 @@ if (SENHA) { entrar(); }
   </div>
  
   <div class="callout green">
-    <b>Pronto! 🎉</b> Seu encurtador está no ar. A URL exata aparece na aba
-    <code>Overview</code> do Worker.
+    <b>Pronto! 🎉</b> Seu encurtador está no ar em
+    <span class="path">noticias.resumo-br.workers.dev</span> &mdash; o painel fica em
+    <span class="path">noticias.resumo-br.workers.dev/admin</span>.
   </div>
  
   <h2>Como usar no dia a dia</h2>
   <div class="use">
     <ol>
-      <li>Abra <span class="path">SEU-WORKER.SEU-USUARIO.workers.dev/admin</span> no navegador.</li>
-      <li>Digite a senha que você criou no Passo 6.</li>
+      <li>Abra <span class="path">noticias.resumo-br.workers.dev/admin</span> no navegador.</li>
+      <li>Digite a senha que você criou no Passo 6 (o <code>ADMIN_PASSWORD</code>).</li>
       <li>Cole a URL da notícia e toque em <b>Encurtar</b>.
         <br><span class="sub">Opcional: preencha um código personalizado, ex: <code>iran</code>,
         pro link ficar <span class="path">.../iran</span>.</span></li>
