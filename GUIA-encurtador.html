@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Como montar seu encurtador no Cloudflare</title>
+<style>
+  :root{
+    --bg:#0f172a; --card:#1e293b; --card2:#273449; --ink:#e2e8f0; --muted:#94a3b8;
+    --brand:#f6821f; --brand2:#fbad41; --blue:#38bdf8; --green:#22c55e; --red:#f87171;
+    --line:#334155; --radius:14px;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.6;}
+  .wrap{max-width:760px;margin:0 auto;padding:20px 16px 64px;}
+  header{text-align:center;padding:16px 0 8px;}
+  .logo{font-size:44px;line-height:1;}
+  h1{font-size:1.55rem;margin:.4rem 0 .2rem;}
+  .sub{color:var(--muted);margin:0 0 8px;}
+  .callout{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--brand);
+    border-radius:var(--radius);padding:14px 16px;margin:18px 0;}
+  .callout.blue{border-left-color:var(--blue);}
+  .callout.green{border-left-color:var(--green);}
+  .callout b{color:#fff;}
+  h2{font-size:1.05rem;color:var(--muted);text-transform:uppercase;letter-spacing:.05em;
+    margin:34px 0 6px;}
+  .step{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);
+    padding:16px 16px 16px 58px;margin:14px 0;position:relative;}
+  .step .n{position:absolute;left:14px;top:16px;width:30px;height:30px;border-radius:50%;
+    background:linear-gradient(135deg,var(--brand),var(--brand2));color:#111;font-weight:700;
+    display:flex;align-items:center;justify-content:center;font-size:15px;}
+  .step h3{margin:.1rem 0 .4rem;font-size:1.08rem;}
+  .step p{margin:.35rem 0;}
+  .step ul{margin:.4rem 0;padding-left:20px;}
+  .step li{margin:.25rem 0;}
+  code,.kbd{background:var(--card2);border:1px solid var(--line);border-radius:6px;
+    padding:1px 6px;font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.9em;
+    color:var(--brand2);white-space:nowrap;}
+  .path{color:var(--blue);}
+  .codewrap{margin:12px 0 4px;}
+  .codebar{display:flex;justify-content:space-between;align-items:center;gap:8px;
+    background:var(--card2);border:1px solid var(--line);border-bottom:none;
+    border-radius:10px 10px 0 0;padding:8px 12px;}
+  .codebar span{color:var(--muted);font-size:.85rem;}
+  button.copy{background:linear-gradient(135deg,var(--brand),var(--brand2));color:#111;
+    border:none;border-radius:8px;padding:8px 14px;font-weight:700;font-size:.9rem;cursor:pointer;}
+  button.copy:active{transform:translateY(1px);}
+  textarea#codigo{width:100%;height:230px;resize:vertical;background:#0b1220;color:#cbd5e1;
+    border:1px solid var(--line);border-radius:0 0 10px 10px;padding:12px;
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:12px;line-height:1.5;
+    white-space:pre;overflow:auto;}
+  .use{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);padding:16px;}
+  .use ol{margin:.3rem 0;padding-left:20px;}
+  footer{color:var(--muted);font-size:.85rem;text-align:center;margin-top:34px;
+    border-top:1px solid var(--line);padding-top:16px;}
+  a{color:var(--blue);}
+  .pill{display:inline-block;background:var(--card2);border:1px solid var(--line);
+    border-radius:999px;padding:2px 10px;font-size:.8rem;color:var(--muted);margin:2px 4px 2px 0;}
+  .toast{position:fixed;left:50%;bottom:24px;transform:translateX(-50%) translateY(20px);
+    background:var(--green);color:#04210f;font-weight:700;padding:10px 18px;border-radius:999px;
+    opacity:0;transition:.25s;pointer-events:none;}
+  .toast.show{opacity:1;transform:translateX(-50%) translateY(0);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <div class="logo">🔗</div>
+    <h1>Seu encurtador no Cloudflare</h1>
+    <p class="sub">Passo a passo pelo celular ou computador &mdash; sem terminal, 100% grátis</p>
+  </header>
+
+  <div class="callout">
+    <b>Por que ter o seu?</b> Encurtadores grátis ganham dinheiro embrulhando seu link
+    em anúncio (Bitly), afiliado (TinyURL/viglink) ou tela de &ldquo;redirecionando&rdquo;.
+    O seu faz um redirecionamento <b>puro</b>: o clique vai direto pra notícia, sem nada
+    que o bloqueador de anúncios possa barrar.
+  </div>
+
+  <div class="callout blue">
+    <b>Antes de começar, tenha em mãos:</b>
+    <span class="pill">Conta grátis no Cloudflare</span>
+    <span class="pill">Este guia aberto</span>
+    <br>Você vai copiar o código do <b>Passo 4</b> aqui mesmo (tem um botão). Faça tudo no
+    navegador, em <span class="path">dash.cloudflare.com</span>.
+  </div>
+
+  <h2>Montagem (uma vez só)</h2>
+
+  <div class="step">
+    <div class="n">1</div>
+    <h3>Criar conta / entrar</h3>
+    <p>Abra <span class="path">dash.cloudflare.com</span> e crie a conta gratuita
+    (ou entre, se já tiver).</p>
+  </div>
+
+  <div class="step">
+    <div class="n">2</div>
+    <h3>Criar o banco de dados (KV)</h3>
+    <ul>
+      <li>No menu, toque em <code>Storage &amp; Databases</code> &rarr; <code>KV</code>.</li>
+      <li>Toque em <code>Create namespace</code>.</li>
+      <li>Dê o nome <code>LINKS</code> e confirme.</li>
+    </ul>
+    <p class="sub">É aqui que seus links ficam guardados.</p>
+  </div>
+
+  <div class="step">
+    <div class="n">3</div>
+    <h3>Criar o Worker</h3>
+    <ul>
+      <li>Vá em <code>Workers &amp; Pages</code> &rarr; <code>Create</code>.</li>
+      <li>Escolha <code>Start with Hello World!</code> &rarr; <code>Deploy</code>.</li>
+      <li>Dê um nome &mdash; ele vira parte do seu link
+        (ex: <code>noticias</code> &rarr; <span class="path">noticias.SEU-USUARIO.workers.dev</span>).</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="n">4</div>
+    <h3>Colar o código do encurtador</h3>
+    <ul>
+      <li>No seu Worker, toque em <code>Edit code</code>.</li>
+      <li>Apague <b>todo</b> o código de exemplo.</li>
+      <li>Copie o código abaixo (botão <b>Copiar</b>) e cole no lugar.</li>
+      <li>Toque em <code>Deploy</code>.</li>
+    </ul>
+    <div class="codewrap">
+      <div class="codebar">
+        <span>worker.js</span>
+        <button class="copy" onclick="copiarCodigo()">Copiar código</button>
+      </div>
+      <textarea id="codigo" readonly spellcheck="false">// Encurtador de links — Cloudflare Worker
+// Redireciona links curtos guardados no KV e oferece um painel /admin
+// protegido por senha para criar, listar e apagar links.
+//
+// Bindings esperados (ver wrangler.toml):
+//   - LINKS            -&gt; KV Namespace (armazena os links)
+//   - ADMIN_PASSWORD   -&gt; Secret (senha do painel)
+
+const RESERVADOS = new Set([&quot;admin&quot;, &quot;api&quot;, &quot;favicon.ico&quot;, &quot;robots.txt&quot;, &quot;&quot;]);
+const ALFABETO = &quot;abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789&quot;;
+
+export default {
+  async fetch(request, env) {
+    const url = new URL(request.url);
+    const path = decodeURIComponent(url.pathname.slice(1)); // sem a &quot;/&quot; inicial
+
+    // Painel de administração
+    if (path === &quot;admin&quot;) {
+      return new Response(PAGINA_ADMIN, {
+        headers: { &quot;content-type&quot;: &quot;text/html; charset=utf-8&quot; },
+      });
+    }
+
+    // API (tudo protegido por senha)
+    if (path === &quot;api/links&quot; || path.startsWith(&quot;api/links/&quot;)) {
+      return tratarApi(request, env, path);
+    }
+
+    // Página inicial
+    if (path === &quot;&quot;) {
+      return new Response(
+        &quot;Encurtador ativo. Acesse /admin para gerenciar os links.&quot;,
+        { headers: { &quot;content-type&quot;: &quot;text/plain; charset=utf-8&quot; } }
+      );
+    }
+
+    // Redirecionamento de um link curto
+    const destino = await env.LINKS.get(`link:${path}`);
+    if (destino) {
+      const meta = JSON.parse(destino);
+      // conta cliques (não bloqueia o redirect)
+      meta.cliques = (meta.cliques || 0) + 1;
+      env.LINKS.put(`link:${path}`, JSON.stringify(meta));
+      return Response.redirect(meta.url, 301);
+    }
+
+    return new Response(&quot;Link não encontrado.&quot;, {
+      status: 404,
+      headers: { &quot;content-type&quot;: &quot;text/plain; charset=utf-8&quot; },
+    });
+  },
+};
+
+// ---------- API ----------
+
+async function tratarApi(request, env, path) {
+  // Autenticação: header Authorization: Bearer &lt;senha&gt;
+  const auth = request.headers.get(&quot;Authorization&quot;) || &quot;&quot;;
+  const enviada = auth.replace(/^Bearer\s+/i, &quot;&quot;);
+  if (!env.ADMIN_PASSWORD || enviada !== env.ADMIN_PASSWORD) {
+    return json({ erro: &quot;Não autorizado&quot; }, 401);
+  }
+
+  // GET /api/links  -&gt; lista todos
+  if (path === &quot;api/links&quot; &amp;&amp; request.method === &quot;GET&quot;) {
+    const lista = await env.LINKS.list({ prefix: &quot;link:&quot; });
+    const itens = [];
+    for (const chave of lista.keys) {
+      const valor = await env.LINKS.get(chave.name);
+      if (valor) {
+        const meta = JSON.parse(valor);
+        itens.push({ codigo: chave.name.slice(5), ...meta });
+      }
+    }
+    itens.sort((a, b) =&gt; (b.criadoEm || 0) - (a.criadoEm || 0));
+    return json({ links: itens });
+  }
+
+  // POST /api/links  -&gt; cria um link
+  if (path === &quot;api/links&quot; &amp;&amp; request.method === &quot;POST&quot;) {
+    let corpo;
+    try {
+      corpo = await request.json();
+    } catch {
+      return json({ erro: &quot;JSON inválido&quot; }, 400);
+    }
+
+    let destino = (corpo.url || &quot;&quot;).trim();
+    if (!/^https?:\/\//i.test(destino)) destino = &quot;https://&quot; + destino;
+    try {
+      new URL(destino);
+    } catch {
+      return json({ erro: &quot;URL inválida&quot; }, 400);
+    }
+
+    let codigo = (corpo.codigo || &quot;&quot;).trim();
+    if (codigo) {
+      if (!/^[a-zA-Z0-9_-]+$/.test(codigo)) {
+        return json({ erro: &quot;Código só pode ter letras, números, - e _&quot; }, 400);
+      }
+      if (RESERVADOS.has(codigo)) {
+        return json({ erro: &quot;Esse código é reservado&quot; }, 400);
+      }
+      const existe = await env.LINKS.get(`link:${codigo}`);
+      if (existe) return json({ erro: &quot;Esse código já está em uso&quot; }, 409);
+    } else {
+      codigo = await gerarCodigo(env);
+    }
+
+    const meta = { url: destino, criadoEm: Date.now(), cliques: 0 };
+    await env.LINKS.put(`link:${codigo}`, JSON.stringify(meta));
+    return json({ codigo, ...meta });
+  }
+
+  // DELETE /api/links/:codigo  -&gt; apaga
+  if (path.startsWith(&quot;api/links/&quot;) &amp;&amp; request.method === &quot;DELETE&quot;) {
+    const codigo = path.slice(&quot;api/links/&quot;.length);
+    await env.LINKS.delete(`link:${codigo}`);
+    return json({ ok: true });
+  }
+
+  return json({ erro: &quot;Rota não encontrada&quot; }, 404);
+}
+
+async function gerarCodigo(env) {
+  for (let tentativa = 0; tentativa &lt; 8; tentativa++) {
+    let codigo = &quot;&quot;;
+    const bytes = crypto.getRandomValues(new Uint8Array(6));
+    for (const b of bytes) codigo += ALFABETO[b % ALFABETO.length];
+    const existe = await env.LINKS.get(`link:${codigo}`);
+    if (!existe) return codigo;
+  }
+  // fallback improvável
+  return &quot;z&quot; + Date.now().toString(36);
+}
+
+function json(dados, status = 200) {
+  return new Response(JSON.stringify(dados), {
+    status,
+    headers: { &quot;content-type&quot;: &quot;application/json; charset=utf-8&quot; },
+  });
+}
+
+// ---------- Painel HTML ----------
+
+const PAGINA_ADMIN = `&lt;!DOCTYPE html&gt;
+&lt;html lang=&quot;pt-BR&quot;&gt;
+&lt;head&gt;
+&lt;meta charset=&quot;utf-8&quot;&gt;
+&lt;meta name=&quot;viewport&quot; content=&quot;width=device-width, initial-scale=1&quot;&gt;
+&lt;title&gt;Meu encurtador&lt;/title&gt;
+&lt;style&gt;
+  :root { color-scheme: light dark; }
+  * { box-sizing: border-box; }
+  body { font-family: system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    max-width: 760px; margin: 0 auto; padding: 24px; line-height: 1.5; }
+  h1 { font-size: 1.4rem; }
+  input, button { font-size: 1rem; padding: 10px 12px; border-radius: 8px;
+    border: 1px solid #8884; }
+  input { width: 100%; }
+  button { cursor: pointer; background: #2563eb; color: #fff; border: none; }
+  button.sec { background: transparent; color: #2563eb; border: 1px solid #2563eb; }
+  button.del { background: transparent; color: #dc2626; border: 1px solid #dc2626; padding: 6px 10px; }
+  .row { display: flex; gap: 8px; margin: 8px 0; flex-wrap: wrap; }
+  .row input { flex: 1; min-width: 200px; }
+  .card { border: 1px solid #8883; border-radius: 10px; padding: 12px; margin: 10px 0; }
+  .muted { opacity: .65; font-size: .85rem; }
+  .curto { font-weight: 600; }
+  a { color: #2563eb; word-break: break-all; }
+  .hidden { display: none; }
+  .ok { color: #16a34a; }
+  .err { color: #dc2626; }
+&lt;/style&gt;
+&lt;/head&gt;
+&lt;body&gt;
+&lt;h1&gt;🔗 Meu encurtador&lt;/h1&gt;
+
+&lt;div id=&quot;login&quot;&gt;
+  &lt;p&gt;Digite a senha do painel:&lt;/p&gt;
+  &lt;div class=&quot;row&quot;&gt;
+    &lt;input id=&quot;senha&quot; type=&quot;password&quot; placeholder=&quot;Senha&quot; autocomplete=&quot;current-password&quot;&gt;
+    &lt;button onclick=&quot;entrar()&quot;&gt;Entrar&lt;/button&gt;
+  &lt;/div&gt;
+  &lt;p id=&quot;loginMsg&quot; class=&quot;err&quot;&gt;&lt;/p&gt;
+&lt;/div&gt;
+
+&lt;div id=&quot;painel&quot; class=&quot;hidden&quot;&gt;
+  &lt;div class=&quot;card&quot;&gt;
+    &lt;strong&gt;Novo link&lt;/strong&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;input id=&quot;url&quot; placeholder=&quot;Cole a URL da notícia (https://...)&quot;&gt;
+    &lt;/div&gt;
+    &lt;div class=&quot;row&quot;&gt;
+      &lt;input id=&quot;codigo&quot; placeholder=&quot;Código personalizado (opcional)&quot;&gt;
+      &lt;button onclick=&quot;criar()&quot;&gt;Encurtar&lt;/button&gt;
+      &lt;button class=&quot;sec&quot; onclick=&quot;sair()&quot;&gt;Sair&lt;/button&gt;
+    &lt;/div&gt;
+    &lt;p id=&quot;criarMsg&quot;&gt;&lt;/p&gt;
+  &lt;/div&gt;
+  &lt;div id=&quot;lista&quot;&gt;&lt;/div&gt;
+&lt;/div&gt;
+
+&lt;script&gt;
+let SENHA = sessionStorage.getItem(&quot;senha&quot;) || &quot;&quot;;
+const base = location.origin + &quot;/&quot;;
+
+async function api(caminho, opcoes = {}) {
+  opcoes.headers = Object.assign({ &quot;Authorization&quot;: &quot;Bearer &quot; + SENHA }, opcoes.headers || {});
+  return fetch(&quot;/api/&quot; + caminho, opcoes);
+}
+
+async function entrar() {
+  SENHA = document.getElementById(&quot;senha&quot;).value;
+  const r = await api(&quot;links&quot;);
+  if (r.status === 401) {
+    document.getElementById(&quot;loginMsg&quot;).textContent = &quot;Senha incorreta.&quot;;
+    return;
+  }
+  sessionStorage.setItem(&quot;senha&quot;, SENHA);
+  document.getElementById(&quot;login&quot;).classList.add(&quot;hidden&quot;);
+  document.getElementById(&quot;painel&quot;).classList.remove(&quot;hidden&quot;);
+  carregar();
+}
+
+function sair() {
+  sessionStorage.removeItem(&quot;senha&quot;);
+  location.reload();
+}
+
+async function criar() {
+  const url = document.getElementById(&quot;url&quot;).value.trim();
+  const codigo = document.getElementById(&quot;codigo&quot;).value.trim();
+  const msg = document.getElementById(&quot;criarMsg&quot;);
+  if (!url) { msg.className = &quot;err&quot;; msg.textContent = &quot;Cole uma URL.&quot;; return; }
+  const r = await api(&quot;links&quot;, {
+    method: &quot;POST&quot;,
+    headers: { &quot;content-type&quot;: &quot;application/json&quot; },
+    body: JSON.stringify({ url, codigo }),
+  });
+  const d = await r.json();
+  if (!r.ok) { msg.className = &quot;err&quot;; msg.textContent = d.erro || &quot;Erro.&quot;; return; }
+  msg.className = &quot;ok&quot;; msg.textContent = &quot;Criado: &quot; + base + d.codigo;
+  document.getElementById(&quot;url&quot;).value = &quot;&quot;;
+  document.getElementById(&quot;codigo&quot;).value = &quot;&quot;;
+  carregar();
+}
+
+async function apagar(codigo) {
+  if (!confirm(&quot;Apagar o link /&quot; + codigo + &quot;?&quot;)) return;
+  await api(&quot;links/&quot; + encodeURIComponent(codigo), { method: &quot;DELETE&quot; });
+  carregar();
+}
+
+async function copiar(texto) {
+  try { await navigator.clipboard.writeText(texto); } catch {}
+}
+
+async function carregar() {
+  const r = await api(&quot;links&quot;);
+  const d = await r.json();
+  const lista = document.getElementById(&quot;lista&quot;);
+  if (!d.links || d.links.length === 0) {
+    lista.innerHTML = &#x27;&lt;p class=&quot;muted&quot;&gt;Nenhum link ainda.&lt;/p&gt;&#x27;;
+    return;
+  }
+  lista.innerHTML = d.links.map(function (l) {
+    const curto = base + l.codigo;
+    const data = l.criadoEm ? new Date(l.criadoEm).toLocaleString(&quot;pt-BR&quot;) : &quot;&quot;;
+    return &#x27;&lt;div class=&quot;card&quot;&gt;&#x27; +
+      &#x27;&lt;div class=&quot;curto&quot;&gt;&lt;a href=&quot;&#x27; + curto + &#x27;&quot; target=&quot;_blank&quot;&gt;&#x27; + curto + &#x27;&lt;/a&gt;&lt;/div&gt;&#x27; +
+      &#x27;&lt;div class=&quot;muted&quot;&gt;&amp;rarr; &#x27; + l.url + &#x27;&lt;/div&gt;&#x27; +
+      &#x27;&lt;div class=&quot;muted&quot;&gt;&#x27; + (l.cliques || 0) + &#x27; cliques &amp;middot; &#x27; + data + &#x27;&lt;/div&gt;&#x27; +
+      &#x27;&lt;div class=&quot;row&quot;&gt;&#x27; +
+        &#x27;&lt;button class=&quot;sec&quot; onclick=&quot;copiar(\\&#x27;&#x27; + curto + &#x27;\\&#x27;)&quot;&gt;Copiar&lt;/button&gt;&#x27; +
+        &#x27;&lt;button class=&quot;del&quot; onclick=&quot;apagar(\\&#x27;&#x27; + l.codigo + &#x27;\\&#x27;)&quot;&gt;Apagar&lt;/button&gt;&#x27; +
+      &#x27;&lt;/div&gt;&#x27; +
+    &#x27;&lt;/div&gt;&#x27;;
+  }).join(&quot;&quot;);
+}
+
+if (SENHA) { entrar(); }
+&lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;`;
+</textarea>
+    </div>
+  </div>
+
+  <div class="step">
+    <div class="n">5</div>
+    <h3>Ligar o banco (KV) ao Worker</h3>
+    <ul>
+      <li>No Worker, vá em <code>Settings</code> &rarr; <code>Bindings</code> &rarr; <code>Add</code>.</li>
+      <li>Escolha <code>KV namespace</code>.</li>
+      <li>Em &ldquo;Variable name&rdquo;, digite exatamente <code>LINKS</code> (maiúsculas).</li>
+      <li>No dropdown, selecione o namespace <code>LINKS</code> do Passo 2.</li>
+      <li>Toque em <code>Deploy</code>.</li>
+    </ul>
+  </div>
+
+  <div class="step">
+    <div class="n">6</div>
+    <h3>Definir a senha do painel</h3>
+    <ul>
+      <li>Em <code>Settings</code> &rarr; <code>Variables and Secrets</code> &rarr; <code>Add</code>.</li>
+      <li>Em &ldquo;Type&rdquo;, escolha <code>Secret</code>.</li>
+      <li>&ldquo;Variable name&rdquo;: digite exatamente <code>ADMIN_PASSWORD</code>.</li>
+      <li>&ldquo;Value&rdquo;: digite a senha que você quer usar.</li>
+      <li>Toque em <code>Deploy</code>.</li>
+    </ul>
+  </div>
+
+  <div class="callout green">
+    <b>Pronto! 🎉</b> Seu encurtador está no ar. A URL exata aparece na aba
+    <code>Overview</code> do Worker.
+  </div>
+
+  <h2>Como usar no dia a dia</h2>
+  <div class="use">
+    <ol>
+      <li>Abra <span class="path">SEU-WORKER.SEU-USUARIO.workers.dev/admin</span> no navegador.</li>
+      <li>Digite a senha que você criou no Passo 6.</li>
+      <li>Cole a URL da notícia e toque em <b>Encurtar</b>.
+        <br><span class="sub">Opcional: preencha um código personalizado, ex: <code>iran</code>,
+        pro link ficar <span class="path">.../iran</span>.</span></li>
+      <li>Toque em <b>Copiar</b> e cole o link no seu resumo do WhatsApp.</li>
+    </ol>
+    <p class="sub">Cada link mostra quantos cliques recebeu. Dá pra apagar quando quiser.
+    Salve o endereço <code>/admin</code> nos favoritos pra abrir rápido.</p>
+  </div>
+
+  <h2>Opcional: link mais curto com domínio próprio</h2>
+  <div class="use">
+    <p>Sem domínio, o link é <span class="path">algo.workers.dev/abc</span> &mdash; funciona
+    100% e sem anúncio, só é mais comprido. Se quiser algo como
+    <span class="path">seunome.com/abc</span>:</p>
+    <ol>
+      <li>Registre um domínio (Registro.br para <code>.com.br</code>, ~R$40&ndash;60/ano).</li>
+      <li>Adicione o domínio à sua conta Cloudflare (&ldquo;Add a site&rdquo;).</li>
+      <li>No Worker: <code>Settings</code> &rarr; <code>Domains &amp; Routes</code> &rarr;
+        <code>Add Custom Domain</code>.</li>
+    </ol>
+    <p class="sub">Nada no código muda &mdash; o <code>/admin</code> e os links passam a
+    funcionar no domínio novo também.</p>
+  </div>
+
+  <footer>
+    Plano grátis do Cloudflare: 100.000 acessos/dia no Worker e 1.000 gravações/dia no KV.
+    De sobra para um resumo de notícias diário.
+  </footer>
+</div>
+
+<div class="toast" id="toast">Código copiado ✓</div>
+
+<script>
+function copiarCodigo(){
+  var t=document.getElementById('codigo');
+  t.focus(); t.select(); t.setSelectionRange(0,999999);
+  function ok(){var el=document.getElementById('toast');el.classList.add('show');
+    setTimeout(function(){el.classList.remove('show');},1600);}
+  if(navigator.clipboard&&navigator.clipboard.writeText){
+    navigator.clipboard.writeText(t.value).then(ok,function(){document.execCommand('copy');ok();});
+  }else{document.execCommand('copy');ok();}
+}
+</script>
+</body>
+</html>
