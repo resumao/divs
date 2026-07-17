@@ -113,6 +113,41 @@
   }
   .dt tr:hover td { background: #0a0a0c; }
 
+  /* Tabela responsiva: vira blocos empilhados no celular */
+  @media (max-width: 640px) {
+    .dt, .dt tbody, .dt tr, .dt td { display: block; width: 100%; }
+    .dt thead { position: absolute; left: -9999px; }
+    .dt { border: none; }
+    .dt tr {
+      border: 1px solid var(--line);
+      border-radius: 6px;
+      margin-bottom: 14px;
+      overflow: hidden;
+    }
+    .dt tr:hover td { background: transparent; }
+    .dt td {
+      border: none;
+      border-bottom: 1px solid var(--line);
+      padding: 10px 14px 10px 118px;
+      position: relative;
+      min-height: 44px;
+    }
+    .dt td:last-child { border-bottom: none; }
+    .dt td::before {
+      content: attr(data-label);
+      position: absolute;
+      left: 14px;
+      top: 10px;
+      width: 92px;
+      color: var(--orange);
+      font-family: "Consolas","Monaco","Courier New",monospace;
+      font-size: 11px;
+      letter-spacing: 0.5px;
+      text-transform: uppercase;
+    }
+    .dt td .tag { white-space: normal; }
+  }
+
   ul.clean { list-style: none; margin: 14px 0; }
   ul.clean li {
     padding: 10px 0 10px 24px; position: relative; color: #cfcfd4;
@@ -195,9 +230,9 @@
       <table class="dt">
         <thead><tr><th>Camada</th><th>Retorno</th><th>Leitura</th></tr></thead>
         <tbody>
-          <tr><td><span class="tag">Modelos</span></td><td><span class="tag">Incerto</span></td><td>Comoditização, trocas frequentes de liderança, avanço do open source.</td></tr>
-          <tr><td><span class="tag">Cloud / Hyperscalers</span></td><td><span class="tag">Incerto</span></td><td>Oligopólio de três ganha Oracle, CoreWeave, Nebius, xAI e potencialmente Meta. Mais oferta = risco de compressão.</td></tr>
-          <tr><td><span class="tag">Semis / Infra</span></td><td><span class="tag">Mais claro</span></td><td>Concentra os gargalos: memória, GPUs, CPUs, networking, energia, refrigeração. Recebem o caixa primeiro.</td></tr>
+          <tr><td data-label="Camada"><span class="tag">Modelos</span></td><td data-label="Retorno"><span class="tag">Incerto</span></td><td data-label="Leitura">Comoditização, trocas frequentes de liderança, avanço do open source.</td></tr>
+          <tr><td data-label="Camada"><span class="tag">Cloud / Hyperscalers</span></td><td data-label="Retorno"><span class="tag">Incerto</span></td><td data-label="Leitura">Oligopólio de três ganha Oracle, CoreWeave, Nebius, xAI e potencialmente Meta. Mais oferta = risco de compressão.</td></tr>
+          <tr><td data-label="Camada"><span class="tag">Semis / Infra</span></td><td data-label="Retorno"><span class="tag">Mais claro</span></td><td data-label="Leitura">Concentra os gargalos: memória, GPUs, CPUs, networking, energia, refrigeração. Recebem o caixa primeiro.</td></tr>
         </tbody>
       </table>
     </section>
@@ -217,8 +252,8 @@
       <table class="dt">
         <thead><tr><th>Cenário</th><th>Dinâmica</th><th>Onde o valor vai</th></tr></thead>
         <tbody>
-          <tr><td><span class="tag">A · Vantagem cumulativa</span></td><td>Líder atrai mais usuários → mais dados → produto melhor → mais usuários</td><td>Monopólio dos modelos fechados</td></tr>
-          <tr><td><span class="tag">B · Open source domina</span></td><td>Liderança instável, perda de diferenciação</td><td>Aplicações, infraestrutura ou usuário final</td></tr>
+          <tr><td data-label="Cenário"><span class="tag">A · Vantagem cumulativa</span></td><td data-label="Dinâmica">Líder atrai mais usuários → mais dados → produto melhor → mais usuários</td><td data-label="Valor vai">Monopólio dos modelos fechados</td></tr>
+          <tr><td data-label="Cenário"><span class="tag">B · Open source domina</span></td><td data-label="Dinâmica">Liderança instável, perda de diferenciação</td><td data-label="Valor vai">Aplicações, infraestrutura ou usuário final</td></tr>
         </tbody>
       </table>
 
@@ -237,8 +272,8 @@
       <table class="dt">
         <thead><tr><th>CoreWeave · 2025</th><th>Valor</th><th>Leitura</th></tr></thead>
         <tbody>
-          <tr><td>Receita</td><td><span class="tag">~US$ 5.1B (+~170%)</span></td><td>Crescimento existe</td></tr>
-          <tr><td>Prejuízo líquido</td><td><span class="tag">-US$ 1.2B</span></td><td>ROIC evidente, ainda não</td></tr>
+          <tr><td data-label="Métrica">Receita</td><td data-label="Valor"><span class="tag">~US$ 5.1B (+~170%)</span></td><td data-label="Leitura">Crescimento existe</td></tr>
+          <tr><td data-label="Métrica">Prejuízo líquido</td><td data-label="Valor"><span class="tag">-US$ 1.2B</span></td><td data-label="Leitura">ROIC evidente, ainda não</td></tr>
         </tbody>
       </table>
 
@@ -288,4 +323,4 @@
 
   </div>
 </body>
-</html>
+  </html>
