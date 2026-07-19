@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Os dez minutos de silêncio — 1º de julho de 1916</title>
+<style>
+  :root{
+    --noite:#1B2126;
+    --noite-2:#232B31;
+    --giz:#E9E4D8;
+    --giz-fraco:#A9A395;
+    --latao:#C89B3C;
+    --ferrugem:#9A4033;
+    --linha:#39434A;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--noite);
+    color:var(--giz);
+    font-family:Georgia,"Times New Roman",Times,serif;
+    font-size:17px;
+    line-height:1.65;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{
+    max-width:720px;
+    margin:0 auto;
+    padding:56px 22px 80px;
+  }
+  .eyebrow{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:11px;
+    letter-spacing:0.22em;
+    text-transform:uppercase;
+    color:var(--latao);
+    margin:0 0 18px;
+  }
+  h1{
+    font-family:"Palatino Linotype",Palatino,Georgia,serif;
+    font-weight:normal;
+    font-size:40px;
+    line-height:1.12;
+    letter-spacing:-0.01em;
+    margin:0 0 14px;
+  }
+  h1 em{font-style:italic;color:var(--latao);}
+  .sub{
+    color:var(--giz-fraco);
+    font-size:16px;
+    margin:0 0 40px;
+    padding-bottom:32px;
+    border-bottom:1px solid var(--linha);
+  }
+  h2{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:12px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--latao);
+    margin:44px 0 14px;
+  }
+  p{margin:0 0 18px;}
+  .destaque{
+    border-left:3px solid var(--ferrugem);
+    padding:2px 0 2px 18px;
+    color:var(--giz);
+    font-style:italic;
+  }
+
+  /* Rail do tempo — elemento central */
+  .rail{
+    margin:34px 0 40px;
+    border:1px solid var(--linha);
+    background:var(--noite-2);
+    padding:24px 20px 20px;
+  }
+  .rail-titulo{
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--giz-fraco);
+    margin:0 0 20px;
+  }
+  .marca{
+    display:block;
+    padding-left:96px;
+    position:relative;
+    padding-bottom:22px;
+    border-left:2px solid var(--linha);
+    margin-left:78px;
+  }
+  .marca:last-child{border-left-color:transparent;padding-bottom:0;}
+  .hora{
+    position:absolute;
+    left:-78px;
+    top:-2px;
+    width:64px;
+    text-align:right;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:13px;
+    letter-spacing:0.04em;
+    color:var(--latao);
+  }
+  .marca .ponto{
+    position:absolute;
+    left:-7px;
+    top:4px;
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:var(--noite-2);
+    border:2px solid var(--latao);
+  }
+  .marca .rotulo{
+    display:block;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:14px;
+    line-height:1.5;
+  }
+  .marca .nota{
+    display:block;
+    color:var(--giz-fraco);
+    font-size:14px;
+    line-height:1.5;
+    margin-top:4px;
+  }
+  .vazio{border-left-style:dashed;border-left-color:var(--ferrugem);}
+  .vazio .ponto{border-color:var(--ferrugem);}
+  .vazio .rotulo{color:var(--ferrugem);}
+
+  .numeros{
+    margin:36px 0 8px;
+    border-top:1px solid var(--linha);
+    padding-top:24px;
+  }
+  .num{
+    display:block;
+    padding-bottom:18px;
+  }
+  .num b{
+    display:block;
+    font-family:"Palatino Linotype",Palatino,Georgia,serif;
+    font-weight:normal;
+    font-size:32px;
+    line-height:1.1;
+    color:var(--latao);
+  }
+  .num span{
+    display:block;
+    font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;
+    font-size:13px;
+    color:var(--giz-fraco);
+    margin-top:2px;
+  }
+  footer{
+    margin-top:48px;
+    padding-top:22px;
+    border-top:1px solid var(--linha);
+    color:var(--giz-fraco);
+    font-size:14px;
+  }
+  @media (min-width:620px){
+    h1{font-size:52px;}
+    .numeros{display:flex;gap:32px;}
+    .num{flex:1 1 0;padding-bottom:0;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <p class="eyebrow">Queda de Gigantes &middot; contexto histórico</p>
+  <h1>Os dez minutos<br><em>de silêncio</em></h1>
+  <p class="sub">1º de julho de 1916, vale do Somme, norte da França. O dia mais sangrento da história do exército britânico — e Fitz, no parapeito, vê o erro acontecer sem poder impedi-lo.</p>
+
+  <h2>A cena</h2>
+  <p>Fitz vai comandar homens em combate pela primeira vez. Passou quase dois anos como oficial na França, em funções de estado-maior, e a ironia do "lindo dia de verão, bom para matar alemães" já anuncia o que vem. Cada soldado recebe a dose de rum de praxe antes do ataque; em vez de acalmar, o calor da bebida no estômago aumenta a tensão.</p>
+
+  <h2>O erro</h2>
+  <p>O bombardeio britânico durava sete dias e deveria seguir até o instante exato do avanço, para manter os alemães presos nos abrigos subterrâneos. Às 7h20 a artilharia se cala — dez minutos antes da hora. Fitz entende na hora o que o silêncio significa: é um aviso ao inimigo.</p>
+
+  <div class="rail">
+    <p class="rail-titulo">A manhã, minuto a minuto</p>
+
+    <span class="marca">
+      <span class="ponto"></span>
+      <span class="hora">7h00</span>
+      <span class="rotulo">Ração de rum</span>
+      <span class="nota">Os homens bebem e esperam. O ataque está marcado para as 7h30.</span>
+    </span>
+
+    <span class="marca vazio">
+      <span class="ponto"></span>
+      <span class="hora">7h20</span>
+      <span class="rotulo">A artilharia se cala</span>
+      <span class="nota">Dez minutos cedo demais. "Ainda não… é cedo demais!" O silêncio avisa aos alemães que o assalto está para começar.</span>
+    </span>
+
+    <span class="marca vazio">
+      <span class="ponto"></span>
+      <span class="hora">7h20—7h30</span>
+      <span class="rotulo">A janela regalada ao inimigo</span>
+      <span class="nota">Tempo de sobra para sair dos abrigos, montar as metralhadoras e assumir posição.</span>
+    </span>
+
+    <span class="marca">
+      <span class="ponto"></span>
+      <span class="hora">7h29'59"</span>
+      <span class="rotulo">"Mas já não havia mais nada a fazer."</span>
+      <span class="nota">Fitz sabe o que vai acontecer, sabe a hora exata, e é impotente.</span>
+    </span>
+
+    <span class="marca">
+      <span class="ponto"></span>
+      <span class="hora">7h30</span>
+      <span class="rotulo">O avanço</span>
+      <span class="nota">A infantaria sobe e caminha em passo lento por terreno aberto, contra arame farpado intacto e metralhadoras prontas.</span>
+    </span>
+  </div>
+
+  <h2>Por que deu tão errado</h2>
+  <p>O plano britânico apostava que sete dias de bombardeio destruiriam o arame farpado e os abrigos alemães. Não destruíram: boa parte das granadas era de estilhaço (inútil contra arame) ou simplesmente falhou, e os abrigos alemães, escavados fundo no calcário da região, resistiram. A infantaria avançou em passo lento, carregando equipamento pesado, na suposição de que encontraria trincheiras vazias.</p>
+
+  <div class="numeros">
+    <span class="num"><b>~57.000</b><span>baixas britânicas em um só dia</span></span>
+    <span class="num"><b>~19.200</b><span>mortos até o anoitecer</span></span>
+    <span class="num"><b>141 dias</b><span>de batalha, por poucos quilômetros</span></span>
+  </div>
+
+  <h2>O que o trecho faz na narrativa</h2>
+  <p class="destaque">Follett usa Fitz como testemunha privilegiada de um desastre real. O aristocrata que via a guerra de longe passa a viver, em primeira pessoa, a distância entre o plano no papel e o que acontece no barro — e a descoberta de que a hierarquia à qual ele pertence é perfeitamente capaz de errar de forma irreparável.</p>
+
+  <footer>Resumo de contexto histórico referente ao capítulo do Somme (p. 455 da edição brasileira). Os números de baixas são os aceitos pela historiografia sobre o primeiro dia da ofensiva.</footer>
+
+</div>
+</body>
+</html>
