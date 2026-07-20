@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Prazo Médio Fiscal e os dois regimes da Lei 14.754/2023</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,600;1,6..72,400&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#101E2B;
+    --ink-soft:#3D5063;
+    --paper:#F1F3F5;
+    --card:#FFFFFF;
+    --rule:#D3DAE1;
+    --teal:#0E6B62;
+    --teal-tint:#E3F0EE;
+    --alert:#A32218;
+    --alert-tint:#F7E7E5;
+    --gold:#9C7A2E;
+    --serif:"Newsreader", Georgia, "Times New Roman", serif;
+    --sans:"IBM Plex Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif;
+    --mono:"IBM Plex Mono", "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+  }
+
+  *{ box-sizing:border-box; }
+
+  html{ -webkit-text-size-adjust:100%; }
+
+  body{
+    margin:0;
+    background-color:var(--paper);
+    color:var(--ink);
+    font-family:var(--sans);
+    font-size:16px;
+    line-height:1.62;
+  }
+
+  .wrap{
+    max-width:860px;
+    margin:0 auto;
+    padding:0 22px 90px 22px;
+  }
+
+  /* ---------- Cabeçalho ---------- */
+
+  .masthead{
+    padding:52px 0 26px 0;
+    border-bottom:3px double var(--ink);
+  }
+
+  .eyebrow{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.18em;
+    text-transform:uppercase;
+    color:var(--teal);
+    margin:0 0 14px 0;
+  }
+
+  h1{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:38px;
+    line-height:1.16;
+    letter-spacing:-0.01em;
+    margin:0 0 16px 0;
+  }
+
+  .standfirst{
+    font-family:var(--serif);
+    font-size:19px;
+    line-height:1.55;
+    color:var(--ink-soft);
+    margin:0;
+    max-width:60ch;
+  }
+
+  .meta{
+    margin-top:24px;
+    display:flex;
+    flex-wrap:wrap;
+    gap:8px 26px;
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:0.05em;
+    color:var(--ink-soft);
+    text-transform:uppercase;
+  }
+
+  /* ---------- Sumário ---------- */
+
+  nav.toc{
+    position:-webkit-sticky;
+    position:sticky;
+    top:0;
+    z-index:5;
+    background-color:var(--paper);
+    border-bottom:1px solid var(--rule);
+    padding:11px 0;
+    margin-bottom:44px;
+  }
+
+  nav.toc ul{
+    list-style:none;
+    margin:0;
+    padding:0;
+    display:flex;
+    flex-wrap:wrap;
+    gap:6px 20px;
+  }
+
+  nav.toc a{
+    font-family:var(--mono);
+    font-size:11.5px;
+    letter-spacing:0.06em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+    padding-bottom:2px;
+  }
+
+  nav.toc a:hover,
+  nav.toc a:focus{
+    color:var(--teal);
+    border-bottom-color:var(--teal);
+  }
+
+  /* ---------- Seções ---------- */
+
+  section{ margin-bottom:56px; }
+
+  h2{
+    font-family:var(--serif);
+    font-weight:600;
+    font-size:25px;
+    line-height:1.25;
+    margin:0 0 6px 0;
+    padding-top:8px;
+  }
+
+  .sec-tag{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.16em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:block;
+    margin-bottom:8px;
+  }
+
+  h3{
+    font-family:var(--sans);
+    font-weight:600;
+    font-size:15px;
+    letter-spacing:0.01em;
+    margin:26px 0 6px 0;
+  }
+
+  p{ margin:0 0 15px 0; max-width:68ch; }
+
+  strong{ font-weight:600; }
+
+  .lede{
+    font-family:var(--serif);
+    font-size:18px;
+    color:var(--ink-soft);
+    margin-bottom:24px;
+  }
+
+  code, .num{
+    font-family:var(--mono);
+    font-size:0.9em;
+    background-color:#E8ECF0;
+    padding:1px 5px;
+    border-radius:2px;
+  }
+
+  /* ---------- Elemento assinatura: a bifurcação ---------- */
+
+  .fork{
+    margin:30px 0 8px 0;
+    border:1px solid var(--rule);
+    background-color:var(--card);
+  }
+
+  .fork-head{
+    padding:18px 22px;
+    border-bottom:1px solid var(--rule);
+  }
+
+  .fork-head .k{
+    font-family:var(--mono);
+    font-size:11px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    display:block;
+    margin-bottom:4px;
+  }
+
+  .fork-head .v{
+    font-family:var(--serif);
+    font-size:20px;
+    font-weight:600;
+  }
+
+  .fork-body{
+    display:flex;
+    flex-wrap:wrap;
+  }
+
+  .track{
+    flex:1 1 300px;
+    padding:22px;
+    border-top:4px solid var(--rule);
+  }
+
+  .track + .track{ border-left:1px solid var(--rule); }
+
+  .track.geral{ border-top-color:var(--alert); }
+  .track.especifico{ border-top-color:var(--teal); }
+
+  .track h4{
+    font-family:var(--sans);
+    font-size:14px;
+    font-weight:600;
+    letter-spacing:0.02em;
+    margin:0 0 3px 0;
+  }
+
+  .track .who{
+    font-size:13px;
+    color:var(--ink-soft);
+    margin:0 0 16px 0;
+    line-height:1.5;
+  }
+
+  .step{
+    font-size:13.5px;
+    line-height:1.5;
+    padding:9px 0 9px 20px;
+    border-left:2px solid var(--rule);
+    position:relative;
+    margin-left:2px;
+  }
+
+  .track.geral .step{ border-left-color:#E6C4C0; }
+  .track.especifico .step{ border-left-color:#BFDDD8; }
+
+  .step .lbl{
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    display:block;
+  }
+
+  .verdict{
+    margin-top:16px;
+    padding:12px 14px;
+    font-size:13.5px;
+    line-height:1.45;
+    font-weight:500;
+  }
+
+  .verdict.hit{
+    background-color:var(--alert-tint);
+    color:var(--alert);
+    border-left:3px solid var(--alert);
+  }
+
+  .verdict.void{
+    background-color:var(--teal-tint);
+    color:var(--teal);
+    border-left:3px solid var(--teal);
+  }
+
+  .fork-foot{
+    padding:14px 22px;
+    border-top:1px solid var(--rule);
+    font-size:12.5px;
+    color:var(--ink-soft);
+    background-color:#FAFBFC;
+  }
+
+  /* ---------- Tabela ---------- */
+
+  .table-scroll{ overflow-x:auto; margin:22px 0; }
+
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-size:14px;
+    background-color:var(--card);
+    min-width:520px;
+  }
+
+  th{
+    text-align:left;
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    font-weight:500;
+    padding:11px 14px;
+    border-bottom:1.5px solid var(--ink);
+    vertical-align:bottom;
+  }
+
+  td{
+    padding:12px 14px;
+    border-bottom:1px solid var(--rule);
+    vertical-align:top;
+  }
+
+  tbody tr:last-child td{ border-bottom:none; }
+
+  td.rate{ font-family:var(--mono); white-space:nowrap; }
+
+  .flag{
+    display:inline-block;
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:0.1em;
+    text-transform:uppercase;
+    padding:2px 7px;
+    border-radius:2px;
+  }
+
+  .flag.red{ background-color:var(--alert-tint); color:var(--alert); }
+  .flag.green{ background-color:var(--teal-tint); color:var(--teal); }
+
+  /* ---------- Caixa de destaque ---------- */
+
+  .box{
+    border:1px solid var(--rule);
+    border-left:4px solid var(--gold);
+    background-color:var(--card);
+    padding:20px 22px;
+    margin:26px 0;
+  }
+
+  .box .k{
+    font-family:var(--mono);
+    font-size:10.5px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--gold);
+    display:block;
+    margin-bottom:8px;
+  }
+
+  .box p:last-child{ margin-bottom:0; }
+
+  /* ---------- Ficha do fundo ---------- */
+
+  .chips{
+    display:flex;
+    flex-wrap:wrap;
+    gap:10px;
+    margin:20px 0 8px 0;
+  }
+
+  .chip{
+    border:1px solid var(--rule);
+    background-color:var(--card);
+    padding:11px 15px;
+    min-width:130px;
+    flex:0 1 auto;
+  }
+
+  .chip .k{
+    font-family:var(--mono);
+    font-size:10px;
+    letter-spacing:0.12em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    display:block;
+    margin-bottom:3px;
+  }
+
+  .chip .v{
+    font-family:var(--serif);
+    font-size:20px;
+    font-weight:600;
+  }
+
+  .chip.warn .v{ color:var(--alert); }
+
+  /* ---------- Checklist ---------- */
+
+  ol.checks{
+    list-style:none;
+    counter-reset:ck;
+    margin:18px 0 0 0;
+    padding:0;
+  }
+
+  ol.checks li{
+    counter-increment:ck;
+    position:relative;
+    padding:0 0 16px 42px;
+    max-width:66ch;
+  }
+
+  ol.checks li::before{
+    content:counter(ck,decimal-leading-zero);
+    position:absolute;
+    left:0;
+    top:1px;
+    font-family:var(--mono);
+    font-size:12px;
+    color:var(--teal);
+    border:1px solid var(--rule);
+    padding:2px 6px;
+    background-color:var(--card);
+  }
+
+  ul.plain{ padding-left:20px; max-width:66ch; }
+  ul.plain li{ margin-bottom:7px; }
+
+  /* ---------- Rodapé ---------- */
+
+  footer{
+    border-top:1px solid var(--rule);
+    padding-top:20px;
+    font-size:12.5px;
+    color:var(--ink-soft);
+    max-width:70ch;
+  }
+
+  footer p{ margin-bottom:9px; }
+
+  a{ color:var(--teal); }
+
+  a:focus-visible,
+  nav.toc a:focus-visible{
+    outline:2px solid var(--teal);
+    outline-offset:3px;
+  }
+
+  @media (max-width:640px){
+    h1{ font-size:29px; }
+    h2{ font-size:22px; }
+    .standfirst{ font-size:17px; }
+    .track + .track{ border-left:none; border-top:4px solid var(--rule); }
+    .track.especifico{ border-top-color:var(--teal); }
+    .wrap{ padding-bottom:56px; }
+  }
+
+  @media print{
+    nav.toc{ display:none; }
+    body{ background-color:#FFFFFF; font-size:11pt; }
+    section{ page-break-inside:avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="masthead">
+    <p class="eyebrow">Nota interna &middot; Enquadramento tributário</p>
+    <h1>Por que o alerta de prazo médio é informativo para um FIDC no Regime Específico</h1>
+    <p class="standfirst">O comunicado da QI Tech aponta desenquadramento de prazo médio no Algarve Small Claims I. A métrica existe para separar curto e longo prazo — e essa separação só produz efeito tributário em um dos dois regimes da Lei nº 14.754/2023.</p>
+    <div class="meta">
+      <span>Data-base 13/07/2026</span>
+      <span>Algarve Capital Gestão de Recursos</span>
+      <span>IN RFB 1.585/2015 &middot; Lei 14.754/2023</span>
+    </div>
+  </header>
+
+  <nav class="toc" aria-label="Sumário">
+    <ul>
+      <li><a href="#regimes">Os dois regimes</a></li>
+      <li><a href="#metrica">Para que serve o prazo médio</a></li>
+      <li><a href="#bifurcacao">Onde o efeito se perde</a></li>
+      <li><a href="#fundo">O caso do Small Claims I</a></li>
+      <li><a href="#atencao">Ponto de atenção</a></li>
+    </ul>
+  </nav>
+
+  <section id="regimes">
+    <span class="sec-tag">Base legal</span>
+    <h2>Os dois regimes da Lei 14.754/2023</h2>
+    <p class="lede">A lei dividiu os fundos fechados em duas rotas de tributação, e é essa divisão que sustenta toda a explicação da Raíssa.</p>
+
+    <h3>Regime Geral</h3>
+    <p>Alcança os fundos fechados que <strong>não</strong> se qualificam como entidade de investimento ou que não atendem aos requisitos dos arts. 18 e 19. Passaram a ter <strong>come-cotas semestral</strong>, recolhido no último dia útil de maio e de novembro, com a alíquota definida pela classificação de prazo da carteira.</p>
+
+    <h3>Regime Específico</h3>
+    <p>Alcança os FIDCs que se qualificam como entidade de investimento e cumprem os requisitos dos arts. 18, 19 e 24. <strong>Não há come-cotas.</strong> A tributação ocorre apenas na amortização, no resgate ou na alienação de cotas, à alíquota fixa de <strong>15%</strong> — sem tabela regressiva e sem qualquer degrau ligado ao prazo da carteira.</p>
+  </section>
+
+  <section id="metrica">
+    <span class="sec-tag">A métrica</span>
+    <h2>O que o prazo médio fiscal faz</h2>
+    <p>Os arts. 4º e 5º da IN RFB 1.585/2015 usam o prazo médio ponderado da carteira para classificar o fundo em duas faixas:</p>
+
+    <div class="table-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Classificação</th>
+            <th scope="col">Prazo médio</th>
+            <th scope="col">Tabela regressiva</th>
+            <th scope="col">Come-cotas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="flag red">Curto prazo</span></td>
+            <td class="rate">até 365 dias</td>
+            <td class="rate">22,5% &rarr; 20%</td>
+            <td class="rate">20%</td>
+          </tr>
+          <tr>
+            <td><span class="flag green">Longo prazo</span></td>
+            <td class="rate">acima de 365 dias</td>
+            <td class="rate">22,5% &rarr; 15%</td>
+            <td class="rate">15%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>A reclassificação não é imediata: pela regra citada no comunicado, o fundo migra para curto prazo quando o desenquadramento <strong>persiste por mais de 45 dias corridos</strong> no ano-calendário ou quando ocorre o <strong>quarto episódio</strong> de desenquadramento no período.</p>
+  </section>
+
+  <section id="bifurcacao">
+    <span class="sec-tag">O ponto central</span>
+    <h2>Onde o efeito se perde</h2>
+    <p>A mesma reclassificação percorre caminhos opostos conforme o regime do fundo. Num deles ela encarece a tributação do cotista; no outro, ela não encontra nenhum mecanismo em que possa incidir.</p>
+
+    <div class="fork">
+      <div class="fork-head">
+        <span class="k">Evento comum aos dois caminhos</span>
+        <span class="v">Prazo médio apurado cai para 366 dias ou menos</span>
+      </div>
+      <div class="fork-body">
+
+        <div class="track geral">
+          <h4>Regime Geral</h4>
+          <p class="who">Fundo fechado sem qualificação de entidade de investimento</p>
+
+          <div class="step"><span class="lbl">Passo 1</span>Fundo é reclassificado como curto prazo</div>
+          <div class="step"><span class="lbl">Passo 2</span>Existe come-cotas semestral a ser recolhido</div>
+          <div class="step"><span class="lbl">Passo 3</span>A alíquota do come-cotas sobe de 15% para 20%</div>
+          <div class="step"><span class="lbl">Passo 4</span>O piso da tabela regressiva sobe de 15% para 20%</div>
+
+          <div class="verdict hit">Há efeito tributário concreto. É a esses fundos que o pedido de reenquadramento se dirige.</div>
+        </div>
+
+        <div class="track especifico">
+          <h4>Regime Específico</h4>
+          <p class="who">FIDC entidade de investimento, arts. 18, 19 e 24</p>
+
+          <div class="step"><span class="lbl">Passo 1</span>Fundo é reclassificado como curto prazo</div>
+          <div class="step"><span class="lbl">Passo 2</span>Não existe come-cotas no regime</div>
+          <div class="step"><span class="lbl">Passo 3</span>Não há tabela regressiva a ser aplicada</div>
+          <div class="step"><span class="lbl">Passo 4</span>A alíquota permanece fixa em 15% na amortização, resgate ou alienação</div>
+
+          <div class="verdict void">A reclassificação não encontra mecanismo em que incidir. Nada muda na tributação do fundo nem dos cotistas.</div>
+        </div>
+
+      </div>
+      <div class="fork-foot">O dado continua sendo apurado e reportado porque o controle da administradora roda de forma padronizada para toda a base de fundos, independentemente do regime de cada um.</div>
+    </div>
+
+    <p>É exatamente essa distinção que o comunicado faz nas duas passagens destacadas: o dado tem <strong>caráter meramente informativo</strong> para os fundos ainda enquadrados na Lei 14.754, e o <strong>pedido de providências</strong> é endereçado apenas aos fundos do Regime Geral.</p>
+  </section>
+
+  <section id="fundo">
+    <span class="sec-tag">Caso concreto</span>
+    <h2>Algarve Small Claims I FIDC NP</h2>
+    <p>CNPJ <code>40.800.541/0001-19</code>. Situação apurada na data-base de 13/07/2026:</p>
+
+    <div class="chips">
+      <div class="chip"><span class="k">Parâmetro</span><span class="v">366 dias</span></div>
+      <div class="chip warn"><span class="k">Apurado</span><span class="v">366 dias</span></div>
+      <div class="chip warn"><span class="k">Classificação</span><span class="v">Curto prazo</span></div>
+      <div class="chip warn"><span class="k">Vidas restantes</span><span class="v">0 de 3</span></div>
+      <div class="chip"><span class="k">Dias desenq.</span><span class="v">16 de 45</span></div>
+    </div>
+
+    <p>Se o fundo está no Regime Específico — entidade de investimento, sem come-cotas —, a leitura é a da coluna direita do quadro acima: <strong>não há desenquadramento tributário nem providência a tomar</strong>. A alíquota aplicável segue sendo 15% nos eventos de amortização, resgate ou alienação de cotas.</p>
+  </section>
+
+  <section id="atencao">
+    <span class="sec-tag">Acompanhamento</span>
+    <h2>O que ainda merece atenção</h2>
+    <p>A inocuidade do alerta depende inteiramente de uma premissa: a de que o fundo está e permanece no Regime Específico. Vale fixar isso por escrito.</p>
+
+    <ol class="checks">
+      <li>Confirmar que a qualificação do Small Claims I como <strong>entidade de investimento no Regime Específico</strong> está documentada e vigente. É essa qualificação que retira o efeito do alerta.</li>
+      <li>Avaliar o risco de perda dessa qualificação. Caso o fundo venha a migrar para o Regime Geral, o histórico de desenquadramento passa a ter consequência direta e imediata sobre a alíquota.</li>
+      <li>Registrar que as <strong>três tolerâncias do ano-calendário já foram consumidas</strong> (vidas restantes: 0 de 3). O próximo episódio aciona a reclassificação — hoje sem efeito, mas relevante se o regime mudar.</li>
+      <li>Solicitar à administradora que os próximos comunicados sinalizem o regime de cada fundo, evitando releitura do enquadramento a cada ciclo de apuração.</li>
+    </ol>
+
+    <div class="box">
+      <span class="k">Resumo em uma linha</span>
+      <p>O prazo médio é um seletor de alíquota. No Regime Específico não existe alíquota variável para ele selecionar — por isso o dado é reportado, mas não produz efeito.</p>
+    </div>
+  </section>
+
+  <footer>
+    <p>Nota preparada para uso interno da Algarve Capital, com base no comunicado de Controle de Riscos da QI Tech de 16/07/2026 e na resposta subsequente da área. Não constitui parecer tributário.</p>
+    <p>Referências: Lei nº 14.754/2023, arts. 18, 19 e 24; IN RFB nº 1.585/2015, arts. 3º a 9º.</p>
+  </footer>
+
+</div>
+</body>
+</html>
