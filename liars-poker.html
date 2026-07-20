@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Liar's Poker — Michael Lewis | por que vale a leitura</title>
+<meta name="description" content="Uma apresentação sem spoilers de Liar's Poker, o relato de Michael Lewis sobre os anos em que o mercado de bonds virou o centro do mundo.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:opsz,wght@6..96,400;6..96,700;6..96,900&family=Spectral:wght@300;400;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --tinta: #10130f;
+    --nota: #1f4a3c;
+    --nota-clara: #3d7a63;
+    --papel: #efe7d4;
+    --papel-fundo: #e3d9c2;
+    --selo: #a8342a;
+    --cinza: #6d6a5c;
+  }
+
+  *{ box-sizing: border-box; }
+
+  html{ -webkit-text-size-adjust: 100%; }
+
+  body{
+    margin: 0;
+    background-color: var(--papel-fundo);
+    color: var(--tinta);
+    font-family: "Spectral", Georgia, "Times New Roman", serif;
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.68;
+  }
+
+  .wrap{
+    max-width: 940px;
+    margin: 0 auto;
+    padding: 0 22px;
+  }
+
+  /* ---------- textura de cédula ---------- */
+  .guilloche{
+    background-color: var(--nota);
+    background-image:
+      repeating-linear-gradient(115deg, rgba(255,255,255,0.07) 0px, rgba(255,255,255,0.07) 1px, rgba(0,0,0,0) 1px, rgba(0,0,0,0) 7px),
+      repeating-linear-gradient(65deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, rgba(0,0,0,0) 1px, rgba(0,0,0,0) 9px),
+      radial-gradient(circle at 22% 30%, rgba(255,255,255,0.10), rgba(0,0,0,0) 55%);
+  }
+
+  /* ---------- serial ---------- */
+  .serial{
+    font-family: "IBM Plex Mono", "Courier New", monospace;
+    font-size: 12px;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+  }
+
+  /* ---------- topo ---------- */
+  header.nota{
+    color: var(--papel);
+    padding: 54px 0 46px 0;
+    border-bottom: 6px double rgba(239,231,212,0.55);
+  }
+
+  .nota-topo{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 10px;
+    color: rgba(239,231,212,0.72);
+    padding-bottom: 34px;
+  }
+
+  h1{
+    font-family: "Bodoni Moda", Didot, "Playfair Display", Georgia, serif;
+    font-weight: 900;
+    font-size: 68px;
+    line-height: 0.96;
+    letter-spacing: -0.015em;
+    margin: 0 0 6px 0;
+    text-shadow: 0 1px 0 rgba(0,0,0,0.35);
+  }
+
+  .subtitulo{
+    font-family: "Bodoni Moda", Didot, Georgia, serif;
+    font-style: italic;
+    font-size: 23px;
+    color: rgba(239,231,212,0.85);
+    margin: 0 0 26px 0;
+  }
+
+  .ficha{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px 26px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(239,231,212,0.35);
+    color: rgba(239,231,212,0.78);
+  }
+
+  .valor{
+    display: inline-block;
+    border: 2px solid rgba(239,231,212,0.7);
+    border-radius: 3px;
+    padding: 5px 12px;
+    font-family: "IBM Plex Mono", "Courier New", monospace;
+    font-size: 13px;
+    letter-spacing: 0.18em;
+    color: var(--papel);
+  }
+
+  /* ---------- abertura ---------- */
+  .abertura{
+    background-color: var(--papel);
+    padding: 46px 0 10px 0;
+  }
+
+  .lead{
+    font-size: 23px;
+    line-height: 1.55;
+    color: #23261f;
+    max-width: 40em;
+    margin: 0 auto 26px auto;
+  }
+
+  .lead strong{ font-weight: 600; }
+
+  .corpo{
+    background-color: var(--papel);
+    padding-bottom: 10px;
+  }
+
+  section.bloco{
+    background-color: var(--papel);
+    padding: 26px 0 34px 0;
+  }
+
+  .marca{
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    color: var(--nota);
+    padding-bottom: 6px;
+  }
+
+  .marca .linha{
+    flex: 1 1 auto;
+    height: 1px;
+    background-color: rgba(31,74,60,0.35);
+  }
+
+  h2{
+    font-family: "Bodoni Moda", Didot, Georgia, serif;
+    font-weight: 700;
+    font-size: 34px;
+    line-height: 1.15;
+    margin: 4px 0 14px 0;
+    color: var(--tinta);
+  }
+
+  p{ margin: 0 0 18px 0; max-width: 42em; }
+
+  .cartoes{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 18px;
+    padding-top: 6px;
+  }
+
+  .cartao{
+    flex: 1 1 260px;
+    background-color: #f6f0e1;
+    border: 1px solid rgba(31,74,60,0.28);
+    border-radius: 4px;
+    padding: 20px 20px 14px 20px;
+  }
+
+  .cartao h3{
+    font-family: "Bodoni Moda", Didot, Georgia, serif;
+    font-size: 21px;
+    font-weight: 700;
+    margin: 8px 0 8px 0;
+  }
+
+  .cartao p{ font-size: 16.5px; margin-bottom: 8px; }
+
+  .cartao .serial{ color: var(--selo); }
+
+  /* ---------- selo ---------- */
+  .selo-bloco{
+    background-color: var(--papel);
+    padding: 10px 0 44px 0;
+  }
+
+  .selo{
+    border: 2px solid var(--selo);
+    border-radius: 6px;
+    padding: 26px 26px 20px 26px;
+    background-color: rgba(168,52,42,0.05);
+  }
+
+  .selo .serial{ color: var(--selo); }
+
+  .selo p{
+    font-family: "Bodoni Moda", Didot, Georgia, serif;
+    font-style: italic;
+    font-size: 25px;
+    line-height: 1.4;
+    margin: 12px 0 0 0;
+    max-width: 34em;
+  }
+
+  /* ---------- rodapé ---------- */
+  footer.nota{
+    color: var(--papel);
+    padding: 46px 0 40px 0;
+    border-top: 6px double rgba(239,231,212,0.55);
+  }
+
+  footer h2{ color: var(--papel); margin-top: 8px; }
+  footer p{ color: rgba(239,231,212,0.86); }
+  footer .serial{ color: rgba(239,231,212,0.7); }
+
+  .aviso{
+    font-family: "IBM Plex Mono", "Courier New", monospace;
+    font-size: 12px;
+    letter-spacing: 0.12em;
+    color: rgba(239,231,212,0.6);
+    padding-top: 18px;
+    border-top: 1px solid rgba(239,231,212,0.3);
+    margin-top: 26px;
+  }
+
+  /* ---------- revelação ---------- */
+  .rev{
+    opacity: 1;
+    transform: none;
+  }
+
+  .js-on .rev{
+    opacity: 0;
+    transform: translateY(14px);
+    transition: opacity 620ms ease, transform 620ms ease;
+  }
+
+  .js-on .rev.visivel{
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (prefers-reduced-motion: reduce){
+    .js-on .rev{ opacity: 1; transform: none; transition: none; }
+  }
+
+  @media (max-width: 620px){
+    body{ font-size: 17px; }
+    h1{ font-size: 42px; }
+    .subtitulo{ font-size: 19px; }
+    .lead{ font-size: 20px; }
+    h2{ font-size: 27px; }
+    .selo p{ font-size: 21px; }
+  }
+</style>
+</head>
+<body>
+
+<header class="nota guilloche">
+  <div class="wrap">
+    <div class="nota-topo serial">
+      <span>Série 1986 &middot; Nova York</span>
+      <span>N&ordm; L 04 88 A</span>
+    </div>
+    <h1>Liar's Poker</h1>
+    <p class="subtitulo">Michael Lewis, e os anos em que o mercado de b&ocirc;nus virou o centro do mundo</p>
+    <div class="ficha serial">
+      <span class="valor">Memória</span>
+      <span class="valor">Wall Street</span>
+      <span class="valor">1989</span>
+      <span class="valor">Sem spoilers</span>
+    </div>
+  </div>
+</header>
+
+<div class="abertura">
+  <div class="wrap">
+    <p class="lead rev">Um jovem sem nenhuma vocação para finanças entra, quase por acidente, na sala de operações mais barulhenta do planeta — e resolve contar o que viu. <strong>Liar's Poker</strong> é o livro que transformou o mercado de renda fixa dos anos 1980 em uma história que se lê como romance.</p>
+  </div>
+</div>
+
+<div class="corpo">
+
+  <section class="bloco">
+    <div class="wrap rev">
+      <div class="marca">
+        <span class="serial">Nota I</span>
+        <span class="linha"></span>
+      </div>
+      <h2>O jogo que dá nome ao livro</h2>
+      <p>Liar's poker é uma aposta jogada com notas de dólar: os participantes olham o número de série da própria cédula e passam a blefar sobre quantos dígitos existem nas mãos de todos. Não é sobre sorte. É sobre ler o adversário, sustentar uma mentira com cara séria e saber quando o outro está sustentando a dele.</p>
+      <p>Lewis usa esse jogo como chave de leitura para o que acontecia à sua volta: um ambiente onde a informação valia mais que o dinheiro e onde a convicção com que você falava importava tanto quanto o que você sabia.</p>
+    </div>
+  </section>
+
+  <section class="bloco">
+    <div class="wrap rev">
+      <div class="marca">
+        <span class="serial">Nota II</span>
+        <span class="linha"></span>
+      </div>
+      <h2>Um repórter infiltrado sem querer</h2>
+      <p>O autor não estava escrevendo um livro enquanto trabalhava. Ele era um funcionário como os outros, recém-saído da universidade, jogado num programa de treinamento com dezenas de jovens igualmente perdidos, tentando descobrir o que exatamente se fazia ali o dia inteiro.</p>
+      <p>É isso que dá ao texto o seu tom raro: quem narra é alguém de dentro, mas que nunca deixou de achar tudo aquilo estranho. O resultado é engraçado sem ser leviano, e crítico sem ser panfletário.</p>
+    </div>
+  </section>
+
+  <section class="bloco">
+    <div class="wrap rev">
+      <div class="marca">
+        <span class="serial">Nota III</span>
+        <span class="linha"></span>
+      </div>
+      <h2>O que você aprende sem perceber</h2>
+      <div class="cartoes">
+        <div class="cartao">
+          <span class="serial">A</span>
+          <h3>Securitização</h3>
+          <p>Como empacotar dívidas dispersas e transformá-las em papel negociável deixou de ser uma ideia excêntrica e virou uma indústria inteira.</p>
+        </div>
+        <div class="cartao">
+          <span class="serial">B</span>
+          <h3>Assimetria</h3>
+          <p>Por que, num mercado de balcão, quem conhece o preço vive muito melhor do que quem conhece o produto.</p>
+        </div>
+        <div class="cartao">
+          <span class="serial">C</span>
+          <h3>Incentivos</h3>
+          <p>O que acontece com uma organização quando a remuneração recompensa o risco que outra pessoa vai carregar.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="bloco">
+    <div class="wrap rev">
+      <div class="marca">
+        <span class="serial">Nota IV</span>
+        <span class="linha"></span>
+      </div>
+      <h2>Por que ainda se lê em 2026</h2>
+      <p>Porque quase tudo que se discute hoje em estruturação de crédito — apetite por risco, alinhamento entre originador e investidor, a distância entre o modelo e o ativo real — já estava lá, em estado bruto, contado por alguém que ocupava uma mesa e não uma cátedra.</p>
+      <p>E porque é, antes de qualquer coisa, um livro divertido. Cada capítulo se sustenta em personagens, apelidos e situações que continuam sendo repetidas em salas de operação trinta e poucos anos depois.</p>
+    </div>
+  </section>
+
+</div>
+
+<div class="selo-bloco">
+  <div class="wrap">
+    <div class="selo rev">
+      <span class="serial">Aviso ao leitor</span>
+      <p>Nada aqui entrega o desfecho de uma única cena. As melhores partes deste livro dependem inteiramente do timing com que Lewis as conta — e essa é exatamente a razão para lê-lo em vez de ouvir sobre ele.</p>
+    </div>
+  </div>
+</div>
+
+<footer class="nota guilloche">
+  <div class="wrap">
+    <span class="serial">Recomendação</span>
+    <h2>Comece pelo programa de treinamento</h2>
+    <p>Se você abrir o livro e ler apenas os capítulos iniciais, já vai entender por que ele virou leitura obrigatória para quem trabalha com mercado de capitais. O problema é que, chegando ali, é bem difícil parar.</p>
+    <p class="aviso">Página de apresentação &middot; conteúdo autoral, sem trechos reproduzidos da obra</p>
+  </div>
+</footer>
+
+<script>
+(function () {
+  var raiz = document.documentElement;
+  raiz.className = raiz.className ? raiz.className + " js-on" : "js-on";
+  document.body.className = document.body.className ? document.body.className + " js-on" : "js-on";
+
+  var alvos = document.querySelectorAll(".rev");
+  var i;
+
+  function mostrarTudo() {
+    for (i = 0; i < alvos.length; i++) {
+      alvos[i].className += " visivel";
+    }
+  }
+
+  if (typeof window.IntersectionObserver !== "function") {
+    mostrarTudo();
+    return;
+  }
+
+  var obs = new window.IntersectionObserver(function (entradas) {
+    for (var k = 0; k < entradas.length; k++) {
+      if (entradas[k].isIntersecting) {
+        entradas[k].target.className += " visivel";
+        obs.unobserve(entradas[k].target);
+      }
+    }
+  }, { threshold: 0.12 });
+
+  for (i = 0; i < alvos.length; i++) {
+    obs.observe(alvos[i]);
+  }
+
+  window.setTimeout(mostrarTudo, 4000);
+})();
+</script>
+
+</body>
+</html>
