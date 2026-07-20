@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>O Cavalo de Troia de Christopher Nolan</title>
+<meta name="description" content="Como a cena central de 'A Odisseia' foi construída: um cavalo de 10 metros, praia marroquina, câmeras IMAX e efeitos práticos.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;800;900&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&family=Archivo:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --preto: #111111;
+    --texto: #1c1c1c;
+    --cinza: #5f5f5f;
+    --cinza-claro: #8c8c8c;
+    --linha: #d5d0c8;
+    --fundo: #ffffff;
+    --creme: #f4f1ea;
+    --destaque: #0080c3;
+  }
+
+  *{ box-sizing: border-box; }
+  html{ -webkit-text-size-adjust: 100%; }
+
+  body{
+    margin: 0;
+    background-color: var(--fundo);
+    color: var(--texto);
+    font-family: "Source Serif 4", Georgia, "Times New Roman", serif;
+    font-size: 19px;
+    line-height: 1.62;
+  }
+
+  .folha{
+    max-width: 700px;
+    margin: 0 auto;
+    padding: 0 22px 60px 22px;
+  }
+
+  /* ---- cabeçalho de página ---- */
+  .cabeca{
+    border-bottom: 1px solid var(--linha);
+    padding: 16px 0 12px 0;
+    margin-bottom: 30px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    gap: 8px;
+    font-family: "Archivo", Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--cinza-claro);
+  }
+
+  /* ---- chapéu e título ---- */
+  .chapeu{
+    font-family: "Archivo", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--preto);
+    margin-bottom: 14px;
+  }
+
+  .chapeu span{ color: var(--cinza-claro); font-weight: 500; }
+
+  h1{
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 800;
+    font-size: 46px;
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+    margin: 0 0 16px 0;
+    color: var(--preto);
+  }
+
+  .linha-fina{
+    font-size: 21px;
+    line-height: 1.45;
+    color: #3a3a3a;
+    margin: 0 0 24px 0;
+  }
+
+  .creditos{
+    font-family: "Archivo", Arial, Helvetica, sans-serif;
+    font-size: 12.5px;
+    letter-spacing: 0.05em;
+    color: var(--cinza);
+    border-top: 1px solid var(--linha);
+    border-bottom: 1px solid var(--linha);
+    padding: 12px 0;
+    margin-bottom: 30px;
+  }
+
+  /* ---- corpo ---- */
+  p{ margin: 0 0 20px 0; }
+
+  .abre::first-letter{
+    float: left;
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 900;
+    font-size: 76px;
+    line-height: 0.76;
+    padding: 6px 10px 0 0;
+    color: var(--preto);
+  }
+
+  h2{
+    font-family: "Archivo", Arial, Helvetica, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--preto);
+    margin: 38px 0 14px 0;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--preto);
+  }
+
+  strong{ font-weight: 600; }
+
+  /* ---- números ---- */
+  .numeros{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1px;
+    background-color: var(--linha);
+    border: 1px solid var(--linha);
+    margin: 6px 0 28px 0;
+  }
+
+  .num{
+    flex: 1 1 150px;
+    background-color: var(--creme);
+    padding: 16px 16px 14px 16px;
+  }
+
+  .num .n{
+    font-family: "Playfair Display", Georgia, serif;
+    font-weight: 800;
+    font-size: 30px;
+    line-height: 1.05;
+    color: var(--preto);
+    display: block;
+  }
+
+  .num .r{
+    font-family: "Archivo", Arial, Helvetica, sans-serif;
+    font-size: 11.5px;
+    line-height: 1.35;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: var(--cinza);
+    display: block;
+    padding-top: 6px;
+  }
+
+  /* ---- destaque lateral ---- */
+  .box{
+    background-color: var(--creme);
+    border-top: 3px solid var(--preto);
+    padding: 20px 20px 6px 20px;
+    margin: 6px 0 28px 0;
+  }
+
+  .box .rotulo{
+    font-family: "Archivo", Arial, Helvetica, sans-serif;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--cinza);
+    margin-bottom: 10px;
+  }
+
+  .box p{ font-size: 17.5px; }
+
+  /* ---- ficha ---- */
+  table{
+    width: 100%;
+    border-collapse: collapse;
+    margin: 6px 0 28px 0;
+    font-size: 16.5px;
+  }
+
+  th, td{
+    text-align: left;
+    padding: 10px 8px 10px 0;
+    border-bottom: 1px solid var(--linha);
+    vertical-align: top;
+  }
+
+  th{
+    font-family: "Archivo", Arial, Helvetica, sans-serif;
+    font-size: 11.5px;
+    font-weight: 700;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--cinza);
+    width: 42%;
+  }
+
+  /* ---- citação em bloco ---- */
+  .frase{
+    border-left: 3px solid var(--preto);
+    padding: 4px 0 4px 18px;
+    margin: 6px 0 28px 0;
+    font-family: "Playfair Display", Georgia, serif;
+    font-size: 24px;
+    line-height: 1.35;
+    color: var(--preto);
+  }
+
+  .frase span{
+    display: block;
+    font-family: "Archivo", Arial, Helvetica, sans-serif;
+    font-size: 11.5px;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--cinza);
+    padding-top: 12px;
+  }
+
+  /* ---- lista de referências visuais ---- */
+  ul{ margin: 0 0 22px 0; padding-left: 20px; }
+  li{ margin-bottom: 10px; }
+
+  /* ---- rodapé ---- */
+  footer{
+    border-top: 1px solid var(--linha);
+    margin-top: 40px;
+    padding-top: 16px;
+    font-family: "Archivo", Arial, Helvetica, sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    color: var(--cinza-claro);
+  }
+
+  @media (max-width: 620px){
+    body{ font-size: 18px; }
+    h1{ font-size: 33px; }
+    .linha-fina{ font-size: 19px; }
+    .abre::first-letter{ font-size: 62px; }
+    .frase{ font-size: 21px; }
+    th{ width: 46%; }
+  }
+</style>
+</head>
+<body>
+
+<div class="folha">
+
+  <div class="cabeca">
+    <span>Cinema</span>
+    <span>20 de julho de 2026</span>
+  </div>
+
+  <div class="chapeu">Artes &amp; Cultura <span>&middot; Filme</span></div>
+
+  <h1>O cavalo de madeira que Nolan enterrou na areia</h1>
+
+  <p class="linha-fina">A versão IMAX de &ldquo;A Odisseia&rdquo; reinventa o artifício narrativo mais famoso da literatura com técnicas antigas de Hollywood — e um adereço de dez metros que quase não sobreviveu às ondas do Atlântico.</p>
+
+  <div class="creditos">Resumo da reportagem &middot; leitura de 4 minutos</div>
+
+  <p class="abre">Numa praia larga do Marrocos, no ano passado, as ondas castigavam um dos recursos narrativos mais antigos da humanidade. O Cavalo de Troia concebido por Christopher Nolan tinha cerca de 10 metros de altura, estava empinado nas patas traseiras e meio soterrado na areia da costa atlântica. A lógica do diretor era simples: esconder guerreiros gregos dentro de uma engenhoca de madeira fica mais crível se a engenhoca parecer uma oferenda encharcada, abandonada a um deus por um exército que foi embora.</p>
+
+  <p>O cavalo virou a peça central de sua leitura ambiciosa do poema de Homero — e também o motor de algumas das sequências mais tensas do filme. Saiu em cartazes, foi erguido como monumento promocional na frente de cinemas e ganhou até versão em plástico, como balde de pipoca de 70 dólares.</p>
+
+  <p>Na praia, porém, a sobrevivência do adereço não era garantida. A equipe assistia ao mar arrancar pedaços da estrutura de fibra de vidro, madeira e aço. Depois vieram novos danos, quando passaram a testar como arrastar as quase 3,6 toneladas do bicho sobre dunas e roletes de tronco, puxado por atores com cordas.</p>
+
+  <h2>Os números da produção</h2>
+
+  <div class="numeros">
+    <div class="num"><span class="n">US$ 250 mi</span><span class="r">Orçamento da produção</span></div>
+    <div class="num"><span class="n">US$ 264,1 mi</span><span class="r">Fim de semana de estreia, mundial — recorde do diretor</span></div>
+    <div class="num"><span class="n">91 dias</span><span class="r">De filmagem, em seis países</span></div>
+    <div class="num"><span class="n">5.300</span><span class="r">Figurinos</span></div>
+    <div class="num"><span class="n">~250</span><span class="r">Atores e dublês para arrastar o cavalo</span></div>
+    <div class="num"><span class="n">13&ordm;</span><span class="r">Longa do diretor, e o maior de sua carreira</span></div>
+  </div>
+
+  <h2>Uma ideia de mais de vinte anos</h2>
+
+  <p>A imagem do cavalo encalhado se fixou na cabeça do diretor há mais de duas décadas, quando ele era cotado para dirigir um filme baseado em outro épico homérico. O projeto acabou nas mãos de outro cineasta — e ele seguiu para a trilogia que redefiniu o Batman no cinema.</p>
+
+  <p>O caminho até &ldquo;A Odisseia&rdquo; passou pelo sucesso do filme anterior, que arrecadou US$ 976 milhões em 2023 e levou sete Oscars. Foi essa força que convenceu o estúdio a bancar uma produção de US$ 250 milhões, recheada de nomes de primeira linha, para transformar uma narrativa da Idade do Bronze em blockbuster de verão.</p>
+
+  <p>O desafio de adaptação não era pequeno. No poema, a história salta entre lugares, tempos e narradores — e o próprio Odisseu só aparece na quinta parte. O episódio do cavalo, aliás, é mencionado de passagem, como exemplo da astúcia do herói, sem qualquer detalhamento de como o truque teria funcionado.</p>
+
+  <h2>De onde veio a imagem que todos temos</h2>
+
+  <p>A figura do cavalo gigantesco sobre rodas não vem de Homero: foi construída por séculos de interpretações visuais. Entre as referências que moldaram o imaginário coletivo estão:</p>
+
+  <ul>
+    <li>Um vaso grego de 675 a.C.</li>
+    <li>Pinturas do século XVIII do italiano Giovanni Domenico Tiepolo, com a procissão do cavalo entrando em Troia</li>
+    <li>Épicos de sandália e espada, como a produção de 1956 dirigida por Robert Wise — o mesmo cineasta de &ldquo;A Noviça Rebelde&rdquo;</li>
+  </ul>
+
+  <p>Nolan rompeu com esse padrão em dois pontos. Primeiro, ergueu o cavalo sobre duas patas, para deixá-lo mais dinâmico e monumental — a pose foi copiada de uma fotografia da própria diretora de arte da produção montada em um cavalo empinando. Segundo, afundou-o na areia até a garupa, homenagem cinematográfica explícita ao plano final do &ldquo;Planeta dos Macacos&rdquo; original.</p>
+
+  <h2>Resolver na praia, não na prancheta</h2>
+
+  <p>O método foi trabalhar os problemas dentro do próprio cenário: as praias de Essaouira, no Marrocos, e o vilarejo de montanha de Aït Benhaddou, onde Troia foi construída. As reuniões giravam em torno de perguntas bem concretas — como manter aquilo de pé, quanto pesa, quantas pessoas são necessárias para puxar.</p>
+
+  <p>A equipe aprendeu a consertar rapidamente os estragos das ondas e descobriu que cerca de 250 atores e dublês davam conta de arrastar o adereço. Quando ficou claro que dava para fazer de verdade, o elenco encarou a tarefa com entusiasmo e o cavalo subia as dunas puxado no braço — o que liberou diretor e diretor de fotografia para simplesmente escolher de onde filmar.</p>
+
+  <div class="box">
+    <div class="rotulo">A lógica por trás de tudo</div>
+    <p>A regra que o diretor aplicou a cada elemento do filme foi dar ao público motivos para acreditar. Daí a opção por efeitos físicos em vez de digitais, inclusive na emboscada a Troia e no ciclope que devora os homens dentro da caverna: mito plausível vale mais que mito perfeito.</p>
+  </div>
+
+  <h2>A cena vista por dentro</h2>
+
+  <p>Num ponto de virada da história, o filho de Odisseu procura notícias do pai desaparecido e ouve de um general grego a promessa de contar a história do cavalo pelo lado de dentro. É o diretor cutucando a plateia: agora presta atenção nisto.</p>
+
+  <p>O que se vê é uma pirâmide humana de comandos gregos comprimidos num vão escuro, tentando não fazer barulho enquanto a água do mar invade, o cavalo tomba e uma espada troiana perfura o esconderijo.</p>
+
+  <p>Para filmar, a equipe construiu uma espécie de silo na praia, equipado com minúsculos LEDs que imitavam a luz do sol vazando pelas frestas do casco. Até 25 atores se espremeram lá dentro, agarrados às vigas transversais, com água fria bombeada e o silo balançando. Diretor e diretor de fotografia estavam no meio deles, com uma câmera IMAX na mão, capturando a ação como se fosse um documentário — apertado, sujo e claustrofóbico.</p>
+
+  <div class="frase">
+    O cavalo é o exemplo mais recente de uma busca obstinada por plausibilidade.
+    <span>Avaliação do diretor de fotografia, que já assinou quatro filmes anteriores do mesmo diretor</span>
+  </div>
+
+  <h2>Por que o cavalo importa para o filme inteiro</h2>
+
+  <p>O cavalo de madeira funciona como moldura da narrativa: o tempo se fragmenta e a trama volta sobre si mesma, marca registrada da filmografia do diretor. Do mesmo modo que a detonação catastrófica conduzida pelo protagonista de seu filme anterior, o ardil de Odisseu desencadeia uma carnificina que marca o herói — e ajuda a explicar tanto a viagem tortuosa quanto a violência do retorno para casa.</p>
+
+  <p>É também a primeira produção de Hollywood filmada inteiramente com câmeras IMAX, vendida como espetáculo de escala rara. Sobre o resultado de uma visão que levou duas décadas para chegar à tela, o veredito do próprio diretor foi que aquilo era exatamente o que ele queria — e ainda bem mais do que isso.</p>
+
+  <h2>Ficha rápida</h2>
+
+  <table>
+    <tr><th>Altura do adereço</th><td>Cerca de 10 metros (35 pés)</td></tr>
+    <tr><th>Peso</th><td>Cerca de 3,6 toneladas (8.000 libras)</td></tr>
+    <tr><th>Materiais</th><td>Fibra de vidro, madeira e aço</td></tr>
+    <tr><th>Unidades construídas</th><td>Várias, para locações diferentes</td></tr>
+    <tr><th>Locações principais</th><td>Essaouira e Aït Benhaddou, Marrocos</td></tr>
+    <tr><th>Formato</th><td>Primeiro longa de Hollywood inteiramente em câmeras IMAX</td></tr>
+    <tr><th>Elenco citado</th><td>Matt Damon (Odisseu), Tom Holland (Telêmaco), Jon Bernthal (Menelau)</td></tr>
+  </table>
+
+  <footer>Resumo elaborado a partir de reportagem sobre a produção &middot; valores e números conforme divulgados</footer>
+
+</div>
+
+</body>
+</html>
